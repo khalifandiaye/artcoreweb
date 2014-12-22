@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>Artcore dao - Checkstyle report</title>
+    <link>${project.url}</link>
+    <description>Artcore dao - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2014</copyright>
+    <item>
+      <title>File: 13,
+             Errors: 0,
+             Warnings: 228,
+             Infos: 0
+      </title>
+            <link>${project.url}/checkstyle.html</link>
+      <description>
+        <p>Click <a href="${project.url}/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoThemeImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoThemeImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoProduitThemeImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoProduitThemeImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoProduitImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoProduitImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  14
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoFormatImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoFormatImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoInscriptionImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoInscriptionImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  44
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoRechercherProduitImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoRechercherProduitImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  29
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoPaysImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoPaysImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoCommandeImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoCommandeImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  47
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoTvaImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoTvaImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoCategorieImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoCategorieImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoAdresse.java">fr/afcepf/al22/artcore/daoimpl/DaoAdresse.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoCiviliteImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoCiviliteImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.daoimpl.DaoConnexionImpl.java">fr/afcepf/al22/artcore/daoimpl/DaoConnexionImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  24
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

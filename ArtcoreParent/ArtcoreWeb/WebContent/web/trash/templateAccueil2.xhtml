@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="shortcut icon" href="images/bgr/favicon32.png" />
+<title><ui:insert name="titre"></ui:insert></title>
+
+<ui:insert name="scripts"></ui:insert>
+
+<script type="text/javascript" src="web/js/megamenu.js"></script>
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+
+  <ui:insert name="css"></ui:insert>
+
+<link href="web/css/style.css" rel="stylesheet" type="text/css"  />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' />	
+<link href="web/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="web/css/animations.css" rel="stylesheet" type="text/css" media="all" />
+
+  
+  
+  
+          <script type="text/javascript">
+			$(document).ready(function() {
+				
+			
+				var defaults = {
+		  			containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear' 
+		 		};
+				
+				
+				$().UItoTop({ easingType: 'easeOutQuart' });
+				
+			});
+		</script>
+</h:head>
+
+<body>
+	<f:view>
+
+      
+    
+	 <div class="wrap"> 
+		<div class="logo">
+			<a href="index.jsf"><img src="web/img/logart.png" alt="" style="width: 100px;"/></a>
+	    </div>
+		    <div class="cssmenu">
+		   <ul>
+			 <li class="active"><a href="register.html">S'inscrire</a></li> 
+			 <li><a href="checkout.html">Mon compte</a></li> 
+		   </ul>
+		   			<ul class="icon2 sub-icon2 profile_img">
+			<li><a href="#">
+			<img alt="" src="web/img/cart.png" />
+			 </a>
+				<ul class="sub-icon2 list">
+					toto
+
+				</ul>
+			</li>
+		</ul>
+	</div>
+		
+
+
+      
+
+
+
+</div><!-- fin page -->
+
+   </f:view>
+</body>
+</html>

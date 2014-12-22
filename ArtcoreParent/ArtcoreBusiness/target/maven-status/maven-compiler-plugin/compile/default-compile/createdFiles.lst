@@ -1,0 +1,15 @@
+fr\afcepf\al22\artcore\businessimpl\BusinessProduitImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessPaysImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessCommandeImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessRechercherProduitImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessTvaImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessPanierImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessInscriptionImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessCiviliteImpl.class
+fr\afcepf\al22\artcore\conversion\EntityToDto.class
+fr\afcepf\al22\artcore\businessimpl\BusinessThemeImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessCategorieImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessProduitThemeImpl.class
+fr\afcepf\al22\artcore\conversion\DtoToEntity.class
+fr\afcepf\al22\artcore\businessimpl\BusinessConnexionImpl.class
+fr\afcepf\al22\artcore\businessimpl\BusinessFormatImpl.class

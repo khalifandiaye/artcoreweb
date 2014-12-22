@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<ui:composition
+   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    template="/templateAccueil.xhtml">
+
+<style type="text/css">			</style> 
+
+<ui:define name="titre">Catalogue </ui:define> 
+<ui:define name="css">
+<link href="web/css/catalogue.css" rel="stylesheet" type="text/css" media="all" />
+
+   </ui:define>
+<ui:define name="scripts">		</ui:define>
+
+<ui:define name="content"> <!-- Ca, ça veut dire qu'on commence le contenu, c'est bien ça ? -->
+<h:form>
+<div class="wrap">
+	<div class="menuRecherche" >
+		<!-- Là je mettrai un formulaire avec 
+		- un champ recherche -> OK
+		- des listes déroulantes pour catégorie -> OK
+		- prix
+		- libelle -> NON
+		- format -> OK
+		- theme
+		- nom d'artiste
+		  -->
+		  <br />
+		<h:outputLabel styleClass="labelGeneral" value="Paramètres de recherche. " />
+		<br /> 
+		<br /> 
+		<section class="selection"> 
+			<h:commandButton styleClass="button7" value="Afficher tout le catalogue" action="#{mbCatalogue.reinitialisation()}" />
+		</section>
+		<section class="selection">
+		<h:outputLabel styleClass="Rechercher par nom :" />
+		<h:inputText  value="#{mbCatalogue.labelRechercheNom}" styleClass="button8" />
+		<h:commandButton styleClass="button7" value="Rechercher par nom" action="#{mbCatalogue.rechercheParNom()}" />
+		</section>
+		
+		<section class="selection">
+		<h:outputLabel value="Rechercher par catégorie" />
+		<h:selectOneMenu styleClass="button8" id="itemCat" value="#{mbCatalogue.intRechercheCategorie}" >
+			<f:selectItem itemvalue="0" itemLabel="Toutes categories"/>
+			<f:selectItems value="#{mbCatalogue.listeCategories}" var="categorie"
+			itemValue="#{categorie.idCategorie}" itemLabel="#{categorie.libelleCategorie}" />
+		</h:selectOneMenu>
+		<h:commandButton styleClass="button7" value="Valider la catégorie" action="#{mbCatalogue.rechercheParCategorie()}" />
+		</section>
+		
+		<section class="selection">
+		<h:outputLabel value="Rechercher par format" />
+		<br />
+		<h:selectOneMenu styleClass="button8" id="itemFormat" value="#{mbCatalogue.intRechercheFormat}" >
+			<f:selectItem itemvalue="0" itemLabel="Tous formats"/>
+			<f:selectItems value="#{mbCatalogue.listeFormats}" var="format"
+			itemValue="#{format.idFormat}" itemLabel="#{format.libelleFormat}" />
+		</h:selectOneMenu>
+		<br />
+		<h:commandButton styleClass="button7" value="Valider le format" action="#{mbCatalogue.rechercheParFormat()}" />
+		</section>
+		
+		<section class="selection"> 
+			<label class="label">Sélectionner par prix </label>
+			<br />
+			<label class="toggle"> 
+				<h:selectBooleanCheckbox value="#{mbCatalogue.prixMin}"></h:selectBooleanCheckbox>
+				<i></i><h:outputLabel styleClass="prix" value="- de 1000 euros" />
+			</label>
+			<br />
+			<label class="toggle">
+				<h:selectBooleanCheckbox value="#{mbCatalogue.prixInter}"></h:selectBooleanCheckbox>
+				<i></i><h:outputLabel styleClass="prix" value="entre 1000 et 2000 euros" />
+			</label>
+			<br />
+			<label class="toggle">
+				<h:selectBooleanCheckbox styleClass="prix" value="#{mbCatalogue.prixMax}"></h:selectBooleanCheckbox>
+				<i></i><h:outputLabel value="+ de 2000 euros" />
+			</label>
+			<br />
+			<h:commandButton styleClass="button7" action="#{mbCatalogue.rechercheParPrix()}" value="Rechercher par prix" /> 
+		</section>
+		
+		<section class="selection">
+		<h:outputLabel value="Rechercher par nom d'artiste :" />
+		<h:inputText  value="#{mbCatalogue.labelRechercheNomArtiste}" styleClass="button8" />
+		<h:commandButton styleClass="button7" value="Rechercher par nom d'artiste" action="#{mbCatalogue.rechercheParNomArtiste()}" />
+		</section>
+		
+		<section class="selection">
+		<h:commandButton styleClass="button7" value="Rechercher multi-critères" action="#{mbCatalogue.rechercheMulticritere()}" />
+		</section>
+
+	</div>
+
+	<div class="catalogue">
+		<!-- Là je mettrai un repeater avec le produit : 
+		- libelle produit
+		- nom artiste
+		- image produit
+		- prix produit
+		- description produit
+		- categorie
+		- format 
+		- themes 
+		- bouton ajouter au panier (avec plus ou mmoins pour le stock à ajouter au panier)-->
+
+		<h:dataTable value="#{mbCatalogue.listeProduits}" var="produit" styleClass="prod">
+			<div class="produit">
+			<h:column id="produitNom">
+				<h:outputLabel styleClass="prodNom" value="#{produit.libelleProduit}" />
+			</h:column>
+			<h:column>
+				<h:outputLabel styleClass="prodNomArtiste" value="#{produit.nomArtiste}" />
+			</h:column>
+			<h:column>
+				<img class="imageProduit" src="web//imgProduit/#{produit.imageProduit}" />
+			</h:column>
+			<h:column>
+				<h:outputLabel styleClass="prodprix" value="#{produit.prixProduit}" />
+				<h:outputLabel value=" euros" />
+			</h:column>
+			<h:column>
+				<h:outputLabel styleClass="prodDesc" value="#{produit.descriptionProduit}" />
+			</h:column>
+			<h:column>
+				<h:outputLabel value="En stock : " />
+				<h:outputLabel styleClass="prodStock" value="#{produit.stock}" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{mbCatalogue.detailProduit(produit)}" value="Détails" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{mbCatalogue.ajouterAuPanier(produit)}" value="Ajouter au panier" />
+			</h:column>
+			</div> 
+		</h:dataTable>
+	</div>
+
+
+
+</div>
+</h:form>
+
+</ui:define>
+</ui:composition>

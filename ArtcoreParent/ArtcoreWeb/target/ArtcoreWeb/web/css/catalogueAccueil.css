@@ -1,0 +1,88 @@
+
+.catalogue { /*Div 1, contenue dans la page. div de droite, pour le catalogue.*/
+
+	width: 82%;
+	/*height: 50px; elle sera en fonction du contenu ?*//*A CHANGER*/
+	float: none;
+	margin: 9%;
+	
+}
+.produit {/*Div 2, contenue dans la div 1. Correspond à un produit global.*/
+	background-color: white;
+	float: left;
+}
+table.prod {
+	width: 100%;
+	background-color: red;
+
+	text-align: center;
+
+  
+}
+
+table.prod th,
+table.prod td {
+	padding: 5px;
+    text-align: left;
+    font-family: Arial, Verdana, sans-serif;
+	width: 100% - 8px;
+	background-color: grey;
+	text-align: center;
+			background-image:url(../img/cadre.jpg);
+}
+
+tr {
+	background-color: green; /*prend toute la place de la table*/
+	float: left;
+	margin: auto;
+	padding: 5%;
+	width: 25% ;
+	height : 20%;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
+	    text-align: center;
+	    /*	border: 3px solid #000;  let's apply borders */
+	    box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+	    border: 2px outset darkgray; 
+	    padding: 1px;
+
+	
+}
+td {
+
+	display: block;
+}
+/*Tous les attributs d'un produit : */
+.prodNom {
+	width: 100%;
+	font-size: 1em;
+	font-weight: bold;
+}
+/*FAIRE DES MARGES EN PLUS, ET DES PRODUITS PLUS GROS (3 PAR LIGNE) 
+	POUR QUE LES PHOTOS CONTIENNENT.*/
+.prodNomArtiste {
+	
+}
+.prodImg {
+	
+}
+.prodprix {
+	
+}
+.prodDesc {
+	
+}
+.prodStock {
+	
+}
+
+.titreCatalogue {
+	float: left;
+	color:rgb(125,20,30); 
+	font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+	font-size: 30px;
+	
+}

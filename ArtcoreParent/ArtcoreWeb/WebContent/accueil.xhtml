@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<ui:composition
+   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    template="/templateAdmin.xhtml">
+
+<ui:define name="titre">Accueil</ui:define> 
+
+<ui:define name="css">   
+<link href="web/css/layoutpie.css" rel="stylesheet" type="text/css" media="all" />
+</ui:define>
+
+<ui:define name="scripts">   
+	
+ </ui:define>
+    
+<ui:define name="content">
+
+
+	
+	<aside id="sidebar" class="column">
+		
+		
+		<h3>Gestion du site </h3>
+		<ul class="toggle">
+			<li class="icn_folder"><a href="catalogueAdmin.jsf">Afficher le catalogue</a></li>
+			<li class="icn_new_article"><a href="ajoutProduitAdmin.jsf">Ajouter un nouvel article</a></li>
+			<li class="icn_edit_article"><a href="catalogueAdmin.jsf">Modifier un article</a></li>
+			<li class="icn_categories"><a href="catalogueAdmin.jsf">Supprimer un article</a></li>
+		</ul>
+		<h3>Utilisateurs</h3>
+		<ul class="toggle">
+			<li class="icn_add_user"><a href="#">Créer un compte administrateur</a></li>
+			<li class="icn_view_users"><a href="#">Créer un compte client</a></li>
+			<li class="icn_photo"><a href="#">Afficher la liste des utilisateurs</a></li>
+		</ul>
+		<h3>Administration</h3>
+		<ul class="toggle">
+			<li class="icn_settings"><a href="#">Afficher la liste des commandes client</a></li>
+			<li class="icn_audio"><a href="#">Ecrire un message sur la page d'accueil</a></li>
+			<li class="icn_tags"><a href="#">Envoyer un mail à une liste de clients</a></li>	
+		</ul>
+		<h3>Compte</h3> 
+		<ul class="toggle">
+			<li class="icn_profile"><a href="#">Modifier mon compte</a></li>
+			<li class="icn_security"><a href="#">Options</a></li>
+			<li class="icn_jump_back"><h:form id="deconnexionsidebar">
+			<h:commandLink action="#{mbConnexion.deconnexion()}" value="Déconnexion" />
+						</h:form></li>  
+		</ul>
+		
+		<footer>
+			<hr />
+		<div class="enbas">	<p><strong>Copyright &copy; 2014 La licorne</strong></p></div>
+		</footer>
+	</aside><!-- end of sidebar -->
+	
+	<section id="main" class="column">
+			
+		<article class="module width_full">
+			<header><h3>Statistiques du mois en terme de vente</h3></header>
+			<div class="module_content">
+				<article class="stats_graph">
+	
+				
+            <div class="statChartHolder">
+
+
+	<div id="q1_2005">
+
+		
+            
+	<div id="percentage_wrapper">
+		<div id="labels">
+			<ul>
+				<li><span></span>Peintures</li>
+				<li><span></span>Sculptures</li>
+				<li><span></span>Photographies</li>
+				<li><span></span>Textes</li>
+				<li><span></span>Autres</li>
+			</ul></div>
+</div>
+		<div id="percentage_wrapper2">
+			<div id="labels">
+			<ul>
+				<li><span></span>60%</li>
+				<li><span></span>25%</li>
+				<li><span></span>8%</li>
+				<li><span></span>5%</li>
+				<li><span></span>2%</li>
+			</ul></div>
+		</div>   
+
+			<div id="chart_holder">
+				<div id="pie_chart">
+					<ul>
+						<li id="c1_r"><p><span class="pie_left"></span></p></li> 	
+						<li id="c1_l"> <p><span class="pie_right"></span></p></li>
+						<li id="c2_r"><p><span class="pie_left"></span></p></li> 	
+						<li id="c2_l"><p><span class="pie_right"></span></p></li>
+						<li id="c3_r"><p><span class="pie_left"></span></p></li> 	
+						<li id="c3_l"><p><span class="pie_right"></span></p></li>
+						<li id="c4_r"><p><span class="pie_left"></span></p></li> 	
+						<li id="c4_l"><p><span class="pie_right"></span></p></li>
+						<li id="c5_r"><p><span class="pie_left"></span></p></li> 	
+						<li id="c5_l"><p><span class="pie_right"></span></p></li>
+					</ul>
+				</div>
+
+			</div>
+		
+	</div> <!--q1_2005-->
+
+</div>
+
+		
+
+            
+  
+  
+				</article>
+				
+				<article class="stats_overview">
+					<div class="overview_today">
+						<p class="overview_day">Aujourd'hui</p>
+						<p class="overview_count">1</p>
+						<p class="overview_type">Clients</p>
+						<p class="overview_count">0</p>
+						<p class="overview_type">Commande(s)</p>
+					</div>
+					<div class="overview_previous">
+						<p class="overview_day">Hier</p>
+						<p class="overview_count">0</p>
+						<p class="overview_type">Clients</p>
+						<p class="overview_count">0</p>
+						<p class="overview_type">Commande(s)</p>
+					</div>
+				</article>
+				<div class="clear"></div>
+			</div>
+		</article><!-- end of stats article -->
+		
+		
+		
+		
+		
+		
+		
+		
+		<h:panelGroup rendered=" 1 == 0">
+		
+		
+		
+		
+		<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">Derniers articles vendus</h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">Ce mois-ci</a></li>
+    		<li><a href="#tab2">Depuis le début</a></li>
+		</ul>
+		</header>
+
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th></th> 
+    				<th>Entry Name</th> 
+    				<th>Category</th> 
+    				<th>Created On</th> 
+    				<th>Actions</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+				<tr> 
+   					<td><input type="checkbox" /></td> 
+    				<td>Lorem Ipsum Dolor Sit Amet</td> 
+    				<td>Articles</td> 
+    				<td>5th April 2011</td> 
+    				<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr> 
+				<tr> 
+   					<td><input type="checkbox"/></td> 
+    				<td>Ipsum Lorem Dolor Sit Amet</td> 
+    				<td>Freebies</td> 
+    				<td>6th April 2011</td> 
+   				 	<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr>
+				<tr> 
+   					<td><input type="checkbox"/></td> 
+    				<td>Sit Amet Dolor Ipsum</td> 
+    				<td>Tutorials</td> 
+    				<td>10th April 2011</td> 
+    				<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr> 
+	
+			</tbody> 
+			</table>
+			</div><!-- end of #tab1 -->
+			
+			<div id="tab2" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+   					<th></th> 
+    				<th>Comment</th> 
+    				<th>Posted by</th> 
+    				<th>Posted On</th> 
+    				<th>Actions</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+				<tr> 
+   					<td><input type="checkbox"/></td> 
+    				<td>Lorem Ipsum Dolor Sit Amet</td> 
+    				<td>Mark Corrigan</td> 
+    				<td>5th April 2011</td> 
+    				<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr> 
+				<tr> 
+   					<td><input type="checkbox"/></td> 
+    				<td>Ipsum Lorem Dolor Sit Amet</td> 
+    				<td>Jeremy Usbourne</td> 
+    				<td>6th April 2011</td> 
+   				 	<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr>
+				<tr> 
+   					<td><input type="checkbox"/></td> 
+    				<td>Sit Amet Dolor Ipsum</td> 
+    				<td>Super Hans</td> 
+    				<td>10th April 2011</td> 
+    				<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr> 
+				<tr> 
+   					<td><input type="checkbox"/></td> 
+    				<td>Dolor Lorem Amet</td> 
+    				<td>Alan Johnson</td> 
+    				<td>16th April 2011</td> 
+   				 	<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr> 
+				<tr> 
+   					<td><input type="checkbox"/></td> 
+    				<td>Dolor Lorem Amet</td> 
+    				<td>Dobby</td> 
+    				<td>16th April 2011</td> 
+   				 	<td><input type="image" src="images/icn_edit.png" title="Edit"/><input type="image" src="images/icn_trash.png" title="Trash"/></td> 
+				</tr> 
+			</tbody> 
+			</table>
+
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->
+		
+		<article class="module width_quarter">
+			<header><h3>Messages</h3></header>
+			<div class="message_list">
+				<div class="module_content">
+					<div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+					<p><strong>John Doe</strong></p></div>
+					<div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+					<p><strong>John Doe</strong></p></div>
+					<div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+					<p><strong>John Doe</strong></p></div>
+					<div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+					<p><strong>John Doe</strong></p></div>
+					<div class="message"><p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+					<p><strong>John Doe</strong></p></div>
+				</div>
+			</div>
+			<footer>
+				<form class="post_message">
+					<input type="text" value="Message" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;" />
+					<input type="submit" class="btn_post_message" value=""/>
+				</form>
+			</footer>
+		</article><!-- end of messages article -->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</h:panelGroup>
+		
+		
+	</section>
+
+
+
+
+
+  </ui:define>
+</ui:composition>
