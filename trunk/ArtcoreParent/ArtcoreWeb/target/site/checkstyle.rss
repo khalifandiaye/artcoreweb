@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<rss version="0.91">
+  <channel>
+    <title>ArtcoreWeb - Checkstyle report</title>
+    <link>${project.url}</link>
+    <description>ArtcoreWeb - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2014</copyright>
+    <item>
+      <title>File: 11,
+             Errors: 0,
+             Warnings: 870,
+             Infos: 0
+      </title>
+            <link>${project.url}/checkstyle.html</link>
+      <description>
+        <p>Click <a href="${project.url}/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.InscriptionManagedBean.java">fr/afcepf/al22/artcore/managedbean/InscriptionManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  300
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.IndexManagedBean.java">fr/afcepf/al22/artcore/managedbean/IndexManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  46
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.ConnexionManagedBean.java">fr/afcepf/al22/artcore/managedbean/ConnexionManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  94
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.CatalogueManagedBean.java">fr/afcepf/al22/artcore/managedbean/CatalogueManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  126
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.ModifProduitAdminManagedBean.java">fr/afcepf/al22/artcore/managedbean/ModifProduitAdminManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  61
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.PanierManagedBean.java">fr/afcepf/al22/artcore/managedbean/PanierManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  64
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.ConfirmerCmdManageBean.java">fr/afcepf/al22/artcore/managedbean/ConfirmerCmdManageBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  88
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.bravoManagedBean.java">fr/afcepf/al22/artcore/managedbean/bravoManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.DetailProduitManagedBean.java">fr/afcepf/al22/artcore/managedbean/DetailProduitManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  25
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.AjoutProduitAdminManagedBean.java">fr/afcepf/al22/artcore/managedbean/AjoutProduitAdminManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  40
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#fr.afcepf.al22.artcore.managedbean.AccueilAdminManagedBean.java">fr/afcepf/al22/artcore/managedbean/AccueilAdminManagedBean.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  15
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

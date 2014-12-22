@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<ui:composition
+   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    template="/templateAccueil.xhtml">
+
+<ui:define name="titre">Accueil</ui:define> 
+
+<ui:define name="css">   
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' />
+<link href="web/css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+<link href="web/css/catalogueAccueil.css" rel="stylesheet" type="text/css" media="all" />
+	
+</ui:define>
+
+<ui:define name="scripts">   
+	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	 <script src="web/js/jquery.flexslider.js"></script>
+ </ui:define>
+    
+<ui:define name="content">
+
+
+		<div class="container">
+<br /><br /><br />
+
+ <center>
+<div class="flexslider carousel">
+  <ul class="slides">
+    <li>
+      <img src="web/img/slider1.jpg" />
+    </li>
+    <li>
+      <img src="web/img/slider2.jpg" />
+    </li>
+    <li>
+      <img src="web/img/slider3.jpg" />
+    </li>
+    <li>
+      <img src="web/img/slider4.jpg" />
+    </li>
+  </ul>
+
+        </div>
+</center>
+
+
+
+
+
+
+<h:form>
+
+	<div class="catalogue">
+			    <div class="titreCatalogue">
+	    <h:outputLabel value="Dernières oeuvres en ligne "  />
+	    </div> 
+	   	
+		<!-- Là je mettrai un repeater avec le produit : 
+		- libelle produit
+		- nom artiste
+		- image produit
+		- prix produit
+		- description produit
+		- categorie
+		- format 
+		- themes 
+		- bouton ajouter au panier (avec plus ou mmoins pour le stock à ajouter au panier)-->
+
+		<h:dataTable value="#{mbIndex.listeProduits}" var="produit" styleClass="prod">
+			
+			<div class="produit">
+			<img src="web/imgProduit/#{produit.imageProduit}" style="height: 100px;" />
+			<h:column id="produitNom">
+			
+				<img src="web/imgProduit/#{produit.imageProduit}" style="height: 100px;" />
+			</h:column>
+			<h:column>
+				<h:outputLabel styleClass="prodNom" value="#{produit.libelleProduit} de #{produit.nomArtiste}" />
+			</h:column>
+			<h:column>
+				<h:outputLabel styleClass="prodDesc" value="#{produit.descriptionProduit}" />
+			</h:column>
+			<h:column>
+				<h:outputLabel styleClass="prodprix" value="#{produit.prixProduit}" />
+				<h:outputLabel value=" euros" />
+			</h:column>
+			<h:column>
+			<h:commandLink action="#{mbIndex.detailProduit(produit)}" value="Détails" />
+				<h:outputLabel value="  &nbsp; " />
+				<h:commandLink action="#{mbIndex.ajouterAuPanier(produit)}" value="Ajouter au panier" />
+			</h:column> 
+			</div>
+		</h:dataTable>
+	</div>
+
+</h:form>
+
+<script type="text/javascript">
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    itemWidth: 400,
+    maxItems: 1,
+        
+  });
+});
+</script>
+ 
+</div>
+  </ui:define>
+</ui:composition>

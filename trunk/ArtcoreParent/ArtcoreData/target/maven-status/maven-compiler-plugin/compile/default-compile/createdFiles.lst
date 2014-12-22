@@ -1,0 +1,13 @@
+fr\afcepf\al22\artcore\daoimpl\DaoConnexionImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoRechercherProduitImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoProduitThemeImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoFormatImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoProduitImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoCategorieImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoCiviliteImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoThemeImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoAdresse.class
+fr\afcepf\al22\artcore\daoimpl\DaoInscriptionImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoPaysImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoTvaImpl.class
+fr\afcepf\al22\artcore\daoimpl\DaoCommandeImpl.class

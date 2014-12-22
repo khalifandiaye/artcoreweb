@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<ui:composition
+   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    template="/templateAccueil.xhtml">
+
+<style type="text/css">		
+
+
+	</style> 
+
+<ui:define name="titre">exemple </ui:define> 
+<ui:define name="css">  
+		<link href="web/css/inscription.css" rel="stylesheet" type="text/css" media="all" />
+		 </ui:define>
+<ui:define name="scripts">		</ui:define>
+
+<ui:define name="content">
+
+
+      <div class="register_account">
+          	<div class="wrap">
+    	      <h4 class="title">Création du Compte</h4>
+    		   <h:form>
+					<h:panelGrid id="panel" columns="6"
+								cellspacing="50">
+						<h:outputText styleClass="outputT" value="        Email :" />
+						<h:inputText styleClass="outputT" value="#{mbInscription.login}" />
+
+						<h:outputText styleClass="outputT" value="Mot de Passe :" />
+						<h:inputText value="#{mbInscription.motDePasse}" />
+						
+						<h:outputText value="" />
+						<h:outputText value="" />
+						<h:selectOneMenu styleClass="button8" id="cliCivilite">
+							<f:selectItem itemvalue="0" itemLabel="Civilites" />
+							<f:selectItems value="#{mbInscription.listeCivilites}"
+								var="civilite" itemValue="#{civilite.idCivilite}"
+								itemLabel="#{civilite.libelleCivilite}" />
+						</h:selectOneMenu>
+
+
+
+
+						<h:outputText value="Nom:" />
+						<h:inputText value="#{mbInscription.nomClient}" />
+						<h:outputText value="Prénom:" />
+						<h:inputText value="#{mbInscription.prenomClient}" />
+						
+						<h:outputText value="Téléphone" />
+						<h:inputText value="#{mbInscription.telephoneClient}" />
+						
+						
+				 		 
+				 		 
+						<h:outputText value="Adresse:" />
+						<h:inputText value="#{mbInscription.libelleAdresse}" />
+
+						<h:outputText value="Ville" />
+						<h:inputText value="#{mbInscription.ville}" />
+						
+	
+	
+				<h:selectOneMenu styleClass="button8" id="cliPays">
+							<f:selectItem itemvalue="0" itemLabel="Pays" />
+							<f:selectItems value="#{mbInscription.listePays}"
+								var="pays" itemValue="#{pays.idPays}"
+								itemLabel="#{pays.libellePays}" />
+						</h:selectOneMenu>
+						<h:outputText value="Pays" />
+						<h:inputText value="#{mbInscription.pays}" />
+
+
+
+
+
+
+
+
+
+
+					</h:panelGrid>
+
+					<h:commandButton id="btnEnregistrer" type="submit"
+						action="#{mbInscription.creerCompte()}" class="creer"
+						
+						value="Valider" title="Valider " />
+					<h:commandButton id="btnAnnuler" class="annuler"
+						action="index.jsf?faces-redirect=true" value="Annuler"
+						title="Annuler" />
+
+				</h:form>
+    	  </div> 
+        </div>
+
+</ui:define>
+</ui:composition>

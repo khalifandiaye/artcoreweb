@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templateAccueil.xhtml">
+
+	<!--  verifier le titre  -->
+	<!--  **************************************** -->
+	<ui:define name="titre">Panier </ui:define>
+
+
+	<ui:define name="css">
+		<link href="web/css/style.css" rel="stylesheet" type="text/css"
+			media="all" />
+		<link
+			href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
+			rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="web/css/afficherPanier.css" />
+	</ui:define>
+
+	<ui:define name="scripts">
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	</ui:define>
+
+	<ui:define name="content">
+	<f:view>
+				
+	<h:form>
+					
+<!-- 			faire un reperteur  -->
+			
+				<!--   detail Commande -->
+	
+  	<div class="cart" >
+  	<h1> <h:outputText value="Votre panier est vide !" rendered="#{ empty mbPanier.panier}" /></h1>
+    <div class="cart-top">
+      <h2 class="cart-top-title"> Details du panier</h2>
+    </div>
+    <ul>
+   
+    <ui:repeat value="#{mbPanier.panier}" var="oeuvre">
+      <li class="cart-item">
+        <span class="cart-item-pic">
+          <img src="web/imgProduit/#{oeuvre.produit.imageProduit}"/>
+        </span>
+        <h:outputText value="#{oeuvre.produit.libelleProduit}" />
+        <span class="cart-item-desc">
+        <h:outputText value="#{oeuvre.produit.descriptionProduit}" />
+        </span>
+        <span class="cart-item-price">
+		<h:inputText value="#{oeuvre.quantite}" />
+        <h:outputLabel value="#{oeuvre.quantite}" /> x <h:outputLabel value="#{oeuvre.produit.prixProduit}" /> = <h:outputLabel value="#{oeuvre.prixTotalParPdt}" /> €
+       </span>
+       <span class="supprimer">
+       <h:commandButton action="#{mbPanier.supprimerProduit(oeuvre.produit)}" value="supprimer" />
+        </span>
+        </li>
+	</ui:repeat>
+   
+    </ul>
+   
+    <div class="cart-bottom">
+      Total : <h:outputLabel value="#{mbPanier.prixTotal}" />
+    </div>
+    
+    <div class="cart-bottom">
+      <h:commandLink action="#{mbPanier.confirmer()}" value="confirmer" styleClass="cart-button" rendered="#{!empty mbPanier.panier}"/>
+    </div>
+    
+   </div>
+   	</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>
