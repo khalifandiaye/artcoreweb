@@ -26,9 +26,9 @@ table.prod td {
     text-align: left;
     font-family: Arial, Verdana, sans-serif;
 	width: 100% - 8px;
-	background-color: grey;
+	 background: #525252;
 	text-align: center;
-			background-image:url(../img/cadre.jpg);
+			
 }
 
 tr {
@@ -81,7 +81,7 @@ td {
 
 .titreCatalogue {
 	float: left;
-	color:rgb(125,20,30); 
+	color: white; 
 	font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
 	font-size: 30px;
 	
