@@ -131,17 +131,17 @@ public class ConnexionManagedBean {
 	 * @return une page.
 	 */
 	public String connexion() {
-		System.out.println("Login + mdp : " + login +" ..."  + password);
+		log.debug("Login + mdp : " + login +" ..."  + password);
 		if (buConnexion.connexion(login, password) == null) {
 			messageErreurConnexion="Identifiant ou mot de passe invalide.";
-			System.out.println("Pas bien");
+			log.debug("Pas bien");
 		}
 		else {
 			paramUtil = buConnexion.connexion(login, password);
-			System.out.println("ok");
+			log.debug("Connection ok");
 			
 			/*
-			 * Ici, suivant le r�le, on va sur le Front ou sur le Back Office
+			 * Ici, suivant le  role, on va sur le Front ou sur le Back Office
 			 * 
 			 */
 			if (paramUtil.getRole().getIdRole() == 1){
@@ -161,20 +161,20 @@ public class ConnexionManagedBean {
 
 			for (int i = 0; i < dtoClient.getAdresses().size() ; i++) {
 			
-				System.out.println(dtoClient.getAdresses().get(i).getLibelleAdresse());
-				System.out.println(dtoClient.getAdresses().get(i).getVille().getCommune());	
-				System.out.println(dtoClient.getAdresses().get(i).getVille().getCodePostal());			
-				System.out.println(dtoClient.getAdresses().get(i).getPays().getLibellePays());
+				log.debug(dtoClient.getAdresses().get(i).getLibelleAdresse());
+				log.debug(dtoClient.getAdresses().get(i).getVille().getCommune());	
+				log.debug(dtoClient.getAdresses().get(i).getVille().getCodePostal());			
+				log.debug(dtoClient.getAdresses().get(i).getPays().getLibellePays());
 			}
 
 						
 			}
 			
 	}
-			System.out.println("HELLLLP");
+		log.debug("HELLLLP");
 		log.info(paramUtil.getRole().getIdRole());
 
-		System.out.println("Je passe a la fin ?");
+		log.debug("Je passe a la fin ?");
 		return pageForward;
 		
 		

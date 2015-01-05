@@ -1,14 +1,13 @@
 package fr.afcepf.al22.artcore.managedbean;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
+
+import org.jboss.logging.Logger;
 
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessPanier;
 import fr.afcepf.al22.artcore.dto.BlocProduitDto;
@@ -17,6 +16,9 @@ import fr.afcepf.al22.artcore.dto.DtoProduit;
 @ManagedBean(name = "mbPanier")
 @SessionScoped
 public class PanierManagedBean {
+	
+	private Logger log = Logger.getLogger(this.getClass());
+	
 	private List<BlocProduitDto> panier;
 	
 	//nombre total des articles
@@ -98,16 +100,16 @@ public class PanierManagedBean {
 	}
 	// a effacer
 	public void loggerPanier(){
-		System.out.println("etat du panier");
-		System.out.println("*********************************************************");
+		log.debug("etat du panier");
+		log.debug("*********************************************************");
 		if(panier!=null && !panier.isEmpty()){
 		for (BlocProduitDto blocProduitDto : panier) {
-			System.out.println(blocProduitDto.getProduit().getIdProduit()+"\t"+ blocProduitDto.getProduit().getLibelleProduit() + "\t"
+			log.debug(blocProduitDto.getProduit().getIdProduit()+"\t"+ blocProduitDto.getProduit().getLibelleProduit() + "\t"
 					+ " " + blocProduitDto.getQuantite() +"\t "
 					+ " "+blocProduitDto.getPrixTotalParPdt() 
 					);
 		}
-			System.out.println("Prix total=" +gestionPanier.prixTotal());
+			log.debug("Prix total=" +gestionPanier.prixTotal());
 		}
 		
 	}
