@@ -31,16 +31,12 @@ public class DaoCategorieImpl implements IDaoCategorie {
 
 	@Override
 	public Categorie categorieParId(int id) {
-		System.out.println("************************");
-//		log.info("***********************************************");
 		Categorie cat = null;
 		Query query = em.createQuery("SELECT c FROM Categorie c "
 				+ "WHERE c.idCategorie = :pidc ");
 		query.setParameter("pidc", id);
-		System.out.println(id + " " );
 		if (query.getSingleResult() != null) {
 			cat = (Categorie) query.getSingleResult();
-			System.out.println(cat.getIdCategorie()+" ****************" );
 		}
 		return cat;
 	}

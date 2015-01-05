@@ -68,16 +68,13 @@ public class IndexManagedBean {
 		//je remplis la liste au chargement de la page
 		//avec la méthode qui renvoie tous les produits
 		listeProduits = buRechercheProduit.listeTousProduits();
-		System.out.println("taille de la liste : ");
-		System.out.println(listeProduits.size());
-		
+
 		int tailleListe = 4;
 		if (listeProduits.size() > tailleListe && listeProduitsRaccourcie.size() < tailleListe) {
 			for (int i = 0; i < tailleListe; i++) {
 				listeProduitsRaccourcie.add(listeProduits.get(i));
 			}
 		}
-		System.out.println("taille de la liste raccourcie : " + listeProduitsRaccourcie.size());
 		
 		return listeProduitsRaccourcie;
 	}

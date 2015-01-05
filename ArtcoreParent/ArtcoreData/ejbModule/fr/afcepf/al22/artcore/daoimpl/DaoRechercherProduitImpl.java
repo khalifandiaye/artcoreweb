@@ -78,7 +78,6 @@ public class DaoRechercherProduitImpl implements IDaoRechercherProduit {
 //				+ "Inner join fetch p.idTva tva ");
 		List<Produit> listeProduits = new ArrayList<Produit>();
 		listeProduits = (List<Produit>) query.getResultList();
-		System.out.println("La liste de produit après la requete a une taille de : " + listeProduits.size());
 		return listeProduits;
 	}
 

@@ -143,9 +143,7 @@ public class CatalogueManagedBean {
 		
 	}
 	public void rechercheParNom() {
-//		System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 		recherche = 1;
-//		System.out.println("A LA FIN DE RECHERCHE PAR NOM, LE BOOLEEN EST DE " +recherche);
 	}
 	public void rechercheParCategorie () {
 		recherche = 2;
