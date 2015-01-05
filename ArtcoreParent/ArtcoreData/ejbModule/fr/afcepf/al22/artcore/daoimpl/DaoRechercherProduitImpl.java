@@ -8,8 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.jboss.logging.Logger;
-
 import fr.afcepf.al22.artcore.daointerfaces.IDaoRechercherProduit;
 import fr.afcepf.al22.artcore.entities.Produit;
 @Stateless
@@ -51,11 +49,11 @@ public class DaoRechercherProduitImpl implements IDaoRechercherProduit {
 	}
 /*
 	public Produit produitParId(int id) {
-		System.out.println("dans recherche produit par id");
+		log.debug("dans recherche produit par id");
 //		log.info("DaoProduitImpl : produitParId");
 		Produit p = null;
 		p = em.find(Produit.class, id);
-		if(p!= null)System.out.println(" produit trouve ");
+		if(p!= null)log.debug(" produit trouve ");
 //		Query query = em.createQuery("FROM Produit p "
 //				+ "WHERE p.idProduit = :pid");
 //		query.setParameter("pid", id);
