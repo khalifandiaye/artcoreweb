@@ -17,6 +17,6 @@ import javax.jws.WebService;
 public interface IAntivolCB {
 	
 	@WebMethod(operationName="rechercheCBVoleeParNumero")
-	public boolean rechercheCBVoleeParNumero (@WebParam(name="nbMois") String nbCB);
+	public boolean rechercheCBVoleeParNumero (@WebParam(name="nbDeCarte") String nbCB);
 
 }
