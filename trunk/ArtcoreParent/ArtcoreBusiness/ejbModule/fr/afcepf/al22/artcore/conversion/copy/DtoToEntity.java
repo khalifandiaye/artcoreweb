@@ -137,7 +137,7 @@ public class DtoToEntity implements IDtoToEntity {
 /*
 	public Commande toJpa (DtoCommande dto) {
 		Commande c = new Commande();
-		System.out.println( "l id de la ccommande est :"+ dto.getIdCommande()+ " "+ dto.getPrixTotal()+ " "+ dto.getAdresseClient());
+		log.debug( "l id de la ccommande est :"+ dto.getIdCommande()+ " "+ dto.getPrixTotal()+ " "+ dto.getAdresseClient());
 		//c.setIdCommande(dto.getIdCommande());
 		c.setAdresseClient(dto.getAdresseClient());
 		c.setDateCommande(dto.getDateCommande());
@@ -256,7 +256,7 @@ public class DtoToEntity implements IDtoToEntity {
 	 */
 /*
 	public Produit toJpa (DtoProduit dto) {
-		System.out.println("dans la fonction toJPA avec dto=" + dto.toString());
+		log.debug("dans la fonction toJPA avec dto=" + dto.toString());
 		Produit p = new Produit();
 		p.setIdProduit(dto.getIdProduit());
 		p.setDateDebutDeVente(dto.getDateDebutDeVente());

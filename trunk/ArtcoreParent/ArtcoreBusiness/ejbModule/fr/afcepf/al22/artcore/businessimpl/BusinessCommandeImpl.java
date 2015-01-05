@@ -10,6 +10,8 @@ import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import org.jboss.logging.Logger;
+
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessCommande;
 import fr.afcepf.al22.artcore.businessinterfaces.IDtoToEntity;
 import fr.afcepf.al22.artcore.businessinterfaces.IEntityToDto;
@@ -31,7 +33,7 @@ import fr.afcepf.al22.artcore.entities.Produit;
 
 @Stateless
 public class BusinessCommandeImpl implements IBusinessCommande {
-
+	private Logger log  = Logger.getLogger(this.getClass());
 	@EJB
 	private IDtoToEntity dtoToEntity;
 
@@ -79,7 +81,7 @@ public class BusinessCommandeImpl implements IBusinessCommande {
 		dtoCmd2.setVilleClient(dtoAdresse.getVille().getIdVille());
 		cmdCreer=daoCmd.creer(dtoToEntity.toJpa(dtoCmd2));
 		DtoCommande dtoCmdCreer=entityToDto.toDto(cmdCreer);
-		System.out.println("la commande à bien ete creee"+ dtoCmdCreer.toString());
+		log.debug("la commande à bien ete creee"+ dtoCmdCreer.toString());
 		
 		for (BlocProduitDto blocProduitDto : panier) {
 			
@@ -90,7 +92,7 @@ public class BusinessCommandeImpl implements IBusinessCommande {
 			
 			// modification du stock de produit
 			daoProduit.modifier(p);
-			System.out.println("produit modifiee");
+			log.debug("produit modifiee");
 			
 			//creation de la ligne de commande .
 			DtoLigneDeCommande maLigne=new DtoLigneDeCommande();
@@ -108,22 +110,22 @@ public class BusinessCommandeImpl implements IBusinessCommande {
 			// La réenvoyer ici pour avoir son id
 			// Puis on peut faire notre ajout de ligne de commande
 			
-			System.out.println("******dtoCmdCreer.getIdCommande()*******");
-			System.out.println(dtoCmdCreer.getIdCommande());
-			System.out.println("*************");
+			log.debug("******dtoCmdCreer.getIdCommande()*******");
+			log.debug(dtoCmdCreer.getIdCommande());
+			log.debug("*************");
 			
 			
-			System.out.println(maLigne.toString());
-			System.out.println("*************");
-			System.out.println("**Id cmd dans maligne****");
-			System.out.println(maLigne.getCommande().getIdCommande());
-			System.out.println("*************");
+			log.debug(maLigne.toString());
+			log.debug("*************");
+			log.debug("**Id cmd dans maligne****");
+			log.debug(maLigne.getCommande().getIdCommande());
+			log.debug("*************");
 			LigneDeCommande lCmd=dtoToEntity.toJpa(maLigne, dtoCmdCreer);
-			System.out.println("juste avant la creation des lignes de commande ");
-			System.out.println(entityToDto.toDto(lCmd));
+			log.debug("juste avant la creation des lignes de commande ");
+			log.debug(entityToDto.toDto(lCmd));
 
-			System.out.println(lCmd.getCommande().getIdCommande());
-			System.out.println("*************");
+			log.debug(lCmd.getCommande().getIdCommande());
+			log.debug("*************");
 			daoCmd.creerLc(lCmd);
 		}
 		return retour;

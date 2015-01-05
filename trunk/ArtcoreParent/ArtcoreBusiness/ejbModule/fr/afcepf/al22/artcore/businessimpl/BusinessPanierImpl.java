@@ -7,7 +7,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Stateful;
-import javax.ejb.Stateless;
+
+import org.jboss.logging.Logger;
 
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessPanier;
 import fr.afcepf.al22.artcore.dto.BlocProduitDto;
@@ -15,6 +16,7 @@ import fr.afcepf.al22.artcore.dto.DtoProduit;
 
 @Stateful
 public class BusinessPanierImpl implements IBusinessPanier {
+	private Logger log = Logger.getLogger(this.getClass());
 	/*
 	 * ListBlocProduit represente le panier .
 	 * un BlocProduitDto est un Objet qui a un attribut produit,quantite et prixTotal 
@@ -85,8 +87,9 @@ public class BusinessPanierImpl implements IBusinessPanier {
 	 */
 	@Override
 	public void viderPanier() {
-		if(ListBlocProduit!=null)System.out.println("le panier n existe pas ");
-		else System.out.println(ListBlocProduit.size());
+		//FIXME Je vais remettre checkstyle :( 
+		if(ListBlocProduit!=null)log.debug("le panier n existe pas ");
+		else log.debug(ListBlocProduit.size());
 		ListBlocProduit=null;
 	}
 
