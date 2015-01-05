@@ -116,40 +116,40 @@ public class InscriptionManagedBean {
 	   
 	    	DtoCivilite dtoCivilite = new DtoCivilite(1," ");
 	    	DtoClient dtoClient = new DtoClient();
-	    	System.out.println("Managed Bean avant Creation Client ligne 2 ");
+	    	log.debug("Managed Bean avant Creation Client ligne 2 ");
 	    	// cle a zero, fin activite null,date de naissance
 	    	clientBean = new DtoClient(0,null,null,dtoCivilite,proBean,utilisateurBean,login,nomClient,prenomClient,telephoneClient) ;
 	    	
-	    	System.out.println("Managed Bean avant Creation Client ligne 3");
+	    	log.debug("Managed Bean avant Creation Client ligne 3");
 	    	
 	    	// Probleme ici//
 	   
 	    	/* ok  Utilisateur*/
-	    	System.out.println("id Utilisateur Enregistre dans le clientBean  "+clientBean.getUtilisateur().getIdUtilisateur());
-	       	System.out.println("login    "+clientBean.getUtilisateur().getLogin());
-	       	System.out.println("mdp    "+clientBean.getUtilisateur().getMotDePasse());
-	       	System.out.println("Role numero  "+clientBean.getUtilisateur().getRole().getIdRole());
-	       	System.out.println("Role numero  "+clientBean.getUtilisateur().getRole().getLibelleRole()); 	
+	    	log.debug("id Utilisateur Enregistre dans le clientBean  "+clientBean.getUtilisateur().getIdUtilisateur());
+	       	log.debug("login    "+clientBean.getUtilisateur().getLogin());
+	       	log.debug("mdp    "+clientBean.getUtilisateur().getMotDePasse());
+	       	log.debug("Role numero  "+clientBean.getUtilisateur().getRole().getIdRole());
+	       	log.debug("Role numero  "+clientBean.getUtilisateur().getRole().getLibelleRole()); 	
 	    	/* ok Adresse */
-	    	System.out.println("id adresse enregistree "+adresseBean.getIdAdresse());
-	    	System.out.println("libelle adresse"+adresseBean.getLibelleAdresse());
+	    	log.debug("id adresse enregistree "+adresseBean.getIdAdresse());
+	    	log.debug("libelle adresse"+adresseBean.getLibelleAdresse());
 
-	    	System.out.println("Libelle pays "+adresseBean.getPays().getIdPays());
+	    	log.debug("Libelle pays "+adresseBean.getPays().getIdPays());
 	    	
-	    	System.out.println("Libelle pays "+adresseBean.getPays().getLibellePays());
-	    	System.out.println("libelle ville"+adresseBean.getVille().getCommune());
+	    	log.debug("Libelle pays "+adresseBean.getPays().getLibellePays());
+	    	log.debug("libelle ville"+adresseBean.getVille().getCommune());
 	    	/* Client */ 
-	    	System.out.println("IdClient "+clientBean.getIdClient());
-	    	System.out.println(" Nom "+clientBean.getNomClient());
-	    	System.out.println("TElecphone" +clientBean.getTelClient());
-	    	System.out.println("Mail" + clientBean.getMailClient());
+	    	log.debug("IdClient "+clientBean.getIdClient());
+	    	log.debug(" Nom "+clientBean.getNomClient());
+	    	log.debug("TElecphone" +clientBean.getTelClient());
+	    	log.debug("Mail" + clientBean.getMailClient());
 	    	
 	    
-	    	System.out.println("Date Naissance"+clientBean.getDateNaissance());
-	    	System.out.println("Adresse"+clientBean.getAdresses());
-	    	System.out.println("Civilite "+clientBean.getCivilite().getIdCivilite());
+	    	log.debug("Date Naissance"+clientBean.getDateNaissance());
+	    	log.debug("Adresse"+clientBean.getAdresses());
+	    	log.debug("Civilite "+clientBean.getCivilite().getIdCivilite());
 	    	
-	    	System.out.println("ID PRO"+clientBean.getProfessionnel().getIdProfessionnel());
+	    	log.debug("ID PRO"+clientBean.getProfessionnel().getIdProfessionnel());
 	  
 	    	
 	    	//clientBean.setProfessionnel(getProBean().getIdProfessionnel());

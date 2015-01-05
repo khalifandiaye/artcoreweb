@@ -128,7 +128,8 @@ public class ConfirmerCmdManageBean {
 		result=daoCommande.validerCmd(panier, mdp, dtoClient,daoCommande.rechercherAdresse(adrLivraison));
 		}
 		else {
-			System.out.println("booooooooooooooooooooooooooooooooouh");
+			//FIXME Etrange else avec un  syso ? :(
+			log.debug("booooooooooooooooooooooooooooooooouh");
 		}
 		
 		if(result){
