@@ -31,7 +31,6 @@ public class DaoInscriptionImpl implements IDaoInscription {
 	@Override
 	public Utilisateur creerUtilisateur(Utilisateur utilisateur) {	
 		Utilisateur u= utilisateur;
-		System.out.println(u.toString());
 		em.persist(u);
 		return u;
 	}
@@ -39,7 +38,6 @@ public class DaoInscriptionImpl implements IDaoInscription {
 	@Override
 	public Adresse creerAdresse(Adresse adresse) {	
 		Adresse a  =adresse;
-		System.out.println(a.toString());
 		em.persist(a);
 		return a;
 	}
@@ -52,7 +50,6 @@ public class DaoInscriptionImpl implements IDaoInscription {
 		p.setIdProfessionnel(51);
 		p.setNumSiret("51");
 		professionnel=p; 
-		System.out.println(p.toString());
 		em.persist(professionnel);
 		return p;
 	}
@@ -74,7 +71,6 @@ public class DaoInscriptionImpl implements IDaoInscription {
 			Client c = null;
 			em.persist(client);
 			c=client;
-			System.out.println(c.toString());
 			return c;
 	}
 	

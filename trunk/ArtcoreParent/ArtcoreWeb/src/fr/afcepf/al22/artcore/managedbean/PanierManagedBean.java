@@ -71,28 +71,23 @@ public class PanierManagedBean {
 	}
 
 	public String recupPanier() {
-		System.out.println("dans mbPanier recupPanier");
 		this.panier = gestionPanier.getListBlocProduit();
 		return "";
 	}
 
 	public String supprimerProduit(DtoProduit produit) {
-		System.out.println("Dans supprimerProduit ,Produit à supprimer: "+produit.getLibelleProduit());
 		this.panier=gestionPanier.retirerProduit(produit);
 		loggerPanier();
 		return "";
 	}
 	public String ajoutProduit(DtoProduit produit){
 		this.produitEnCours=produit;
-		System.out.println("dans mbPanier AjouterProduit");
-		System.out.println(this.produitEnCours.getLibelleProduit());
 		gestionPanier.ajouterProduit(produitEnCours);
 		this.panier=gestionPanier.getListBlocProduit();
 		loggerPanier();
 		return "/catalogue.jsf?faces-redirect=true";
 	}
 	public String prixTotalString(){
-		System.out.println("dans mbPanier prixTotalString");
 		prixTotal=gestionPanier.prixTotal();
 		return "";
 	}

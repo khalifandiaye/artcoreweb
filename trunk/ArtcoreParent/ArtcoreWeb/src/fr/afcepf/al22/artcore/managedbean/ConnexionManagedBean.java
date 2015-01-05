@@ -158,13 +158,7 @@ public class ConnexionManagedBean {
 				
 			dtoClient = buConnexion.recupererClient(paramUtil);	
 				pageForward = "/index.jsf?faces-redirect=true";
-			System.out.println("Client");
-			
-			System.out.println("*********************");
-			System.out.println("*********************");
-			System.out.println("*********************");
-			System.out.println("Coucou Ivan, voici la liste des adresses : ");
-			System.out.println("*********************");
+
 			for (int i = 0; i < dtoClient.getAdresses().size() ; i++) {
 			
 				System.out.println(dtoClient.getAdresses().get(i).getLibelleAdresse());
@@ -173,17 +167,14 @@ public class ConnexionManagedBean {
 				System.out.println(dtoClient.getAdresses().get(i).getPays().getLibellePays());
 			}
 
-			System.out.println("*********************");
-			System.out.println("*********************");
-			System.out.println("*********************");
-			
+						
 			}
 			
 	}
 			System.out.println("HELLLLP");
 		log.info(paramUtil.getRole().getIdRole());
 
-		System.out.println("Je passe � la fin ?");
+		System.out.println("Je passe a la fin ?");
 		return pageForward;
 		
 		

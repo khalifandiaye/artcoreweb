@@ -123,7 +123,6 @@ public class ConfirmerCmdManageBean {
 	public String confirmerCmd(){
 		log.debug("confirmation du panier");
 		boolean result=false;
-		System.out.println("confirmation du panier");
 		if (mdp > 0) {
 			
 		result=daoCommande.validerCmd(panier, mdp, dtoClient,daoCommande.rechercherAdresse(adrLivraison));

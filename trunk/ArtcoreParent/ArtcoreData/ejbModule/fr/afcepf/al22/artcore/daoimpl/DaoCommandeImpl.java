@@ -27,10 +27,7 @@ public class DaoCommandeImpl implements IDaoCommande{
 	public Commande creer(Commande cmd) {
 		
 		Commande c=cmd;
-		System.out.println("avant la creation de la commande");
-		System.out.println(c.toString());
 		em.persist(c);
-		System.out.println("apres le persit");
 		return c;
 	}
 

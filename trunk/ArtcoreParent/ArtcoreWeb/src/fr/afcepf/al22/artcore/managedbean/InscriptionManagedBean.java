@@ -164,16 +164,7 @@ public class InscriptionManagedBean {
 
 	    
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+   
 	    
 	    
 	    
@@ -209,42 +200,6 @@ public class InscriptionManagedBean {
 
 
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-
 		public Logger getLog() {
 			return log;
 		}
