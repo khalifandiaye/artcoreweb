@@ -3,6 +3,8 @@ package fr.afcepf.al22.artcore.conversion;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import org.jboss.logging.Logger;
+
 import fr.afcepf.al22.artcore.businessinterfaces.IDtoToEntity;
 import fr.afcepf.al22.artcore.daointerfaces.IDaoRechercherProduit;
 import fr.afcepf.al22.artcore.dto.DtoAdmin;
@@ -47,7 +49,7 @@ import fr.afcepf.al22.artcore.entities.Utilisateur;
 import fr.afcepf.al22.artcore.entities.Ville;
 @Stateless
 public class DtoToEntity implements IDtoToEntity {
-	
+	private Logger log = Logger.getLogger(this.getClass());
 	/**
 	 * M�thode qui convertit un admin {@link DtoAdmin} en {@link Admin}.
 	 * Elle remplit un JPA � partir d'un DTO donn� en argument.
@@ -130,7 +132,7 @@ public class DtoToEntity implements IDtoToEntity {
 	 */
 	public Commande toJpa (DtoCommande dto) {
 		Commande c = new Commande();
-		System.out.println( "l id de la ccommande est :"+ dto.getIdCommande()+ " "+ dto.getPrixTotal()+ " "+ dto.getAdresseClient());
+		log.debug( "l id de la ccommande est :"+ dto.getIdCommande()+ " "+ dto.getPrixTotal()+ " "+ dto.getAdresseClient());
 		c.setIdCommande(dto.getIdCommande());
 		c.setAdresseClient(dto.getAdresseClient());
 		c.setDateCommande(dto.getDateCommande());
@@ -207,8 +209,8 @@ public class DtoToEntity implements IDtoToEntity {
 	 */
 	public LigneDeCommande toJpa (DtoLigneDeCommande dtolc, DtoCommande dtoCommande) {
 		LigneDeCommande lc = new LigneDeCommande();
-		System.out.println("avant ::"+dtolc.toString());
-		System.out.println("dans toJpa "+ dtoCommande);
+		log.debug("avant ::"+dtolc.toString());
+		log.debug("dans toJpa "+ dtoCommande);
 		
 		//lc.setIdLigneCommande(dto.getIdLigneCommande());
 		
@@ -216,9 +218,9 @@ public class DtoToEntity implements IDtoToEntity {
 		
 		// Faire la commande dans la base
 		
-		System.out.println("**************");
-		System.out.println(cmd.toString()+"  "+ cmd.getIdCommande());
-		System.out.println("**************");
+		log.debug("**************");
+		log.debug(cmd.toString()+"  "+ cmd.getIdCommande());
+		log.debug("**************");
 		
 		lc.setCommande(cmd);
 		lc.setProduit(toJpa(dtolc.getProduit()));
@@ -256,7 +258,7 @@ public class DtoToEntity implements IDtoToEntity {
 	 * @param dto
 	 */
 	public Produit toJpa (DtoProduit dto) {
-		System.out.println("dans la fonction toJPA avec dto=" + dto.toString());
+		log.debug("dans la fonction toJPA avec dto=" + dto.toString());
 		Produit p = new Produit();
 		p.setIdProduit(dto.getIdProduit());
 		p.setDateDebutDeVente(dto.getDateDebutDeVente());
