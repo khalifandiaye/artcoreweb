@@ -36,10 +36,11 @@ td {
 	/*prend toute la place des tr*/ 
 	display: block;
 		
-				background-color: gray;
-				
-	background-image: url(../img/cadre.jpg);
-	 
+	background: #525252;
+	border: 1px solid #202020;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 	
 }
 /*Tous les attributs d'un produit : */
