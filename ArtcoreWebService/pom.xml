@@ -34,5 +34,6 @@
   	<module>WSPolice</module>
   	<module>WSGestionStock</module>
   	<module>WSAntivolCB</module>
+  	<module>WSOrchestrator</module>
   </modules>
 </project>
