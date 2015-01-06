@@ -3,8 +3,6 @@
  */
 package fr.afcepf.al22.artcorewebservice.wspolice;
 
-import java.util.Date;
-
 import javax.ejb.Remote;
 import javax.jws.WebParam;
 import javax.jws.WebService;
