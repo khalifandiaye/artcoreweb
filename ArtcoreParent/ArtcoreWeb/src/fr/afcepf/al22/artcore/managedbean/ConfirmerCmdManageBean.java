@@ -43,7 +43,6 @@ public class ConfirmerCmdManageBean {
 	//Ajout de la carte de paiement
 	private String numeroCarteDuClient;
 	
-	private String toto;
 	
 	@EJB
 	private IBusinessPanier gestionPanier;
@@ -158,11 +157,4 @@ public class ConfirmerCmdManageBean {
 		this.numeroCarteDuClient = numeroCarteDuClient;
 	}
 
-	public String getToto() {
-		return toto;
-	}
-
-	public void setToto(String toto) {
-		this.toto = toto;
-	}
 }
