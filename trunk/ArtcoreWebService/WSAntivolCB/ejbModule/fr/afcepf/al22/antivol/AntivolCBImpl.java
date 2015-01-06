@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import fr.afcepf.al22.antivol.entities.Cartebleue;
-
+import fr.afcepf.al22.antivol.IAntivolCB;
 /**
  * @author Ing
  *
