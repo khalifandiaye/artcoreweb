@@ -5,9 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
 
@@ -17,13 +15,9 @@ import fr.afcepf.al22.artcore.dto.BlocProduitDto;
 import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoClient;
 import fr.afcepf.al22.artcore.dto.DtoModeDePaiement;
-import fr.afcepf.al22.artcore.dto.DtoProduit;
-import fr.afcepf.al22.artcore.dto.DtoUtilisateur;
-import fr.afcepf.al22.artcore.entities.Adresse;
-import fr.afcepf.al22.artcore.entities.ModeDePaiement;
 
-@ManagedBean
-@RequestScoped
+@ManagedBean(name="confirmerCmdManageBean")
+@SessionScoped
 public class ConfirmerCmdManageBean {
 	
 	private Logger log= Logger.getLogger(this.getClass());
@@ -46,10 +40,13 @@ public class ConfirmerCmdManageBean {
 	//adresse de livraison choisie
 	private int adrLivraison=1;
 	
+	//Ajout de la carte de paiement
+	private String numeroCarteDuClient;
+	
+	private String toto;
+	
 	@EJB
 	private IBusinessPanier gestionPanier;
-	
-
 	
 	public int getAdrLivraison() {
 		return adrLivraison;
@@ -119,6 +116,7 @@ public class ConfirmerCmdManageBean {
 	public void setAdresseChoisie(DtoAdresse adresseChoisie) {
 		this.adresseChoisie = adresseChoisie;
 	}
+	
 
 	public String confirmerCmd(){
 		log.debug("confirmation du panier");
@@ -150,5 +148,21 @@ public class ConfirmerCmdManageBean {
 	public String connexion() {
 		String pageForward="/connexion.jsf?faces-redirect=true";
 		return pageForward;
+	}
+
+	public String getNumeroCarteDuClient() {
+		return numeroCarteDuClient;
+	}
+
+	public void setNumeroCarteDuClient(String numeroCarteDuClient) {
+		this.numeroCarteDuClient = numeroCarteDuClient;
+	}
+
+	public String getToto() {
+		return toto;
+	}
+
+	public void setToto(String toto) {
+		this.toto = toto;
 	}
 }
