@@ -1,6 +1,6 @@
-import fr.afcepf.al22.entities.Cartebleue;
-import fr.afcepf.al22.wsartcore.AntivolCBImpl;
-import fr.afcepf.al22.wsartcore.IAntivolCB;
+import fr.afcepf.al22.antivol.AntivolCBImpl;
+import fr.afcepf.al22.antivol.IAntivolCB;
+import fr.afcepf.al22.antivol.entities.Cartebleue;
 
 
 public class testClasses {
@@ -10,7 +10,6 @@ public class testClasses {
 		
 		IAntivolCB antivol = new AntivolCBImpl();
 		boolean b = antivol.rechercheCBVoleeParNumero("1234123412341234");
-//		System.out.println(b);
 	}
 
 }
