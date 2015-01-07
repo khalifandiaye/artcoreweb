@@ -35,34 +35,34 @@
 		<br /> 
 		<br /> 
 		<section class="selection"> 
-			<h:commandButton styleClass="button7" value="Afficher tout le catalogue" action="#{mbCatalogue.reinitialisation()}" />
+			<h:commandButton style="width:204px" styleClass="button7" value="Afficher tout le catalogue" action="#{mbCatalogue.reinitialisation()}" />
 		</section>
 		<section class="selection">
-		<h:outputLabel styleClass="Rechercher par nom :" />
+		<h:outputLabel styleClass="Rechercher par nom :" style="width:204px" />
 		<h:inputText  value="#{mbCatalogue.labelRechercheNom}" styleClass="button8" />
-		<h:commandButton styleClass="button7" value="Rechercher par nom" action="#{mbCatalogue.rechercheParNom()}" />
+		<h:commandButton styleClass="button7" value="Rechercher par nom" action="#{mbCatalogue.rechercheParNom()}" style="width:204px"/>
 		</section>
 		
 		<section class="selection">
-		<h:outputLabel value="Rechercher par catégorie" />
-		<h:selectOneMenu styleClass="button8" id="itemCat" value="#{mbCatalogue.intRechercheCategorie}" >
+		<h:outputLabel value="Rechercher par catégorie" style="width:204px"/>
+		<h:selectOneMenu styleClass="button8" id="itemCat" value="#{mbCatalogue.intRechercheCategorie}" style="width:204px">
 			<f:selectItem itemvalue="0" itemLabel="Toutes categories"/>
 			<f:selectItems value="#{mbCatalogue.listeCategories}" var="categorie"
 			itemValue="#{categorie.idCategorie}" itemLabel="#{categorie.libelleCategorie}" />
 		</h:selectOneMenu>
-		<h:commandButton styleClass="button7" value="Valider la catégorie" action="#{mbCatalogue.rechercheParCategorie()}" />
+		<h:commandButton styleClass="button7" value="Valider la catégorie" action="#{mbCatalogue.rechercheParCategorie()}" style="width:204px"/>
 		</section>
 		
 		<section class="selection">
-		<h:outputLabel value="Rechercher par format" />
+		<h:outputLabel value="Rechercher par format" style="width:204px"/>
 		<br />
-		<h:selectOneMenu styleClass="button8" id="itemFormat" value="#{mbCatalogue.intRechercheFormat}" >
+		<h:selectOneMenu styleClass="button8" id="itemFormat" value="#{mbCatalogue.intRechercheFormat}" style="width:204px" >
 			<f:selectItem itemvalue="0" itemLabel="Tous formats"/>
 			<f:selectItems value="#{mbCatalogue.listeFormats}" var="format"
 			itemValue="#{format.idFormat}" itemLabel="#{format.libelleFormat}" />
 		</h:selectOneMenu>
 		<br />
-		<h:commandButton styleClass="button7" value="Valider le format" action="#{mbCatalogue.rechercheParFormat()}" />
+		<h:commandButton styleClass="button7" value="Valider le format" action="#{mbCatalogue.rechercheParFormat()}" style="width:204px"/>
 		</section>
 		
 		<section class="selection"> 
@@ -83,17 +83,17 @@
 				<i></i><h:outputLabel value="+ de 2000 euros" />
 			</label>
 			<br />
-			<h:commandButton styleClass="button7" action="#{mbCatalogue.rechercheParPrix()}" value="Rechercher par prix" /> 
+			<h:commandButton styleClass="button7" action="#{mbCatalogue.rechercheParPrix()}" value="Rechercher par prix" style="width:204px"/> 
 		</section>
 		
 		<section class="selection">
 		<h:outputLabel value="Rechercher par nom d'artiste :" />
 		<h:inputText  value="#{mbCatalogue.labelRechercheNomArtiste}" styleClass="button8" />
-		<h:commandButton styleClass="button7" value="Rechercher par nom d'artiste" action="#{mbCatalogue.rechercheParNomArtiste()}" />
+		<h:commandButton styleClass="button7" value="Rechercher par nom d'artiste" action="#{mbCatalogue.rechercheParNomArtiste()}" style="width:204px"/>
 		</section>
 		
 		<section class="selection">
-		<h:commandButton styleClass="button7" value="Rechercher multi-critères" action="#{mbCatalogue.rechercheMulticritere()}" />
+		<h:commandButton styleClass="button7" value="Rechercher multi-critères" action="#{mbCatalogue.rechercheMulticritere()}" style="width:204px"/>
 		</section>
 
 	</div>
