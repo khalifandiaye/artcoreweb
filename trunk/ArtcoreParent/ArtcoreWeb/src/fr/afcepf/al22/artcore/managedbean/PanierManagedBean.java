@@ -1,6 +1,7 @@
 package fr.afcepf.al22.artcore.managedbean;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -77,6 +78,7 @@ public class PanierManagedBean {
 		return "";
 	}
 
+	
 	public String supprimerProduit(DtoProduit produit) {
 		this.panier=gestionPanier.retirerProduit(produit);
 		loggerPanier();
@@ -97,6 +99,16 @@ public class PanierManagedBean {
 	public String confirmer() {
 		// Supprime toutes les informations de la session
 		return "/confirmerCommande.jsf?faces-redirect=true";
+	}
+	
+	/**
+	 * Réinitialsation du panier
+	 * (on fait une nouvelle arraylist)
+	 */
+	public void reinitPanier () {
+		log.debug("segtfnhkjldfghgfdsdfghjgfdsqfghdsqdfghj");
+		panier = new ArrayList<BlocProduitDto>();
+		log.debug("ET MAINTENANT LE PANIER CONTIENT " + panier.size() + " ELEMENTS !!!!!!!!!!!!!!!!!!!!!!");
 	}
 	// a effacer
 	public void loggerPanier(){
