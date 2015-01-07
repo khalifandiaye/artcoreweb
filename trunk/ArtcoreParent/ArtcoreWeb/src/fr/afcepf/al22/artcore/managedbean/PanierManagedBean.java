@@ -89,6 +89,8 @@ public class PanierManagedBean {
 		gestionPanier.ajouterProduit(produitEnCours);
 		this.panier=gestionPanier.getListBlocProduit();
 		loggerPanier();
+		quantite++;
+		log.debug("IL Y A " + quantite + " ARTICLES DANS LE PANIER.");
 		return "/catalogue.jsf?faces-redirect=true";
 	}
 	public String prixTotalString(){

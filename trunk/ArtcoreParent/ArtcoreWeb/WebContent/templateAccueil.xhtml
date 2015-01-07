@@ -73,12 +73,29 @@
 						</h:form>
 			 </h:panelGroup>
 
+			
 
 		   </ul>
 		   			<ul class="icon2 sub-icon2 profile_img">
+
 			<li><a class="active-icon c2" href="afficherPanier.jsf">
 			<img alt="" src="web/img/cart.png" />
+<!-- 			Là c'est l'icone pour accéder au panier ! -->
+
+<!-- 				<ui:repeat value="#{mbPanier.panier}" var="oeuvre"> -->
+<!-- 		   		<h:outputLabel value="( " /> -->
+<!-- 				<h:outputLabel value="#{oeuvre.quantite}" /> -->
+<!-- 				<h:outputLabel value=" )" /> -->
+<!-- 				</ui:repeat> -->
+				<h:outputLabel value="( " />
+				<h:outputLabel value="#{mbPanier.quantite}" />
+				<h:outputLabel value=" )" />
+				
 			 </a>
+			 
+			 <li class = "rajoutCouleur">
+				
+			</li>
 			 
 			 <h:panelGroup rendered="1 == 0">
 				<ul class="sub-icon2 list">
@@ -110,8 +127,8 @@
 				<li><a class="color4" href="#">Mon Compte</a></li>
 				</h:panelGroup>
 				
-<!-- 				<li><a class="color5" href="#">Expositions</a> -->
-<!-- 				</li> -->
+				<li><a class="color5" href="#">Expositions</a>
+				</li>
 		
 		   </ul>
 		   <div class="clear"></div>
