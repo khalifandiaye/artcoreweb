@@ -19,6 +19,18 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
+#imgVisa {
+	padding-left: 17px;
+}
+#imgMastercard {
+	/*margin-left : 20px;*/
+	padding-left: 50px;
+}
+#imgCB {
+	/*margin-left: 20px;*/
+	padding-left: 80px;
+}
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
