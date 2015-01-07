@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import org.apache.log4j.Logger;
 
@@ -15,13 +15,16 @@ import fr.afcepf.al22.artcore.dto.BlocProduitDto;
 import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoClient;
 import fr.afcepf.al22.artcore.dto.DtoModeDePaiement;
+import fr.afcepf.al22.artcore.dto.DtoProduit;
 
 @ManagedBean(name="confirmerCmdManageBean")
-@SessionScoped
+@RequestScoped
 public class ConfirmerCmdManageBean {
 	
 	private Logger log= Logger.getLogger(this.getClass());
-
+	
+	@ManagedProperty(value="#{mbPanier}")
+	private PanierManagedBean mbpanier;
 	@ManagedProperty(value="#{mbConnexion.dtoClient}")
 	private DtoClient dtoClient;
 	
@@ -123,6 +126,8 @@ public class ConfirmerCmdManageBean {
 		if (mdp > 0) {
 			
 		result=daoCommande.validerCmd(panier, mdp, dtoClient,daoCommande.rechercherAdresse(adrLivraison));
+		log.debug("retour du dao result = "+result);
+		mbpanier.reinitPanier();
 		}
 		else {
 			//FIXME Etrange else avec un  syso ? :(
@@ -130,7 +135,11 @@ public class ConfirmerCmdManageBean {
 		}
 		
 		if(result){
+			
 			message="Felicitation ! votre commande a été validée ";
+			log.debug("message ="+message);
+			
+			
 		}
 		
 		return "/bravo.jsf?faces-redirect=true";
@@ -156,5 +165,14 @@ public class ConfirmerCmdManageBean {
 	public void setNumeroCarteDuClient(String numeroCarteDuClient) {
 		this.numeroCarteDuClient = numeroCarteDuClient;
 	}
+
+	public PanierManagedBean getMbpanier() {
+		return mbpanier;
+	}
+
+	public void setMbpanier(PanierManagedBean mbpanier) {
+		this.mbpanier = mbpanier;
+	}
+	
 
 }

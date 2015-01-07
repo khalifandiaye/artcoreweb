@@ -54,12 +54,16 @@ public class BusinessCommandeImpl implements IBusinessCommande {
 
 	@PostConstruct
 	public void initialise() {
+		log.debug("On rentre dans la méthode INITIALISE pour créer un nouveau panier.");
 		panier = new ArrayList<BlocProduitDto>();
+		log.debug("Le panier contient maintenant " + panier.size() + " éléments.");
 	}
 
 	@PreDestroy
 	public void clear() {
+		log.debug("On rentre dans la méthode CLEAR pour vider le panier.");
 		panier = null;
+		log.debug("Le panier est maintenant null : " + panier);
 	}
 
 	@Override
@@ -128,6 +132,8 @@ public class BusinessCommandeImpl implements IBusinessCommande {
 			log.debug("*************");
 			daoCmd.creerLc(lCmd);
 		}
+		
+		
 		return retour;
 	}
 
