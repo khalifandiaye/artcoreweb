@@ -74,10 +74,24 @@ public class BusinessPanierImpl implements IBusinessPanier {
 	@Override
 	public BigDecimal prixTotal() {
 		BigDecimal prixTotal=new BigDecimal(0);
+		log.debug("Business : on rentre dans la méthode prix total.");
 		if(ListBlocProduit!=null && !ListBlocProduit.isEmpty()){
+			log.debug("business : le panier n'est ni null ni vide.");
+			log.debug("Business : Le panier a une taille de : " +ListBlocProduit.size());
 			for (BlocProduitDto blocProduitDto : ListBlocProduit) {
 				prixTotal = prixTotal.add(blocProduitDto.getPrixTotalParPdt());
 			}
+		}
+		/**
+		 * Et s'il est vidé alors ???
+		 */
+		else {
+			log.debug("Business : on rentre dans mon else");
+			int prix = 0;
+			prixTotal = null;
+			log.debug("Business : le prix total est null : " +prixTotal);
+			prixTotal=new BigDecimal(0);
+			log.debug("Business : maintenant il est censé être à 0 : " + prixTotal);
 		}
 		return prixTotal;
 	}
