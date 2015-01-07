@@ -69,21 +69,21 @@
     <li class="cart-item">
         	<h:outputLabel value="Nom : " />
         	<span class="cart-item-desc">
-        	<h:outputText value="#{confirmerCmdManageBean.dtoClient.civilite.libelleCivilite} #{confirmerCmdManageBean.dtoClient.prenomClient}  #{confirmerCmdManageBean.dtoClient.nomClient}" />
+        	<h:outputText value="#{mbConfirmerCmd.dtoClient.civilite.libelleCivilite} #{mbConfirmerCmd.dtoClient.prenomClient}  #{mbConfirmerCmd.dtoClient.nomClient}" />
         	
         	</span>
         	<span>
        		<h:outputLabel value="Adresse de Livraison : " />
        		<section class="selection">
-						<h:selectOneMenu styleClass="select" id="itemCat" value="#{confirmerCmdManageBean.adrLivraison}" >
+						<h:selectOneMenu styleClass="select" id="itemCat" value="#{mbConfirmerCmd.adrLivraison}" >
 							<f:selectItem itemvalue="0" itemLabel="choisir une adresse de livraison" />
-							<f:selectItems value="#{confirmerCmdManageBean.dtoClient.adresses}" var="adresse"
+							<f:selectItems value="#{mbConfirmerCmd.dtoClient.adresses}" var="adresse"
 							itemValue="#{adresse.idAdresse}" itemLabel="#{adresse.libelleAdresse} #{adresse.ville.codePostal} #{adresse.ville.commune} "  />
 						</h:selectOneMenu>
 			</section>
 		</span>
         <span class="cart-item-desc">Mode de paiement</span>
-        			<h:selectOneRadio required="true" value="#{confirmerCmdManageBean.mdp}" >
+        			<h:selectOneRadio required="true" value="#{mbConfirmerCmd.mdp}" >
 						<f:selectItem itemValue="1" itemLabel="Visa" />
 						<f:selectItem itemValue="2" itemLabel="Master Card" />
 						<f:selectItem itemValue="3" itemLabel="Carte Bleue" />
@@ -91,18 +91,18 @@
 					
 		<span class="cart-item-desc">Numéro de votre carte</span>
 
-		<h:inputText value="#{confirmerCmdManageBean.numeroCarteDuClient}" />
+		<h:inputText value="#{mbConfirmerCmd.numeroCarteDuClient}" />
 		
 					
       </li>
     </ul>
     <div class="cart-bottom">
-   <h:panelGroup rendered="#{!empty confirmerCmdManageBean.dtoClient}">
+   <h:panelGroup rendered="#{!empty mbConfirmerCmd.dtoClient}">
    	<h:panelGroup rendered="#{!empty mbPanier.panier}">
-   	<h:commandLink action="#{confirmerCmdManageBean.confirmerCmd()}" value="Confirmer" styleClass="cart-button" rendered="#{!empty confirmerCmdManageBean.dtoClient}"/>
+   	<h:commandLink action="#{mbConfirmerCmd.confirmerCmd()}" value="Confirmer" styleClass="cart-button" rendered="#{!empty mbConfirmerCmd.dtoClient}"/>
    	</h:panelGroup>
    </h:panelGroup>
-      <h:commandLink action="#{confirmerCmdManageBean.connexion()}" value="Se connecter pour valider" styleClass="cart-button" rendered="#{empty confirmerCmdManageBean.dtoClient}"/>
+      <h:commandLink action="#{mbConfirmerCmd.connexion()}" value="Se connecter pour valider" styleClass="cart-button" rendered="#{empty mbConfirmerCmd.dtoClient}"/>
     </div>
   	</div>
    </h:form>

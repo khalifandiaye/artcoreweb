@@ -17,7 +17,7 @@ import fr.afcepf.al22.artcore.dto.DtoClient;
 import fr.afcepf.al22.artcore.dto.DtoModeDePaiement;
 import fr.afcepf.al22.artcore.dto.DtoProduit;
 
-@ManagedBean(name="confirmerCmdManageBean")
+@ManagedBean(name="mbConfirmerCmd")
 @RequestScoped
 public class ConfirmerCmdManageBean {
 	
