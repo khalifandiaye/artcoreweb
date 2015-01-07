@@ -52,7 +52,8 @@
         </span>
         <span class="cart-item-price">
 		<h:inputText value="#{oeuvre.quantite}" />
-        <h:outputLabel value="#{oeuvre.quantite}" /> x <h:outputLabel value="#{oeuvre.produit.prixProduit}" /> = <h:outputLabel value="#{oeuvre.prixTotalParPdt}" /> €
+<!--         <h:outputLabel value="#{oeuvre.quantite}" />  -->
+        x <h:outputLabel value="#{oeuvre.produit.prixProduit}" /> = <h:outputLabel value="#{oeuvre.prixTotalParPdt}" /> €
        </span>
        <span class="supprimer">
        <h:commandButton action="#{mbPanier.supprimerProduit(oeuvre.produit)}" value="supprimer" />
