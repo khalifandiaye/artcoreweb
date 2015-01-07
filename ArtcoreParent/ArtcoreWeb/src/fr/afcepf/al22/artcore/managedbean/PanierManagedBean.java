@@ -2,6 +2,7 @@ package fr.afcepf.al22.artcore.managedbean;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -80,8 +81,41 @@ public class PanierManagedBean {
 
 	
 	public String supprimerProduit(DtoProduit produit) {
+		/**
+		 * L'inconvénient de quantite--, c'est si on supprime un produit qui est présent 
+		 * en plusieurs quantités dans le panier ;
+		 * auquel cas ça ne supprime qu'une seule quantité.
+		 */
+//		quantite--;
+		/**
+		 * J'essaye de trouver le BlocProiduitDto qui correspond au proiduit.
+		 * Si j'arrive à le trouver, alors je bouclerai sur la quantité du bloc.
+		 * Et dans la boucle je décrémenterai.
+		 */
+		//je vais chercher l'index du produit à supprimer
+		//pour pouvoir appeler le get(index)
+		
+		//je crée une variable quantite que je remplirai
+		//(oui, même ça c'est pas évident, hein Ivan ;-) )
+		int quantiteProduit = 0;
+		//je parcours la liste :
+		for (BlocProduitDto bloc : panier) {
+			log.debug("On est rentré dans mon for.");
+			//si c'est le produit à supprimer
+			if (bloc.getProduit() == produit) {
+				log.debug("Le produit a été trouvé.");
+				//alors on met la quantité du bloc dans la variable quantite.
+				quantiteProduit = bloc.getQuantite();
+				log.debug("Le produit a supprimer était en " + quantiteProduit + " exemplaires.");
+			}
+		}
+		//Maintenant je peux boucler
+		for (int i = 0; i < quantiteProduit; i++) {
+			quantite--;
+		}
 		this.panier=gestionPanier.retirerProduit(produit);
-		quantite--;
+
+		
 		loggerPanier();
 		return "";
 	}
