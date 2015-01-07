@@ -9,6 +9,9 @@ html{
 	height: 100%;
 }
 
+.rajoutCouleur {
+	color: white;
+}
 
 article, aside, details, figcaption, figure, header, hgroup, menu, nav, section {display: block;}
 ol,ul{list-style:none;margin:0;padding:0;}
