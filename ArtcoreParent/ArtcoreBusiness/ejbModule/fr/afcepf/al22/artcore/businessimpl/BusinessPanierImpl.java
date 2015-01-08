@@ -102,8 +102,11 @@ public class BusinessPanierImpl implements IBusinessPanier {
 	@Override
 	public void viderPanier() {
 		//FIXME Je vais remettre checkstyle :( 
-		if(ListBlocProduit!=null)log.debug("le panier n existe pas ");
-		else log.debug(ListBlocProduit.size());
+		if(ListBlocProduit!=null)
+			log.debug("le panier n existe pas ");
+		else 
+			log.debug(ListBlocProduit.size());
+		
 		ListBlocProduit=null;
 	}
 
