@@ -66,7 +66,16 @@
     <div class="cart-bottom">
       Total : <h:outputLabel value="#{mbPanier.prixTotal}" />
     </div>
-    
+    <!--  afficher message d'erreur stock -->
+    <div class="cart-bottom">
+    	<ul>
+    	<ui:repeat value="#{mbConfirmerCmd.msgErreurStock}" var="msg">
+    		<li class="cart-item">
+    			 <h:outputLabel value="#{msg}" />
+    		</li>
+    	</ui:repeat> 
+    	</ul>
+    </div>
     <div class="cart-bottom">
       <h:commandLink action="#{mbPanier.confirmer()}" value="confirmer" styleClass="cart-button" rendered="#{!empty mbPanier.panier}"/>
     </div>
