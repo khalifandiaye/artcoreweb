@@ -23,7 +23,7 @@ public class Adresse implements Serializable {
 	private String libelleAdresse;
 
 	//bi-directional many-to-one association to Admin
-	@OneToMany(mappedBy="adresse")
+	@OneToMany(mappedBy="adresse") 
 	private List<Admin> admins;
 
 	//bi-directional many-to-one association to Pay

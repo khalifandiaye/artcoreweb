@@ -24,3 +24,4 @@ public interface IBusinessCategorie {
 	public DtoCategorie categorieParId (int id);
 
 }
+ 
