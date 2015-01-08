@@ -48,10 +48,11 @@ public class VerifCasierImpl implements IVerifCasier {
 		List<Statut> liste = hql.getResultList();
 		if (liste.size()>0) {
 			retour = liste.get(0).getLibelle();
+			
 		}else {
 			retour = "";
 		}
-		
+		log.debug("retour verifCasier "+retour);
 		return retour;
 	}
 
