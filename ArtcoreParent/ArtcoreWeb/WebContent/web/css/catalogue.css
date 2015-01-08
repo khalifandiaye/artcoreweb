@@ -21,6 +21,8 @@ table {
 	/*background-color: yellow;*/
 	border-collapse: none;
 }
+
+
 tr {
 	/*background-color: green; prend toute la place de la table*/
 	float: left;
@@ -29,6 +31,10 @@ tr {
 	width: 275px;
 	height : 250px;
 	text-align: center;
+	border: 1px solid #202020;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 			
 	
 } 
@@ -37,15 +43,18 @@ td {
 	display: block;
 		
 	background: #525252;
-	border: 1px solid #202020;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+	
+	
+}
+
+.prod tbody tr td a{
+	
+	color: rgb(5,157,231);
 	
 }
 /*Tous les attributs d'un produit : */
 .prodNom {
-	color: blue;
+	color: rgb(5,157,231);
 	width: 100%;
 	font-size: 1.5em;
 }
@@ -131,12 +140,12 @@ html .wrap .form input[type="text"]:focus {
 
 html .wrap .form input[type="text"],
 .button7 {
-   background: #545454;
-   background: -webkit-gradient(linear, left top, left bottom, from(#313538), to(#545454));
-   background: -webkit-linear-gradient(top, #313538, #545454);
-   background: -moz-linear-gradient(top, #313538, #545454);
-   background: -ms-linear-gradient(top, #313538, #545454);
-   background: -o-linear-gradient(top, #313538, #545454);
+   background: #525252;
+   background: -webkit-gradient(linear, left top, left bottom, from(#313538), to(#525252));
+   background: -webkit-linear-gradient(top, #313538, #525252);
+   background: -moz-linear-gradient(top, #313538, #525252);
+   background: -ms-linear-gradient(top, #313538, #525252);
+   background: -o-linear-gradient(top, #313538, #525252);
    padding: 5px 10px;
    -webkit-border-radius: 8px;
    -moz-border-radius: 8px;
@@ -145,7 +154,7 @@ html .wrap .form input[type="text"],
    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #b55252;
+   color: rgb(234,2,49);
    font-size: 14px;
    font-family: Helvetica, Arial, Sans-Serif;
    text-decoration: none;
@@ -178,7 +187,7 @@ html .wrap .form input[type="text"],
    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #b55252;
+   color: rgb(234,2,49);
    font-size: 14px;
    font-family: Helvetica, Arial, Sans-Serif;
    text-decoration: none;
