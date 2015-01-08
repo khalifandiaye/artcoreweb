@@ -68,7 +68,7 @@ public class BusinessCommandeImpl implements IBusinessCommande {
 
 	@Override
 	public boolean validerCmd(List<BlocProduitDto> panier, int modePaiement,DtoClient dtoClient,DtoAdresse dtoAdresse) {
-		boolean retour = false;
+		boolean retour = true;
 		DtoProduit dtoProduit = null;
 		DtoCommande dtoCommande = new DtoCommande();
 		DtoLigneDeCommande dtoLigneCommande = null;
