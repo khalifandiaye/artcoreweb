@@ -1,0 +1,35 @@
+NB: selon la version de JPA (1.0 ,2.0, 2.1) , l'entête de persistence.xml
+est différente.
+
+OpenEjb/OpenJpa supporte une entete 1.0 ou 2.0 mais pas 2.1.
+=====
+soit dupliquer le fichier persistence.xml du vrai projet ejb
+vers le projet de testEjb changer l'entête (2.1 vers 2.0) dans le copie
+du projet de test.
+
+soit changer l'entête du fichier persistence.xml du vrai projet EJB
+(2.1 --> 2.0) et ne pas dupliquer le fichier persistence.xml dans le projet 'testEjb"
+
+====
+Entete 1.0:
+-----------
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+
+
+Entete 2.0:
+----------
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+Entete (très différente) 2.1:
+----------------------------
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
