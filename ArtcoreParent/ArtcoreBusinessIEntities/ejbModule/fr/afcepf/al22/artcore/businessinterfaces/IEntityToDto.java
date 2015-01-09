@@ -9,6 +9,7 @@ import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoCategorie;
 import fr.afcepf.al22.artcore.dto.DtoCivilite;
 import fr.afcepf.al22.artcore.dto.DtoClient;
+import fr.afcepf.al22.artcore.dto.DtoClientAdressePK;
 import fr.afcepf.al22.artcore.dto.DtoCommande;
 import fr.afcepf.al22.artcore.dto.DtoEvaluationProduit;
 import fr.afcepf.al22.artcore.dto.DtoFacture;
@@ -29,6 +30,7 @@ import fr.afcepf.al22.artcore.entities.Adresse;
 import fr.afcepf.al22.artcore.entities.Categorie;
 import fr.afcepf.al22.artcore.entities.Civilite;
 import fr.afcepf.al22.artcore.entities.Client;
+import fr.afcepf.al22.artcore.entities.ClientAdressePK;
 import fr.afcepf.al22.artcore.entities.Commande;
 import fr.afcepf.al22.artcore.entities.EvaluationProduit;
 import fr.afcepf.al22.artcore.entities.Facture;
@@ -77,6 +79,12 @@ public interface IEntityToDto {
 	 * @return
 	 */
 	public DtoClient toDto (Client client) ;
+	/**
+	 * Methode qui convertit un {@link ClientAdressePK} en un {@link DtoClientAdressePK}.
+	 * @param cliAdr
+	 * @return
+	 */
+	public DtoClientAdressePK toDto (ClientAdressePK cliAdr);
 	
 	/**
 	 * M�thode qui convertit une {@link Commande} en {@link DtoCommande}.

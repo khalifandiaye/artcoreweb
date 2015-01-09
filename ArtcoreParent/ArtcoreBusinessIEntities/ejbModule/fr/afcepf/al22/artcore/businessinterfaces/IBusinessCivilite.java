@@ -12,4 +12,12 @@ public interface IBusinessCivilite {
 	
 	public List<DtoCivilite> listeToutesCivilites () ;
 	
+	/**
+	 * Méthode pour retrouver la civilité par id qui appelle la méthode du dao
+	 * sans règle de gestion.
+	 * @param id
+	 * @return
+	 */
+	public DtoCivilite civiliteParId(int id);
+	
 }

@@ -32,8 +32,20 @@ public class DtoClient implements Serializable {
 	//constructeurs
 	public DtoClient() {
 	}
+	public DtoClient(int idClient,  
+			DtoCivilite civilite, String mailClient, 
+			String nomClient, String prenomClient,
+			List<DtoAdresse> adresses) {
+		super();
+		this.idClient = idClient;
+		this.mailClient = mailClient;
+		this.nomClient = nomClient;
+		this.prenomClient = prenomClient;
+		this.adresses = adresses;
+		this.civilite = civilite;
+	}
 	public DtoClient(int idClient, Date dateFinActivite, Date dateNaissance,
-			DtoCivilite civilite, DtoProfessionnel professionnel, DtoUtilisateur utilisateur,
+			DtoCivilite civilite/*, DtoProfessionnel professionnel*/, DtoUtilisateur utilisateur,
 			String mailClient, String nomClient, String prenomClient,
 			String telClient) {
 		super();
@@ -41,7 +53,7 @@ public class DtoClient implements Serializable {
 		this.dateFinActivite = dateFinActivite;
 		this.dateNaissance = dateNaissance;
 		this.civilite = civilite;
-		this.professionnel = professionnel;
+//		this.professionnel = professionnel;
 		this.utilisateur = utilisateur;
 		this.mailClient = mailClient;
 		this.nomClient = nomClient;
@@ -50,7 +62,7 @@ public class DtoClient implements Serializable {
 	}
 	
 	public DtoClient(int idClient, Date dateFinActivite, Date dateNaissance,
-			DtoCivilite civilite, DtoProfessionnel professionnel, DtoUtilisateur utilisateur,
+			DtoCivilite civilite/*, DtoProfessionnel professionnel*/, DtoUtilisateur utilisateur,
 			String mailClient, String nomClient, String prenomClient,
 			String telClient, List<DtoAdresse> adresses) {
 		super();
@@ -63,7 +75,7 @@ public class DtoClient implements Serializable {
 		this.telClient = telClient;
 		this.adresses = adresses;
 		this.civilite = civilite;
-		this.professionnel = professionnel;
+//		this.professionnel = professionnel;
 		this.utilisateur = utilisateur;
 	}
 	//getter setter

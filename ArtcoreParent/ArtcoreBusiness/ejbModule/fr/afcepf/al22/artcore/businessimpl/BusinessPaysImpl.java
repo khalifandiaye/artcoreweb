@@ -37,9 +37,10 @@ public class BusinessPaysImpl implements IBusinessPays {
 	}
 
 	@Override
-	public Pays paysParId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public DtoPays paysParId(int id) {
+		Pays pays = dao.paysParId(id);
+		DtoPays paysDto = classeToDto.toDto(pays);
+		return paysDto;
 	}
 
 }

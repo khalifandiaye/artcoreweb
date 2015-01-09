@@ -1,18 +1,23 @@
 package fr.afcepf.al22.artcore.entities;
-/*
+
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
  * The primary key class for the client_adresse database table.
  * 
  */
-/*
+
+//@Entity//rajout ing
+//@Table(name="client_adresse")//rajout ing
 @Embeddable
 public class ClientAdressePK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
+//	@Id //rajout ing
+//	//@GeneratedValue(strategy=GenerationType.IDENTITY)//ing
 	@Column(name="id_client")
 	private int idClient;
 
@@ -34,25 +39,25 @@ public class ClientAdressePK implements Serializable {
 		this.idAdresse = idAdresse;
 	}
 
-	public boolean equals(Object other) {
-		if (this == other) {
-			return true;
-		}
-		if (!(other instanceof ClientAdressePK)) {
-			return false;
-		}
-		ClientAdressePK castOther = (ClientAdressePK)other;
-		return 
-			(this.idClient == castOther.idClient)
-			&& (this.idAdresse == castOther.idAdresse);
-	}
+//	public boolean equals(Object other) {
+//		if (this == other) {
+//			return true;
+//		}
+//		if (!(other instanceof ClientAdressePK)) {
+//			return false;
+//		}
+//		ClientAdressePK castOther = (ClientAdressePK)other;
+//		return 
+//			(this.idClient == castOther.idClient)
+//			&& (this.idAdresse == castOther.idAdresse);
+//	}
 
-	public int hashCode() {
-		final int prime = 31;
-		int hash = 17;
-		hash = hash * prime + this.idClient;
-		hash = hash * prime + this.idAdresse;
-		
-		return hash;
+//	public int hashCode() {
+//		final int prime = 31;
+//		int hash = 17;
+//		hash = hash * prime + this.idClient;
+//		hash = hash * prime + this.idAdresse;
+//		
+//		return hash;
+//	}
 	}
-}*/

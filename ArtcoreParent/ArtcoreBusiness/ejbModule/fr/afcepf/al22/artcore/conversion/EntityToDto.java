@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
+import org.jboss.logging.Logger;
+
 import fr.afcepf.al22.artcore.businessinterfaces.IEntityToDto;
 import fr.afcepf.al22.artcore.dto.DtoAdmin;
 import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoCategorie;
 import fr.afcepf.al22.artcore.dto.DtoCivilite;
 import fr.afcepf.al22.artcore.dto.DtoClient;
+import fr.afcepf.al22.artcore.dto.DtoClientAdressePK;
 import fr.afcepf.al22.artcore.dto.DtoCommande;
 import fr.afcepf.al22.artcore.dto.DtoEvaluationProduit;
 import fr.afcepf.al22.artcore.dto.DtoFacture;
@@ -32,6 +35,7 @@ import fr.afcepf.al22.artcore.entities.Adresse;
 import fr.afcepf.al22.artcore.entities.Categorie;
 import fr.afcepf.al22.artcore.entities.Civilite;
 import fr.afcepf.al22.artcore.entities.Client;
+import fr.afcepf.al22.artcore.entities.ClientAdressePK;
 import fr.afcepf.al22.artcore.entities.Commande;
 import fr.afcepf.al22.artcore.entities.EvaluationProduit;
 import fr.afcepf.al22.artcore.entities.Facture;
@@ -49,6 +53,7 @@ import fr.afcepf.al22.artcore.entities.Utilisateur;
 import fr.afcepf.al22.artcore.entities.Ville;
 @Stateless
 public class EntityToDto implements IEntityToDto {
+	private Logger log = Logger.getLogger(this.getClass());
 	
 	/**
 	 * Méthode qui convertit un {@link Admin} en {@link DtoAdmin}.
@@ -111,36 +116,70 @@ public class EntityToDto implements IEntityToDto {
 	 */
 	//TODO recuperer les autres tableaux
 	public DtoClient toDto (Client client) {
-		
-		
+		log.debug("EntityToDto : On rentre dans la méthode toDto(client).");
 		List<Adresse> listeAdresse = client.getAdresses();
-		
-
 		List<DtoAdresse> listeDtoAdresse = new ArrayList<DtoAdresse>() ;
-		
-		
 		if (listeAdresse != null) {
+			log.debug("EntityToDto : On rentre dans le if : la liste d'adresses du client n'est pas nulle.");
 			for (int i = 0; i < listeAdresse.size(); i++) {
 				listeDtoAdresse.add(toDto(listeAdresse.get(i)));	
-				
 			}	
 		}
 		
+		log.debug("EntityToDto : Ce serait pas mal d'insérer des adresses et non des dtoAdresses...");
 		
+		log.debug("EntityToDto : Maintenant on trasforme les adresses du client.");
+//		DtoClient dto = new DtoClient(
+//				client.getIdClient(),
+//				client.getDateFinActivite(),
+//				client.getDateNaissance(),
+//				toDto(client.getCivilite()), 
+//				toDto(client.getProfessionnel()),
+//				toDto(client.getUtilisateur()),
+//				client.getMailClient(),
+//				client.getNomClient(),
+//				client.getPrenomClient(),
+//				client.getTelClient(),
+//				listeDtoAdresse
+//				);
+		List<DtoAdresse> listeAdrDto = new ArrayList<>();
+				for (Adresse adresse : client.getAdresses()) {
+					DtoAdresse dto = toDto(adresse);
+					listeAdrDto.add(dto);
+				}
+		log.debug("EntityToDto : Maintenant on trasforme le client.");
+		log.debug("EntityToDto : L'id du client à transformer est " + client.getIdClient());
+		log.debug("EntityToDto : La date de fin d'activite du client à transformer est " + client.getDateFinActivite());
+		log.debug("EntityToDto : La date de naissance du client à transformer est " + client.getDateNaissance());
+		log.debug("EntityToDto : La civilite du client à transformer est " + client.getCivilite().getLibelleCivilite());
+		log.debug("EntityToDto : L'utilisateur du client à transformer est " + client.getUtilisateur());
+		log.debug("EntityToDto : Le mail du client à transformer est " + client.getMailClient());
+		log.debug("EntityToDto : Le nom du client à transformer est " + client.getNomClient());
+		log.debug("EntityToDto : Le prenom du client à transformer est " + client.getPrenomClient());
+		log.debug("EntityToDto : Le tel du client à transformer est " + client.getTelClient());
 		
+		log.debug("EntityToDto : Puisque ce n'est pas les données du client qui buggent, j'essaye les conversions en dto :");
+		
+		log.debug("EntityToDto : conversion de la civilité :");
+//		DtoCivilite civilDto = toDto(client.getCivilite());
+//		log.debug("EntityToDto : le dtocivilité est : " + civilDto.getLibelleCivilite());
+		log.debug("EntityToDto : conversion de l'utilisateur :");
+//		DtoUtilisateur utilDto = toDto(client.getUtilisateur());
+//		log.debug("EntityToDto : le dtoutilisateur est : " + utilDto );
+		log.debug("EntityToDto : Et maintenant on fait le constructeur :");
 		DtoClient dto = new DtoClient(
-				client.getIdClient(),
-				client.getDateFinActivite(),
+				client.getIdClient(), 
+				client.getDateFinActivite(), 
 				client.getDateNaissance(),
-				toDto(client.getCivilite()), 
-				toDto(client.getProfessionnel()),
-				toDto(client.getUtilisateur()),
-				client.getMailClient(),
-				client.getNomClient(),
-				client.getPrenomClient(),
-				client.getTelClient(),
-				listeDtoAdresse
-				);
+				toDto(client.getCivilite()),
+//				toDto(client.getUtilisateur()),
+				null,
+				client.getMailClient(), 
+				client.getNomClient(), 
+				client.getPrenomClient(), 
+				client.getTelClient(), 
+				listeAdrDto);
+		log.debug("EntityToDto : Et on s'apprête à sortir de la methode toDto(client).");
 		return dto;
 		
 		/*
@@ -149,6 +188,14 @@ public class EntityToDto implements IEntityToDto {
 		String mailClient, String nomClient, String prenomClient,
 		String telClient, List<DtoAdresse> adresses) {
 		*/
+	}
+	
+	@Override
+	public DtoClientAdressePK toDto(ClientAdressePK cliAdr) {
+		DtoClientAdressePK dto = new DtoClientAdressePK(
+				cliAdr.getIdClient(), 
+				cliAdr.getIdAdresse());
+		return dto;
 	}
 	
 	/**
@@ -301,10 +348,13 @@ public class EntityToDto implements IEntityToDto {
 	 * @return
 	 */
 	public DtoProfessionnel toDto (Professionnel pro) {
-		DtoProfessionnel dto = new DtoProfessionnel(
-				pro.getIdProfessionnel(),
-				pro.getNumSiret());
-		return dto;
+		log.debug("EntityToDto : On rentre dans la methode toDto(professionnel).");
+//		DtoProfessionnel dto = new DtoProfessionnel(
+//				pro.getIdProfessionnel(),
+//				pro.getNumSiret());
+		log.debug("EntityToDto : On sort de la methode toDto(professionnel).");
+//		return dto;
+		return null;
 	}
 	
 	/**
@@ -368,5 +418,7 @@ public class EntityToDto implements IEntityToDto {
 				v.getInsee());
 		return dto;
 	}
+
+
 
 }

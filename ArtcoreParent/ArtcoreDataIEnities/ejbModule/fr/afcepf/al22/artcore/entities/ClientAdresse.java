@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * The persistent class for the client_adresse database table.
  * 
- *//*
+ */
 @Entity
 @Table(name="client_adresse")
 @NamedQuery(name="ClientAdresse.findAll", query="SELECT c FROM ClientAdresse c")
@@ -41,4 +41,4 @@ public class ClientAdresse implements Serializable {
 		this.adresse = adresse;
 	}
 
-}*/
+}
