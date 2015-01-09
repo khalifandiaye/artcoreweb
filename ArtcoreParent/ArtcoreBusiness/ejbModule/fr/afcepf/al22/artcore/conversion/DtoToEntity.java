@@ -112,17 +112,35 @@ public class DtoToEntity implements IDtoToEntity {
 	 * @param dto
 	 */
 	public Client toJpa (DtoClient dto) {
+		log.debug("DtoToEntity : On rentre dans tiJpa de client.");
+		log.debug("DtoToEntity : On crée le client.");
 		Client c = new Client();
+		log.debug("DtoToEntity : On rentre ses données.");
+		log.debug("DtoToEntity : On rentre ses données : son id");
 		c.setIdClient(dto.getIdClient());
+		log.debug("DtoToEntity : On rentre ses données : sa date de fin d'activite");
 		c.setDateFinActivite(dto.getDateFinActivite());
+		log.debug("DtoToEntity : On rentre ses données : sa date de naissance");
 		c.setDateNaissance(dto.getDateNaissance());
+		log.debug("DtoToEntity : On rentre ses données : sa civilite");
 		c.setCivilite(toJpa(dto.getCivilite()));
-		c.setProfessionnel(toJpa(dto.getProfessionnel()));
-		c.setUtilisateur(toJpa(dto.getUtilisateur()));
+		log.debug("DtoToEntity : On rentre ses données : son id professionnel");
+//		c.setProfessionnel(toJpa(dto.getProfessionnel()));
+		log.debug("DtoToEntity : On rentre ses données : son id utilisateur");
+		if (dto.getUtilisateur() != null) {
+			c.setUtilisateur(toJpa(dto.getUtilisateur()));
+		}
+		log.debug("DtoToEntity : On rentre ses données : son mail");
 		c.setMailClient(dto.getMailClient());
+		log.debug("DtoToEntity : On rentre ses données : son nom");
 		c.setNomClient(dto.getNomClient());
+		log.debug("DtoToEntity : On rentre ses données : son prenom");
 		c.setPrenomClient(dto.getPrenomClient());
-		c.setTelClient(dto.getTelClient());
+		log.debug("DtoToEntity : On rentre ses données : son tel");
+		if (dto.getTelClient() != null) {
+			c.setTelClient(dto.getTelClient());
+		}
+		log.debug("DtoToEntity : On sort de tiJpa de client.");
 		//TODO faire le lien avec adresse
 		return c;
 	}

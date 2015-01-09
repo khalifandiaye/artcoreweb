@@ -143,6 +143,8 @@ public class EntityToDto implements IEntityToDto {
 //				listeDtoAdresse
 //				);
 		List<DtoAdresse> listeAdrDto = new ArrayList<>();
+		log.debug("EntityToDto : aderesses " + client);
+		log.debug("EntityToDto : aderesses " + client.getAdresses());
 				for (Adresse adresse : client.getAdresses()) {
 					DtoAdresse dto = toDto(adresse);
 					listeAdrDto.add(dto);

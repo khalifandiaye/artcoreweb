@@ -155,20 +155,22 @@ public class ConnexionManagedBean {
 			
 			}
 			else if (paramUtil.getRole().getIdRole() == 4){
-				
+			log.debug("mbConnexion : je rentre bien dans le else if c'est un client ????????????");
 			dtoClient = buConnexion.recupererClient(paramUtil);	
 				pageForward = "/index.jsf?faces-redirect=true";
-
+				log.debug("mbConnexion : on a fait le forward. ");
 			for (int i = 0; i < dtoClient.getAdresses().size() ; i++) {
-			
+				log.debug("mbConnexion : on est dans le for ; i = " + i);
 				log.debug(dtoClient.getAdresses().get(i).getLibelleAdresse());
 				log.debug(dtoClient.getAdresses().get(i).getVille().getCommune());	
 				log.debug(dtoClient.getAdresses().get(i).getVille().getCodePostal());			
 				log.debug(dtoClient.getAdresses().get(i).getPays().getLibellePays());
 			}
+			log.debug("mbConnexion : on est sorti du for");
 
 						
 			}
+			log.debug("mbConnexion : on est sortis du if.");
 			
 	}
 		log.debug("HELLLLP");
