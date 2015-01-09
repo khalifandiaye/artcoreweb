@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<ui:composition
+   xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+    template="/templateAdmin.xhtml">
+
+<ui:define name="titre">Modification produit</ui:define> 
+
+<ui:define name="css">   
+<link href="web/css/layoutpie.css" rel="stylesheet" type="text/css" media="all" />
+<link href="web/css/catalogueAdmin.css" rel="stylesheet" type="text/css" media="all" />
+</ui:define>
+
+<ui:define name="scripts">   
+	
+ </ui:define>
+    
+<ui:define name="content"> <!-- Ca, ça veut dire qu'on commence le contenu, c'est bien ça ? -->
+<aside id="sidebar" class="column">
+		
+		
+		<h3>Gestion du site </h3>
+		<ul class="toggle">
+			<li class="icn_folder"><a href="catalogueAdmin.jsf">Afficher le catalogue</a></li>
+			<li class="icn_new_article"><a href="ajoutProduitAdmin.jsf">Ajouter un nouvel article</a></li>
+			<li class="icn_edit_article"><a href="catalogueAdmin.jsf">Modifier un article</a></li>
+			<li class="icn_categories"><a href="catalogueAdmin.jsf">Supprimer un article</a></li>
+		</ul>
+		<h3>Utilisateurs</h3>
+		<ul class="toggle">
+			<li class="icn_add_user"><a href="#">Créer un compte administrateur</a></li>
+			<li class="icn_view_users"><a href="#">Créer un compte client</a></li>
+			<li class="icn_photo"><a href="#">Afficher la liste des utilisateurs</a></li>
+		</ul>
+		<h3>Administration</h3>
+		<ul class="toggle">
+			<li class="icn_settings"><a href="#">Afficher la liste des commandes client</a></li>
+			<li class="icn_audio"><a href="#">Ecrire un message sur la page d'accueil</a></li>
+			<li class="icn_tags"><a href="#">Envoyer un mail à une liste de clients</a></li>	
+		</ul>
+		<h3>Compte</h3> 
+		<ul class="toggle">
+			<li class="icn_profile"><a href="#">Modifier mon compte</a></li>
+			<li class="icn_security"><a href="#">Options</a></li>
+			<li class="icn_jump_back"><h:form id="deconnexionsidebar">
+			<h:commandLink action="#{mbConnexion.deconnexion()}" value="Déconnexion" />
+						</h:form></li>  
+		</ul>
+		
+		<footer>
+			<hr />
+		<div class="enbas">	<p><strong>Copyright &copy; 2014 La licorne</strong></p></div>
+		</footer>
+	</aside><!-- end of sidebar -->
+	
+	<section id="main" class="column">
+			
+		<div style="margin-top: 5%;">
+<h:form>
+<div class="wrap">
+
+	<div class="menuRecherche" >
+	</div>
+
+	<div class="catalogue">
+		<div class="selection">
+		<h1>Modifier un produit</h1>
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Libelle du produit" />
+		<h:inputText value="#{mbCatalogue.produit.libelleProduit}" />
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Nom de l'artiste" />
+		<h:inputText value="#{mbCatalogue.produit.nomArtiste}" />
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Categorie du produit" />
+		<h:selectOneMenu styleClass="select" id="itemCat" value="#{mbCatalogue.intModifCategorie}" >
+			<f:selectItems value="#{mbCatalogue.listeCategories}" var="categorie"
+			itemValue="#{categorie.idCategorie}" itemLabel="#{categorie.libelleCategorie}" />
+		</h:selectOneMenu>
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Description du produit" />
+		<h:inputText value="#{mbCatalogue.produit.descriptionProduit}" />
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Prix du produit" />
+		<h:inputText value="#{mbCatalogue.produit.prixProduit}" />
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Format du produit" />
+		<h:selectOneMenu styleClass="select" id="itemFormat" value="#{mbCatalogue.intModifFormat}" >
+			<f:selectItems value="#{mbCatalogue.listeFormats}" var="format"
+			itemValue="#{format.idFormat}" itemLabel="#{format.libelleFormat}" />
+		</h:selectOneMenu>
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Stock du produit" />
+		<h:inputText value="#{mbCatalogue.produit.stock}" />
+		</div>
+		<div class="selection">
+		<h:outputLabel value="Image du produit" />
+		<h:inputText value="#{mbCatalogue.produit.imageProduit}" />
+		</div>
+		<div class="selection">
+			<h:commandButton styleClass="button" value="Modifier" 
+					action="#{mbCatalogue.modifProduit()}" />
+		</div>
+		
+	</div>
+
+</div>
+</h:form>
+</div>
+</section>
+
+</ui:define>
+</ui:composition>
