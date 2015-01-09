@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="DataArtcore">
+	<jta-data-source>java:jboss/datasources/artcore</jta-data-source>
+		<class>fr.afcepf.al22.artcore.entities.Admin</class> 
+		<class>fr.afcepf.al22.artcore.entities.Adresse</class> 
+		<class>fr.afcepf.al22.artcore.entities.Categorie</class>
+		<class>fr.afcepf.al22.artcore.entities.Civilite</class>
+		<class>fr.afcepf.al22.artcore.entities.Client</class>
+		<class>fr.afcepf.al22.artcore.entities.Commande</class>
+		<class>fr.afcepf.al22.artcore.entities.EvaluationProduit</class>
+		<class>fr.afcepf.al22.artcore.entities.Facture</class>
+		<class>fr.afcepf.al22.artcore.entities.Format</class>
+		<class>fr.afcepf.al22.artcore.entities.Fournisseur</class>
+		<class>fr.afcepf.al22.artcore.entities.LigneDeCommande</class>
+		<class>fr.afcepf.al22.artcore.entities.ModeDePaiement</class>
+		<class>fr.afcepf.al22.artcore.entities.Produit</class>
+		<class>fr.afcepf.al22.artcore.entities.Professionnel</class>
+		<class>fr.afcepf.al22.artcore.entities.Role</class>
+		<class>fr.afcepf.al22.artcore.entities.Theme</class>
+		<class>fr.afcepf.al22.artcore.entities.Tva</class>
+		<class>fr.afcepf.al22.artcore.entities.Utilisateur</class>
+		<class>fr.afcepf.al22.artcore.entities.Ville</class>
+		<class>fr.afcepf.al22.artcore.entities.Pays</class>
+		<properties>
+	    <property name="hibernate.show_sql" value="true"/>
+	    <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/> 
+	    </properties>
+	   </persistence-unit>
+</persistence>

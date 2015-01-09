@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/templateAccueil.xhtml">
+
+	<!--  verifier le titre  -->
+	<!--  **************************************** -->
+	<ui:define name="titre">Fin </ui:define>
+
+
+	<ui:define name="css">
+		<link href="web/css/style.css" rel="stylesheet" type="text/css"
+			media="all" />
+		<link
+			href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800'
+			rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="web/css/afficherPanier.css" />
+		<style type="text/css">
+	
+#groovy {
+	margin-top: 1%;
+	float: left;
+	color:rgb(175,20,30); 
+	padding: 25px;
+	font-family: 'Bodoni MT', Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+	font-size: 30px;
+	width: 50%;
+}
+
+</style>
+	</ui:define>
+	
+
+	<ui:define name="scripts">
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+			
+	</ui:define>
+	
+
+	<ui:define name="content">
+	<f:view>
+			<div style="">
+				<center><h1 id="groovy" ><h:outputLabel value="#{mbConfirmerCmd.message}" /></h1></center> 
+					
+				
+			</div>
+		</f:view>
+		
+		
+
+
+
+	</ui:define>
+</ui:composition>
