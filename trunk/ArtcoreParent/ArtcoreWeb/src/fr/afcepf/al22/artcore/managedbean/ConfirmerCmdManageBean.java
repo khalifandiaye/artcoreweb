@@ -1,5 +1,6 @@
 package fr.afcepf.al22.artcore.managedbean;
 
+import java.awt.color.CMMException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,8 @@ public class ConfirmerCmdManageBean {
 	
 	@ManagedProperty(value="#{mbPanier}")
 	private PanierManagedBean mbpanier;
-	@ManagedProperty(value="#{mbConnexion.dtoClient}")
-	private DtoClient dtoClient;
+	@ManagedProperty(value="#{mbConnexion}")
+	private ConnexionManagedBean cnxmb;
 	
 	@ManagedProperty(value="#{mbPanier.panier}")
 	private List<BlocProduitDto> panier;
@@ -112,20 +113,20 @@ public class ConfirmerCmdManageBean {
 		this.daoCommande = daoCommande;
 	}
 
+	public ConnexionManagedBean getCnxmb() {
+	    return cnxmb;
+	}
+
+	public void setCnxmb(ConnexionManagedBean cnxmb) {
+	    this.cnxmb = cnxmb;
+	}
+
 	public List<BlocProduitDto> getPanier() {
 		return panier;
 	}
 
 	public void setPanier(List<BlocProduitDto> panier) {
 		this.panier = panier;
-	}
-
-	public DtoClient getDtoClient() {
-		return dtoClient;
-	}
-
-	public void setDtoClient(DtoClient dtoClient) {
-		this.dtoClient = dtoClient;
 	}
 
 	
@@ -177,13 +178,13 @@ public class ConfirmerCmdManageBean {
 			listeProduit.add(convertPanierProduitCommande(blocProduitDto));
 		}
 
-		dateNaissance = sdf.format(dtoClient.getDateNaissance());
+		dateNaissance = sdf.format(cnxmb.getDtoClient().getDateNaissance());
 		log.debug("On appel le WebService Orchestration ");
-		log.debug("nom "+dtoClient.getNomClient()+" prenom "+dtoClient.getPrenomClient());
+		log.debug("nom "+cnxmb.getDtoClient().getPrenomClient()+" prenom "+cnxmb.getDtoClient().getPrenomClient());
 		log.debug(" date "+dateNaissance+" numCarte "+numeroCarteDuClient);
 		
-		CheckResultProduitCommande validation = verifWS.getVerifCommandeImplPort().verifCommande(dtoClient.getNomClient(),
-												dtoClient.getPrenomClient(),dateNaissance ,
+		CheckResultProduitCommande validation = verifWS.getVerifCommandeImplPort().verifCommande(cnxmb.getDtoClient().getNomClient(),
+			cnxmb.getDtoClient().getPrenomClient(),dateNaissance ,
 												numeroCarteDuClient, listeProduit);
 
 		log.debug("Retour Appel WS Validation commande *******************");
@@ -235,7 +236,7 @@ public class ConfirmerCmdManageBean {
 		boolean result=true;
 		
 		String redirection = validerCmd();
-		if (redirection!= "") {
+		if (!redirection.equals("")) {
 			return redirection;
 		}
 		
@@ -243,7 +244,7 @@ public class ConfirmerCmdManageBean {
 		log.debug("confirmation du panier");
 
 		if (mdp > 0) {
-			result=daoCommande.validerCmd(panier, mdp, dtoClient,daoCommande.rechercherAdresse(adrLivraison));
+			result=daoCommande.validerCmd(panier, mdp, cnxmb.getDtoClient(),daoCommande.rechercherAdresse(adrLivraison));
 			log.debug("retour du dao result = "+result);
 			if (result) {
 				mbpanier.reinitPanier();

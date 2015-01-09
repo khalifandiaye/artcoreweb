@@ -69,7 +69,7 @@
     <li class="cart-item">
         	<h:outputLabel value="Nom : " />
         	<span class="cart-item-desc">
-        	<h:outputText value="#{mbConfirmerCmd.dtoClient.civilite.libelleCivilite} #{mbConfirmerCmd.dtoClient.prenomClient}  #{mbConfirmerCmd.dtoClient.nomClient}" />
+        	<h:outputText value="#{mbConnexion.dtoClient.civilite.libelleCivilite} #{mbConnexion.dtoClient.prenomClient}  #{mbConnexion.dtoClient.nomClient}" />
         	
         	</span>
         	<span>
@@ -77,7 +77,7 @@
        		<section class="selection">
 						<h:selectOneMenu styleClass="select" id="itemCat" value="#{mbConfirmerCmd.adrLivraison}" >
 							<f:selectItem itemvalue="0" itemLabel="choisir une adresse de livraison" />
-							<f:selectItems value="#{mbConfirmerCmd.dtoClient.adresses}" var="adresse"
+							<f:selectItems value="#{mbConnexion.dtoClient.adresses}" var="adresse"
 							itemValue="#{adresse.idAdresse}" itemLabel="#{adresse.libelleAdresse} #{adresse.ville.codePostal} #{adresse.ville.commune} "  />
 						</h:selectOneMenu>
 			</section>
@@ -102,12 +102,12 @@
       </li>
     </ul>
     <div class="cart-bottom">
-   <h:panelGroup rendered="#{!empty mbConfirmerCmd.dtoClient}">
+   <h:panelGroup rendered="#{!empty mbConnexion.dtoClient}">
    	<h:panelGroup rendered="#{!empty mbPanier.panier}">
-   	<h:commandLink action="#{mbConfirmerCmd.confirmerCmd()}" value="Confirmer" styleClass="cart-button" rendered="#{!empty mbConfirmerCmd.dtoClient}"/>
+   	<h:commandLink action="#{mbConfirmerCmd.confirmerCmd()}" value="Confirmer" styleClass="cart-button" rendered="#{!empty mbConnexion.dtoClient}"/>
    	</h:panelGroup>
    </h:panelGroup>
-      <h:commandLink action="#{mbConfirmerCmd.connexion()}" value="Se connecter pour valider" styleClass="cart-button" rendered="#{empty mbConfirmerCmd.dtoClient}"/>
+      <h:commandLink action="#{mbConfirmerCmd.connexion()}" value="Se connecter pour valider" styleClass="cart-button" rendered="#{empty mbConnexion.dtoClient}"/>
     </div>
   	</div>
    </h:form>
