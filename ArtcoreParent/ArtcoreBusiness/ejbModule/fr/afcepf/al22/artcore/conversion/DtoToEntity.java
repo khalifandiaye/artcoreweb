@@ -12,7 +12,6 @@ import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoCategorie;
 import fr.afcepf.al22.artcore.dto.DtoCivilite;
 import fr.afcepf.al22.artcore.dto.DtoClient;
-import fr.afcepf.al22.artcore.dto.DtoClientAdressePK;
 import fr.afcepf.al22.artcore.dto.DtoCommande;
 import fr.afcepf.al22.artcore.dto.DtoEvaluationProduit;
 import fr.afcepf.al22.artcore.dto.DtoFacture;
@@ -128,18 +127,8 @@ public class DtoToEntity implements IDtoToEntity {
 		return c;
 	}
 	
-	@Override
-	public ClientAdressePK toJpa(DtoClientAdressePK dto) {
-		ClientAdressePK cliAdr= new ClientAdressePK();
-		cliAdr.setIdClient(dto.getIdClient());
-		cliAdr.setIdAdresse(dto.getIdAdresse());
-		return cliAdr;
-	}
 	
-	/**
-	 * M�thode qui convertit une {@link DtoCommande} en {@link Commande}.
-	 * @param dto
-	 */
+	
 	public Commande toJpa (DtoCommande dto) {
 		Commande c = new Commande();
 		log.debug( "l id de la ccommande est :"+ dto.getIdCommande()+ " "+ dto.getPrixTotal()+ " "+ dto.getAdresseClient());

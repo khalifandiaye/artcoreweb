@@ -8,7 +8,6 @@ import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoCategorie;
 import fr.afcepf.al22.artcore.dto.DtoCivilite;
 import fr.afcepf.al22.artcore.dto.DtoClient;
-import fr.afcepf.al22.artcore.dto.DtoClientAdressePK;
 import fr.afcepf.al22.artcore.dto.DtoCommande;
 import fr.afcepf.al22.artcore.dto.DtoEvaluationProduit;
 import fr.afcepf.al22.artcore.dto.DtoFacture;
@@ -92,12 +91,7 @@ public interface IDtoToEntity {
 	 * @param dto
 	 * @return
 	 */
-	public ClientAdressePK toJpa (DtoClientAdressePK dto);
 	
-	/**
-	 * M�thode qui convertit une {@link DtoCommande} en {@link Commande}.
-	 * @param dto
-	 */
 	public Commande toJpa (DtoCommande dto) ;
 	
 	/**

@@ -14,7 +14,7 @@ import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoCategorie;
 import fr.afcepf.al22.artcore.dto.DtoCivilite;
 import fr.afcepf.al22.artcore.dto.DtoClient;
-import fr.afcepf.al22.artcore.dto.DtoClientAdressePK;
+
 import fr.afcepf.al22.artcore.dto.DtoCommande;
 import fr.afcepf.al22.artcore.dto.DtoEvaluationProduit;
 import fr.afcepf.al22.artcore.dto.DtoFacture;
@@ -190,13 +190,7 @@ public class EntityToDto implements IEntityToDto {
 		*/
 	}
 	
-	@Override
-	public DtoClientAdressePK toDto(ClientAdressePK cliAdr) {
-		DtoClientAdressePK dto = new DtoClientAdressePK(
-				cliAdr.getIdClient(), 
-				cliAdr.getIdAdresse());
-		return dto;
-	}
+	
 	
 	/**
 	 * M�thode qui convertit une {@link Commande} en {@link DtoCommande}.
