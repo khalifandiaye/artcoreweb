@@ -1,7 +1,9 @@
 package fr.afcepf.al22.artcore.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -25,11 +27,11 @@ public class Utilisateur implements Serializable {
 	private String motDePasse;
 
 	//bi-directional many-to-one association to Admin
-	@OneToMany(mappedBy="utilisateur")
+	@OneToMany(mappedBy="utilisateur", cascade = CascadeType.ALL)
 	private List<Admin> admins;
 
 	//bi-directional many-to-one association to Client
-	@OneToMany(mappedBy="utilisateur")
+	@OneToMany(mappedBy="utilisateur", cascade = CascadeType.ALL)
 	private List<Client> clients;
 
 	//bi-directional many-to-one association to Role
