@@ -41,7 +41,7 @@ public class Client implements Serializable {
 	private String telClient;
 
 	//bi-directional many-to-many association to Adresse
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 		name="client_adresse"
 		, joinColumns={

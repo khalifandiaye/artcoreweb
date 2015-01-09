@@ -1,7 +1,10 @@
 package fr.afcepf.al22.artcore.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -38,7 +41,7 @@ public class Adresse implements Serializable {
 
 	//bi-directional many-to-many association to Client
 	@ManyToMany(mappedBy="adresses")
-	private List<Client> clients;
+	private List<Client> clients = new ArrayList<>();
 
 	//bi-directional many-to-one association to Fournisseur
 	@OneToMany(mappedBy="adresse")

@@ -38,4 +38,11 @@ public class BusinessCiviliteImpl implements IBusinessCivilite {
 				}
 				
 				return liste;
-}}
+}
+	@Override
+	public DtoCivilite civiliteParId(int id) {
+		DtoCivilite civilDto = null;
+		Civilite civil = dao.civiliteParId(id);
+		civilDto = classeToDto.toDto(civil);
+		return civilDto;
+	}}

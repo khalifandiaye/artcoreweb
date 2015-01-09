@@ -8,6 +8,7 @@ import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoCategorie;
 import fr.afcepf.al22.artcore.dto.DtoCivilite;
 import fr.afcepf.al22.artcore.dto.DtoClient;
+import fr.afcepf.al22.artcore.dto.DtoClientAdressePK;
 import fr.afcepf.al22.artcore.dto.DtoCommande;
 import fr.afcepf.al22.artcore.dto.DtoEvaluationProduit;
 import fr.afcepf.al22.artcore.dto.DtoFacture;
@@ -28,6 +29,7 @@ import fr.afcepf.al22.artcore.entities.Adresse;
 import fr.afcepf.al22.artcore.entities.Categorie;
 import fr.afcepf.al22.artcore.entities.Civilite;
 import fr.afcepf.al22.artcore.entities.Client;
+import fr.afcepf.al22.artcore.entities.ClientAdressePK;
 import fr.afcepf.al22.artcore.entities.Commande;
 import fr.afcepf.al22.artcore.entities.EvaluationProduit;
 import fr.afcepf.al22.artcore.entities.Facture;
@@ -55,9 +57,18 @@ public interface IDtoToEntity {
 	
 	/**
 	 * M�thode qui convertit un {@link DtoAdresse} en {@link Adresse}.
+//	 * 08/01 : dépréciée ;-)
+//	 * Celle avec juste l'adresse est mieux.
 	 * @param dto
 	 */
 	public Adresse toJpa (DtoAdresse dto, DtoClient dtoClient) ;
+	
+//	/**
+//	 * Méthode qui convertit un {@link DtoAdresse} en {@link Adresse}.
+//	 * LA SEULE, LA VRAIE !!!
+//	 * @return
+//	 */
+//	public Adresse toJpa (DtoAdresse dto);
 	
 	/**
 	 * M�thode qui convertit un {@link DtoCategorie} en {@link Categorie}.
@@ -76,6 +87,12 @@ public interface IDtoToEntity {
 	 * @param dto
 	 */
 	public Client toJpa (DtoClient dto) ;
+	/**
+	 * Méthode qui convertit un {@link DtoClientAdressePK} en un {@link ClientAdressePK}.
+	 * @param dto
+	 * @return
+	 */
+	public ClientAdressePK toJpa (DtoClientAdressePK dto);
 	
 	/**
 	 * M�thode qui convertit une {@link DtoCommande} en {@link Commande}.

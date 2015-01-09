@@ -15,6 +15,6 @@ import fr.afcepf.al22.artcore.entities.Pays;
 public interface IBusinessPays {
 	
 	public List<DtoPays> listeTousPays () ;
-	public Pays paysParId(int id) ;
+	public DtoPays paysParId(int id) ;
 }
 
