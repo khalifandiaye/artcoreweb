@@ -2,6 +2,7 @@ package fr.afcepf.al22.artcore.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name = "commande")
 @NamedQuery(name="Commande.findAll", query="SELECT c FROM Commande c")
 public class Commande implements Serializable {
 	private static final long serialVersionUID = 1L;

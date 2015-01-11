@@ -2,6 +2,7 @@ package fr.afcepf.al22.artcore.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -10,6 +11,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name = "role")
 @NamedQuery(name="Role.findAll", query="SELECT r FROM Role r")
 public class Role implements Serializable {
 	private static final long serialVersionUID = 1L;

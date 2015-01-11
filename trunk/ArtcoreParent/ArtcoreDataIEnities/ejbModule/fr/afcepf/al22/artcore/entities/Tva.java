@@ -2,6 +2,7 @@ package fr.afcepf.al22.artcore.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name = "tva")
 @NamedQuery(name="Tva.findAll", query="SELECT t FROM Tva t")
 public class Tva implements Serializable {
 	private static final long serialVersionUID = 1L;
