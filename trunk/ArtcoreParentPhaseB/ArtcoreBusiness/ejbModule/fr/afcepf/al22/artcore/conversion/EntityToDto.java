@@ -145,10 +145,12 @@ public class EntityToDto implements IEntityToDto {
 		List<DtoAdresse> listeAdrDto = new ArrayList<>();
 		log.debug("EntityToDto : aderesses " + client);
 		log.debug("EntityToDto : aderesses " + client.getAdresses());
-				for (Adresse adresse : client.getAdresses()) {
+		if (client.getAdresses()!=null) {
+		for (Adresse adresse : client.getAdresses()) {
 					DtoAdresse dto = toDto(adresse);
 					listeAdrDto.add(dto);
-				}
+		}
+		}
 		log.debug("EntityToDto : Maintenant on trasforme le client.");
 		log.debug("EntityToDto : L'id du client à transformer est " + client.getIdClient());
 		log.debug("EntityToDto : La date de fin d'activite du client à transformer est " + client.getDateFinActivite());
@@ -200,7 +202,19 @@ public class EntityToDto implements IEntityToDto {
 	 */
 	//TODO recuperer les autres tableaux
 	public DtoCommande toDto (Commande com) {
-		DtoCommande dto = new DtoCommande(
+	    //FIXME a verifier
+	    log.debug("Trace entity to dto commande idcommande "+com.getIdCommande());
+	    log.debug("Trace entity to dto commande adresseclient "+com.getAdresseClient());
+	    log.debug("Trace entity to dto commande datecommande  "+com.getDateCommande());
+	    log.debug("Trace entity to dto commande dateLivraison "+com.getDateLivraison());
+	    log.debug("Trace entity to dto commande dateReception "+com.getDateReception());
+	    log.debug("Trace entity to dto commande fraisEnvoie "+com.getFraisEnvoi());
+	    log.debug("Trace entity to dto commande toDto(getClient) "+toDto(com.getClient() ));
+	    log.debug("Trace entity to dto commande toDto(com.getModeDePaiement()) "+toDto(com.getModeDePaiement()));
+	    log.debug("Trace entity to dto commande "+com.getNomClient());
+	    log.debug("Trace entity to dto commande "+com.getPrixTotal());
+	    log.debug("Trace entity to dto commande "+com.getVilleClient());
+	    DtoCommande dto = new DtoCommande(
 				com.getIdCommande(),
 				com.getAdresseClient(),
 				com.getDateCommande(),
@@ -213,15 +227,19 @@ public class EntityToDto implements IEntityToDto {
 				com.getPrixTotal(),
 				com.getVilleClient()
 				);
-		List<DtoLigneDeCommande> tabDto= new ArrayList<DtoLigneDeCommande>();
-		List<LigneDeCommande> tab=com.getLigneDeCommandes();
-		if(tab!=null && !tab.isEmpty()){
+	    log.debug("Creation dto ok ");
+	    List<DtoLigneDeCommande> tabDto= new ArrayList<DtoLigneDeCommande>();
+	    List<LigneDeCommande> tab=com.getLigneDeCommandes();
+	    log.debug("com.getLigneDeCommandes returns tab is null = "+tab);
+	    if(tab!=null && !tab.isEmpty()){
+		log.debug("com.getLigneDeCommandes returns tab size = "+tab.size());
 		for (LigneDeCommande ligneDeCommande : tab) {
-			tabDto.add(toDto(ligneDeCommande));
+		    tabDto.add(toDto(ligneDeCommande));
 		}
-		}
-		dto.setLigneDeCommandes(tabDto);
-		return dto;
+	    }
+	    dto.setLigneDeCommandes(tabDto);
+	    log.debug("fin toDto(Commande)");
+	    return dto;
 	}
 	
 	/**
