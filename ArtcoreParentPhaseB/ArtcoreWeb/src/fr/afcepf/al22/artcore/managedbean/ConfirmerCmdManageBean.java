@@ -166,7 +166,7 @@ public class ConfirmerCmdManageBean {
 
 	log.debug("verif alerte police");
 	if (!"".equalsIgnoreCase(validation.getAlertePolice())) {
-	    this.message = "Vous n'ête pas authorisé car vous fiche par la police pour "
+	    this.message = "Vous n'êtes pas autorisés car vous êtes fichés par la police pour "
 		    + validation.getAlertePolice();
 	    log.debug("police msg " + this.message);
 	}
@@ -222,8 +222,11 @@ public class ConfirmerCmdManageBean {
 	log.debug("confirmation du panier");
 
 	if (mdp > 0) {
-	    result = daoCommande.validerCmd(panier, mdp, mbCnx.getDtoClient(),
-		    daoCommande.rechercherAdresse(adrLivraison));
+	    log.debug(" ConfirmerCmd id adrLivraison "+adrLivraison);
+	    
+	    DtoAdresse dtoAdrLivr = daoCommande.rechercherAdresse(adrLivraison);
+	    log.debug("dao.commande recherche adresse par id to dto "+dtoAdrLivr);
+	    result = daoCommande.validerCmd(panier, mdp, mbCnx.getDtoClient(),dtoAdrLivr);
 	    log.debug("retour du dao result = " + result);
 	    if (result) {
 		mbpanier.reinitPanier();

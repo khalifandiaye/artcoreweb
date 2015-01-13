@@ -80,6 +80,7 @@ public class BusinessCommandeImpl implements IBusinessCommande {
 		.rechercherModeDePaiement(modePaiement));
 	DtoCommande dtoCmd2 = new DtoCommande();
 	dtoCmd2.setClient(dtoClient);
+	log.debug("validerCmd dtoAdresse "+dtoAdresse);
 	dtoCmd2.setAdresseClient(dtoAdresse.getLibelleAdresse() + " "
 		+ dtoAdresse.getVille().getCommune() + " "
 		+ dtoAdresse.getPays().getLibellePays());
