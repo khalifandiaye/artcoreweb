@@ -4,6 +4,7 @@ import java.awt.color.CMMException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -37,6 +38,18 @@ public class ConfirmerCmdManageBean {
 	
 	@ManagedProperty(value="#{mbPanier.panier}")
 	private List<BlocProduitDto> panier;
+	
+	
+	
+	/**
+	 * AJOUTS POUR LE BIG DATA
+	 */
+	@ManagedProperty(value="#{mbConnexion}")
+	private ConnexionManagedBean mbConnexion;
+	
+	
+	
+	
 	/**Liste des erreur de stock par produit */
 	private List<String> msgErreurStock = new ArrayList<String>();
 	
@@ -60,21 +73,7 @@ public class ConfirmerCmdManageBean {
 	@EJB
 	private IBusinessPanier gestionPanier;
 	
-	public int getAdrLivraison() {
-		return adrLivraison;
-	}
 
-	public void setAdrLivraison(int adrLivraison) {
-		this.adrLivraison = adrLivraison;
-	}
-
-	public int getMdp() {
-		return mdp;
-	}
-
-	public void setMdp(int mdp) {
-		this.mdp = mdp;
-	}
 
 	@EJB
 	private IBusinessCommande daoCommande;
@@ -82,69 +81,79 @@ public class ConfirmerCmdManageBean {
 	@EJB
 	private IBusinessRechercherProduit daoRechercheProduit;
 	
-	/**
-	 * @return the daoRechercheProduit
-	 */
-	public IBusinessRechercherProduit getDaoRechercheProduit() {
-		return daoRechercheProduit;
-	}
-
-	/**
-	 * @param daoRechercheProduit the daoRechercheProduit to set
-	 */
-	public void setDaoRechercheProduit(
-			IBusinessRechercherProduit daoRechercheProduit) {
-		this.daoRechercheProduit = daoRechercheProduit;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public IBusinessCommande getDaoCommande() {
-		return daoCommande;
-	}
-
-	public void setDaoCommande(IBusinessCommande daoCommande) {
-		this.daoCommande = daoCommande;
-	}
-
-	public ConnexionManagedBean getCnxmb() {
-	    return cnxmb;
-	}
-
-	public void setCnxmb(ConnexionManagedBean cnxmb) {
-	    this.cnxmb = cnxmb;
-	}
-
-	public List<BlocProduitDto> getPanier() {
-		return panier;
-	}
-
-	public void setPanier(List<BlocProduitDto> panier) {
-		this.panier = panier;
-	}
-
+	//méthodes
 	
-	public List<DtoModeDePaiement> getListMdp() {
-		return listMdp;
+	
+	
+	/**
+	 * Ajout méthodes pour le bid data
+	 */
+	
+	/**
+	 * Méthode qui est appelée par 
+	 * {@link public void recupeCategosEtProduitsCibles ()}.
+	 * Méthode qui récupère la catégorie du produit dès que le client 
+	 * regarde le détail de ce produit ou met le produit dans son panier.
+	 * @return le set des libelles de la categorie consultée.
+	 * ATTENTION A N'UTILISER CETTE METHODE QUE SI LE CLIENT EST CONNECTE.
+	 * TODO appeler ces deux méthodes à chaque appel du detail de produit
+	 * TODO ou d'ajout du panier.
+	 */
+	public Set<String> recupCategoriesCibles (Set<String> listeCategories, DtoProduit p) {
+		listeCategories.add(p.getCategorie().getLibelleCategorie());
+		return listeCategories;
 	}
-
-	public void setListMdp(List<DtoModeDePaiement> listMdp) {
-		this.listMdp = listMdp;
+	/**
+	 * Méthode qui est appelée par 
+	 * {@link public void recupeCategosEtProduitsCibles ()}.
+	 * Méthode qui récupère l'artiste du produit dès que le client 
+	 * regarde le détail de ce produit ou met le produit dans son panier.
+	 * @return le set du nom d'artiste consulté.
+	 * ATTENTION A N'UTILISER CETTE METHODE QUE SI LE CLIENT EST CONNECTE.
+	 */
+	public Set<String> recupArtistesCibles (Set<String> listeProduits, DtoProduit p) {
+		listeProduits.add(p.getNomArtiste());
+		return listeProduits;
 	}
 	
-	public DtoAdresse getAdresseChoisie() {
-		return adresseChoisie;
+	/**
+	 * Méthode finale qui renplit les set du client connecté en appelant les deux méthodes
+	 * {@link public Set<String> recupCategoriesCibles (Set<String> listeCategories, DtoProduit p)}
+	 * et 
+	 * {@link public Set<String> recupArtistesCibles (Set<String> listeProduits, DtoProduit p) }
+	 */
+	public void recupeCategosEtProduitsCibles (DtoProduit produit) {
+		if (mbConnexion.getDtoClient() != null) {
+			//ajout de la categorie du produit dans la set.
+			Set<String> setCatego = mbConnexion.getDtoClient().getSetCategoriesPreferees();
+			setCatego = recupCategoriesCibles(setCatego, produit);
+			mbConnexion.getDtoClient().setSetCategoriesPreferees(setCatego);
+			log.debug("mbCatalogue : Fin de l'ajout de la catégorie.");
+			//ajout du nom d'artiste dans la set.
+			Set<String> setArtiste = mbConnexion.getDtoClient().getSetArtistesPreferes();
+			setArtiste = recupArtistesCibles(setArtiste, produit);
+			mbConnexion.getDtoClient().setSetArtistesPreferes(setArtiste);
+			log.debug("mbCatalogue : Fin de l'ajout de l'artiste.");
+		}
 	}
-
-	public void setAdresseChoisie(DtoAdresse adresseChoisie) {
-		this.adresseChoisie = adresseChoisie;
+	
+	/**
+	 * Méthode qui prend un produit spécial du panier et qui remplit la set de la categorie et de l'artiste.
+	 * @param blocProduit
+	 */
+	public void remplirSetDesProduitsPanierAvantConnexion (BlocProduitDto blocProduit){
+		log.debug("mbCommande : On est passé dans la méthode pour remplir les sets");
+		recupeCategosEtProduitsCibles(blocProduit.getProduit());
+		for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
+			log.debug("mbCommande : Set catego du client après confirmation commande : " + string);
+		}
+		for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
+			log.debug("mbCommande : Set artiste du client après confirmation commande : " + string);
+		}
 	}
+	
+	
+	
 	
 	/**Convertion d'un blocProduit (Produit.getIdProduit, Quantite) vers ProduitCommande.
 	 * @param paramBlocProduit 
@@ -173,8 +182,9 @@ public class ConfirmerCmdManageBean {
 		VerifCommandeImplService verifWS = new VerifCommandeImplService();
 
 		List listeProduit = new ArrayList<ProduitCommande>();
-		log.debug("on convertie le panier");
+		log.debug("on convertit le panier");
 		for (BlocProduitDto blocProduitDto :this.mbpanier.getPanier()) {
+			remplirSetDesProduitsPanierAvantConnexion(blocProduitDto);
 			listeProduit.add(convertPanierProduitCommande(blocProduitDto));
 		}
 
@@ -275,6 +285,8 @@ public class ConfirmerCmdManageBean {
 		return pageForward;
 	}
 
+	
+	//getter setter
 	public String getNumeroCarteDuClient() {
 		return numeroCarteDuClient;
 	}
@@ -304,6 +316,89 @@ public class ConfirmerCmdManageBean {
 	public void setMsgErreurStock(List<String> msgErreurStock) {
 		this.msgErreurStock = msgErreurStock;
 	}
-	
+	public int getAdrLivraison() {
+		return adrLivraison;
+	}
 
+	public void setAdrLivraison(int adrLivraison) {
+		this.adrLivraison = adrLivraison;
+	}
+
+	public int getMdp() {
+		return mdp;
+	}
+
+	public void setMdp(int mdp) {
+		this.mdp = mdp;
+	}
+	/**
+	 * @return the daoRechercheProduit
+	 */
+	public IBusinessRechercherProduit getDaoRechercheProduit() {
+		return daoRechercheProduit;
+	}
+
+	/**
+	 * @param daoRechercheProduit the daoRechercheProduit to set
+	 */
+	public void setDaoRechercheProduit(
+			IBusinessRechercherProduit daoRechercheProduit) {
+		this.daoRechercheProduit = daoRechercheProduit;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public IBusinessCommande getDaoCommande() {
+		return daoCommande;
+	}
+
+	public void setDaoCommande(IBusinessCommande daoCommande) {
+		this.daoCommande = daoCommande;
+	}
+
+	public ConnexionManagedBean getCnxmb() {
+	    return cnxmb;
+	}
+
+	public void setCnxmb(ConnexionManagedBean cnxmb) {
+	    this.cnxmb = cnxmb;
+	}
+
+	public List<BlocProduitDto> getPanier() {
+		return panier;
+	}
+
+	public void setPanier(List<BlocProduitDto> panier) {
+		this.panier = panier;
+	}
+
+	
+	public List<DtoModeDePaiement> getListMdp() {
+		return listMdp;
+	}
+
+	public void setListMdp(List<DtoModeDePaiement> listMdp) {
+		this.listMdp = listMdp;
+	}
+	
+	public DtoAdresse getAdresseChoisie() {
+		return adresseChoisie;
+	}
+
+	public void setAdresseChoisie(DtoAdresse adresseChoisie) {
+		this.adresseChoisie = adresseChoisie;
+	}
+	public ConnexionManagedBean getMbConnexion() {
+		return mbConnexion;
+	}
+	public void setMbConnexion(ConnexionManagedBean mbConnexion) {
+		this.mbConnexion = mbConnexion;
+	}
+	
 }
