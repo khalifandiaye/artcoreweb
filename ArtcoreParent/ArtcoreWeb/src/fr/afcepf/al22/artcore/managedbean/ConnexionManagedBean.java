@@ -26,6 +26,7 @@ public class ConnexionManagedBean {
 	
 	private DtoClient dtoClient;
 	private DtoAdmin dtoAdmin;
+	
 
 	@EJB
 	public IBusinessConnexion buConnexion ;
@@ -156,7 +157,7 @@ public class ConnexionManagedBean {
 			}
 			else if (paramUtil.getRole().getIdRole() == 4){
 			log.debug("mbConnexion : je rentre bien dans le else if c'est un client ????????????");
-			dtoClient = buConnexion.recupererClient(paramUtil);	
+			dtoClient = buConnexion.recupererClient(paramUtil);
 				pageForward = "/index.jsf?faces-redirect=true";
 				log.debug("mbConnexion : on a fait le forward. ");
 			for (int i = 0; i < dtoClient.getAdresses().size() ; i++) {
@@ -204,4 +205,6 @@ public class ConnexionManagedBean {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "/index.jsf?faces-redirect=true";
 	}
+	
+	
 }

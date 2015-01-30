@@ -1,7 +1,9 @@
 package fr.afcepf.al22.artcore.managedbean;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -17,12 +19,16 @@ import org.jboss.logging.Logger;
 
 
 
+
+
+
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessCategorie;
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessFormat;
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessProduit;
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessRechercherProduit;
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessTva;
 import fr.afcepf.al22.artcore.dto.DtoCategorie;
+import fr.afcepf.al22.artcore.dto.DtoClient;
 import fr.afcepf.al22.artcore.dto.DtoFormat;
 import fr.afcepf.al22.artcore.dto.DtoProduit;
 import fr.afcepf.al22.artcore.dto.DtoUtilisateur;
@@ -82,8 +88,75 @@ public class CatalogueManagedBean {
 	 */
 	@ManagedProperty(value="#{mbPanier}")
 	public PanierManagedBean mbAjoutPanier;
+	
+	
+	
+	/**
+	 * AJOUTS POUR LE BIG DATA
+	 */
+	@ManagedProperty(value="#{mbConnexion}")
+	private ConnexionManagedBean mbConnexion;
 
 	//méthodes 
+	
+	
+	/**
+	 * Ajout méthodes pour le bid data
+	 */
+	
+	/**
+	 * Méthode qui récupère la catégorie du produit dès que le client 
+	 * regarde le détail de ce produit ou met le produit dans son panier.
+	 * @return le set des libelles de la categorie consultée.
+	 * ATTENTION A N'UTILISER CETTE METHODE QUE SI LE CLIENT EST CONNECTE.
+	 * TODO appeler ces deux méthodes à chaque appel du detail de produit
+	 * TODO ou d'ajout du panier.
+	 */
+	public Set<String> recupCategoriesCibles (Set<String> listeCategories, DtoProduit p) {
+		listeCategories.add(p.getCategorie().getLibelleCategorie());
+		return listeCategories;
+	}
+	/**
+	 * Méthode qui récupère l'artiste du produit dès que le client 
+	 * regarde le détail de ce produit ou met le produit dans son panier.
+	 * @return le set du nom d'artiste consulté.
+	 * ATTENTION A N'UTILISER CETTE METHODE QUE SI LE CLIENT EST CONNECTE.
+	 */
+	public Set<String> recupArtistesCibles (Set<String> listeProduits, DtoProduit p) {
+		listeProduits.add(p.getNomArtiste());
+		return listeProduits;
+	}
+	
+	public void recupeCategosEtProduitsCibles () {
+		if (mbConnexion.getDtoClient() != null) {
+			//ajout de la categorie du produit dans la set.
+			Set<String> setCatego = mbConnexion.getDtoClient().getSetCategoriesPreferees();
+			setCatego = recupCategoriesCibles(setCatego, produit);
+			mbConnexion.getDtoClient().setSetCategoriesPreferees(setCatego);
+			log.debug("mbCatalogue : Fin de l'ajout de la catégorie.");
+			for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
+				System.out.println("mbCatalogue : la set comprend : " + string);
+			}
+			//ajout du nom d'artiste dans la set.
+			Set<String> setArtiste = mbConnexion.getDtoClient().getSetArtistesPreferes();
+			setArtiste = recupArtistesCibles(setArtiste, produit);
+			mbConnexion.getDtoClient().setSetArtistesPreferes(setArtiste);
+			log.debug("mbCatalogue : Fin de l'ajout de l'artiste.");
+			for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
+				System.out.println("mbCatalogue : la set comprend : " + string);
+			}
+		}
+	}
+	
+	 
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Méthode qui permet d'aller vers la page de modification du produit.
 	 * @param p
@@ -125,7 +198,19 @@ public class CatalogueManagedBean {
 	 */
 	public String detailProduit(DtoProduit p) {
 		produit = p;
-		//TODO à coder ; ajouter le lien vers détailProduit
+
+		/**
+		 * Ajout de la catégorie et de l'artiste si l'utilisateur est connecté.
+		 */
+		recupeCategosEtProduitsCibles();
+		if (mbConnexion.getDtoClient() != null) {
+			for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
+				System.out.println("mbCatalogue : Set catego du client après détail : " + string);
+			}
+			for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
+				System.out.println("mbCatalogue : Set artiste du client après détail : " + string);
+			}
+		}
 		return "detailProduit.xhtml";
 	}
 	/**
@@ -138,6 +223,20 @@ public class CatalogueManagedBean {
 		//J'appelle la méthode d'Ivan qui ajoute au panier
 		//(la sienne fonctionne depuis le détail du produit,
 		//ici je la fais fonctionner du catalogue)
+		
+		/**
+		 * Ajout de la catégorie et de l'artiste si l'utilisateur est connecté.
+		 */
+		recupeCategosEtProduitsCibles();
+		if (mbConnexion.getDtoClient() != null) {
+			for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
+				System.out.println("mbCatalogue : Set catego du client après détail : " + string);
+			}
+			for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
+				System.out.println("mbCatalogue : Set artiste du client après détail : " + string);
+			}
+		}
+		
 		mbAjoutPanier.ajoutProduit(produit);
 		return"";
 		
@@ -319,6 +418,13 @@ public class CatalogueManagedBean {
 	public void setMbAjoutPanier(PanierManagedBean mbAjoutPanier) {
 		this.mbAjoutPanier = mbAjoutPanier;
 	}
+	public ConnexionManagedBean getMbConnexion() {
+		return mbConnexion;
+	}
+	public void setMbConnexion(ConnexionManagedBean mbConnexion) {
+		this.mbConnexion = mbConnexion;
+	}
+
 	
 
 }
