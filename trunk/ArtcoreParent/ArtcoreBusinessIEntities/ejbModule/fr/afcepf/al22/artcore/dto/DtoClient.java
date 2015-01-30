@@ -2,7 +2,11 @@ package fr.afcepf.al22.artcore.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import org.jboss.logging.Logger;
 
 import fr.afcepf.al22.artcore.entities.Client;
 
@@ -13,6 +17,7 @@ import fr.afcepf.al22.artcore.entities.Client;
  */
 public class DtoClient implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private Logger log = Logger.getLogger(this.getClass());
 
 	//attributes
 	private int idClient;
@@ -29,14 +34,26 @@ public class DtoClient implements Serializable {
 	private DtoUtilisateur utilisateur;
 	private List<DtoCommande> commandes;
 	private List<DtoEvaluationProduit> evaluationProduits;
+	
+	
+	/**
+	 * Rajouts pour big data :
+	 */
+	private Set<String> setCategoriesPreferees = new HashSet<>();
+	private Set<String> setArtistesPreferes = new HashSet<>();
+	
+	
 	//constructeurs
 	public DtoClient() {
+		log.debug("DtoClient : on rentre dans le constructeur vide du client.");
+		
 	}
 	public DtoClient(int idClient,  
 			DtoCivilite civilite, String mailClient, 
 			String nomClient, String prenomClient,
 			List<DtoAdresse> adresses) {
 		super();
+		log.debug("DtoClient : on rentre dans le constructeur 2 du client.");
 		this.idClient = idClient;
 		this.mailClient = mailClient;
 		this.nomClient = nomClient;
@@ -49,6 +66,7 @@ public class DtoClient implements Serializable {
 			String mailClient, String nomClient, String prenomClient,
 			String telClient) {
 		super();
+		log.debug("DtoClient : on rentre dans le constructeur 3 du client.");
 		this.idClient = idClient;
 		this.dateFinActivite = dateFinActivite;
 		this.dateNaissance = dateNaissance;
@@ -66,6 +84,7 @@ public class DtoClient implements Serializable {
 			String mailClient, String nomClient, String prenomClient,
 			String telClient, List<DtoAdresse> adresses) {
 		super();
+		log.debug("DtoClient : on rentre dans le constructeur 4 du client.");
 		this.idClient = idClient;
 		this.dateFinActivite = dateFinActivite;
 		this.dateNaissance = dateNaissance;
@@ -78,6 +97,7 @@ public class DtoClient implements Serializable {
 //		this.professionnel = professionnel;
 		this.utilisateur = utilisateur;
 	}
+	
 	//getter setter
 	public int getIdClient() {
 		return this.idClient;
@@ -169,6 +189,18 @@ public class DtoClient implements Serializable {
 	}
 	public void setEvaluationProduits(List<DtoEvaluationProduit> evaluationProduits) {
 		this.evaluationProduits = evaluationProduits;
+	}
+	public Set<String> getSetCategoriesPreferees() {
+		return setCategoriesPreferees;
+	}
+	public void setSetCategoriesPreferees(Set<String> setCategoriesPreferees) {
+		this.setCategoriesPreferees = setCategoriesPreferees;
+	}
+	public Set<String> getSetArtistesPreferes() {
+		return setArtistesPreferes;
+	}
+	public void setSetArtistesPreferes(Set<String> setArtistesPreferes) {
+		this.setArtistesPreferes = setArtistesPreferes;
 	}
 	
 
