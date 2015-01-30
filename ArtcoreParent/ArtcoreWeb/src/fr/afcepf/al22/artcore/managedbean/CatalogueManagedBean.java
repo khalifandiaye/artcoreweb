@@ -105,6 +105,8 @@ public class CatalogueManagedBean {
 	 */
 	
 	/**
+	 * Méthode qui est appelée par 
+	 * {@link public void recupeCategosEtProduitsCibles ()}.
 	 * Méthode qui récupère la catégorie du produit dès que le client 
 	 * regarde le détail de ce produit ou met le produit dans son panier.
 	 * @return le set des libelles de la categorie consultée.
@@ -117,6 +119,8 @@ public class CatalogueManagedBean {
 		return listeCategories;
 	}
 	/**
+	 * Méthode qui est appelée par 
+	 * {@link public void recupeCategosEtProduitsCibles ()}.
 	 * Méthode qui récupère l'artiste du produit dès que le client 
 	 * regarde le détail de ce produit ou met le produit dans son panier.
 	 * @return le set du nom d'artiste consulté.
@@ -127,6 +131,12 @@ public class CatalogueManagedBean {
 		return listeProduits;
 	}
 	
+	/**
+	 * Méthode finale qui renplit les set du client connecté en appelant les deux méthodes
+	 * {@link public Set<String> recupCategoriesCibles (Set<String> listeCategories, DtoProduit p)}
+	 * et 
+	 * {@link public Set<String> recupArtistesCibles (Set<String> listeProduits, DtoProduit p) }
+	 */
 	public void recupeCategosEtProduitsCibles () {
 		if (mbConnexion.getDtoClient() != null) {
 			//ajout de la categorie du produit dans la set.
