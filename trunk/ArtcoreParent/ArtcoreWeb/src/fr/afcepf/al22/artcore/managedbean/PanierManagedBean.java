@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import org.jboss.logging.Logger;
@@ -33,46 +35,66 @@ public class PanierManagedBean {
 	@EJB
 	private IBusinessPanier gestionPanier;
 	
-	public BigDecimal getPrixTotal() {
-		this.prixTotal=gestionPanier.prixTotal();
-		return prixTotal;
+	/**
+	 * AJOUTS POUR LE BIG DATA
+	 */
+	@ManagedProperty(value="#{mbConnexion}")
+	private ConnexionManagedBean mbConnexion;
+	
+	
+	/**
+	 * Ajout méthodes pour le bid data
+	 */
+	
+	/**
+	 * Méthode qui est appelée par 
+	 * {@link public void recupeCategosEtProduitsCibles ()}.
+	 * Méthode qui récupère la catégorie du produit dès que le client 
+	 * regarde le détail de ce produit ou met le produit dans son panier.
+	 * @return le set des libelles de la categorie consultée.
+	 * ATTENTION A N'UTILISER CETTE METHODE QUE SI LE CLIENT EST CONNECTE.
+	 * TODO appeler ces deux méthodes à chaque appel du detail de produit
+	 * TODO ou d'ajout du panier.
+	 */
+	public Set<String> recupCategoriesCibles (Set<String> listeCategories, DtoProduit p) {
+		listeCategories.add(p.getCategorie().getLibelleCategorie());
+		return listeCategories;
 	}
+	/**
+	 * Méthode qui est appelée par 
+	 * {@link public void recupeCategosEtProduitsCibles ()}.
+	 * Méthode qui récupère l'artiste du produit dès que le client 
+	 * regarde le détail de ce produit ou met le produit dans son panier.
+	 * @return le set du nom d'artiste consulté.
+	 * ATTENTION A N'UTILISER CETTE METHODE QUE SI LE CLIENT EST CONNECTE.
+	 */
+	public Set<String> recupArtistesCibles (Set<String> listeProduits, DtoProduit p) {
+		listeProduits.add(p.getNomArtiste());
+		return listeProduits;
+	}
+	
+	/**
+	 * Méthode finale qui renplit les set du client connecté en appelant les deux méthodes
+	 * {@link public Set<String> recupCategoriesCibles (Set<String> listeCategories, DtoProduit p)}
+	 * et 
+	 * {@link public Set<String> recupArtistesCibles (Set<String> listeProduits, DtoProduit p) }
+	 */
+	public void recupeCategosEtProduitsCibles () {
+		if (mbConnexion.getDtoClient() != null) {
+			//ajout de la categorie du produit dans la set.
+			Set<String> setCatego = mbConnexion.getDtoClient().getSetCategoriesPreferees();
+			setCatego = recupCategoriesCibles(setCatego, produitEnCours);
+			mbConnexion.getDtoClient().setSetCategoriesPreferees(setCatego);
+			log.debug("mbCatalogue : Fin de l'ajout de la catégorie.");
+			//ajout du nom d'artiste dans la set.
+			Set<String> setArtiste = mbConnexion.getDtoClient().getSetArtistesPreferes();
+			setArtiste = recupArtistesCibles(setArtiste, produitEnCours);
+			mbConnexion.getDtoClient().setSetArtistesPreferes(setArtiste);
+			log.debug("mbCatalogue : Fin de l'ajout de l'artiste.");
+		}
+	}
+	
 
-	public void setPrixTotal(BigDecimal prixTotal) {
-		this.prixTotal = prixTotal;
-	}
-
-	public List<BlocProduitDto> getPanier() {
-		return panier;
-	}
-
-	public DtoProduit getProduitEnCours() {
-		return produitEnCours;
-	}
-
-	public void setProduitEnCours(DtoProduit produitEnCours) {
-		this.produitEnCours = produitEnCours;
-	}
-
-	public void setPanier(List<BlocProduitDto> panier) {
-		this.panier = panier;
-	}
-
-	public int getQuantite() {
-		return quantite;
-	}
-
-	public void setQuantite(int quantite) {
-		this.quantite = quantite;
-	}
-
-	public IBusinessPanier getGestionPanier() {
-		return gestionPanier;
-	}
-
-	public void setGestionPanier(IBusinessPanier gestionPanier) {
-		this.gestionPanier = gestionPanier;
-	}
 
 	public String recupPanier() {
 		this.panier = gestionPanier.getListBlocProduit();
@@ -126,6 +148,18 @@ public class PanierManagedBean {
 		loggerPanier();
 		quantite++;
 		log.debug("IL Y A " + quantite + " ARTICLES DANS LE PANIER.");
+		/**
+		 * Ajout de la catégorie et de l'artiste si l'utilisateur est connecté.
+		 */
+		recupeCategosEtProduitsCibles();
+		if (mbConnexion.getDtoClient() != null) {
+			for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
+				log.debug("mbPanier : Set catego du client après ajout : " + string);
+			}
+			for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
+				log.debug("mbPanier : Set artiste du client après ajout : " + string);
+			}
+		}
 		return "/catalogue.jsf?faces-redirect=true";
 	}
 	public String prixTotalString(){
@@ -204,6 +238,56 @@ public class PanierManagedBean {
 		}
 			log.debug("Prix total=" +gestionPanier.prixTotal());
 		}
-		
 	}
+	
+	
+	//getter setter
+	public BigDecimal getPrixTotal() {
+		this.prixTotal=gestionPanier.prixTotal();
+		return prixTotal;
+	}
+
+	public void setPrixTotal(BigDecimal prixTotal) {
+		this.prixTotal = prixTotal;
+	}
+
+	public List<BlocProduitDto> getPanier() {
+		return panier;
+	}
+
+	public DtoProduit getProduitEnCours() {
+		return produitEnCours;
+	}
+
+	public void setProduitEnCours(DtoProduit produitEnCours) {
+		this.produitEnCours = produitEnCours;
+	}
+
+	public void setPanier(List<BlocProduitDto> panier) {
+		this.panier = panier;
+	}
+
+	public int getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
+	public IBusinessPanier getGestionPanier() {
+		return gestionPanier;
+	}
+
+	public void setGestionPanier(IBusinessPanier gestionPanier) {
+		this.gestionPanier = gestionPanier;
+	}
+	public ConnexionManagedBean getMbConnexion() {
+		return mbConnexion;
+	}
+	public void setMbConnexion(ConnexionManagedBean mbConnexion) {
+		this.mbConnexion = mbConnexion;
+	}
+	
+	
 }

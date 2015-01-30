@@ -144,17 +144,11 @@ public class CatalogueManagedBean {
 			setCatego = recupCategoriesCibles(setCatego, produit);
 			mbConnexion.getDtoClient().setSetCategoriesPreferees(setCatego);
 			log.debug("mbCatalogue : Fin de l'ajout de la catégorie.");
-			for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
-				System.out.println("mbCatalogue : la set comprend : " + string);
-			}
 			//ajout du nom d'artiste dans la set.
 			Set<String> setArtiste = mbConnexion.getDtoClient().getSetArtistesPreferes();
 			setArtiste = recupArtistesCibles(setArtiste, produit);
 			mbConnexion.getDtoClient().setSetArtistesPreferes(setArtiste);
 			log.debug("mbCatalogue : Fin de l'ajout de l'artiste.");
-			for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
-				System.out.println("mbCatalogue : la set comprend : " + string);
-			}
 		}
 	}
 	
@@ -215,10 +209,11 @@ public class CatalogueManagedBean {
 		recupeCategosEtProduitsCibles();
 		if (mbConnexion.getDtoClient() != null) {
 			for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
-				System.out.println("mbCatalogue : Set catego du client après détail : " + string);
+				log.debug("mbCatalogue : Set catego du client après détail : " + string);
 			}
 			for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
-				System.out.println("mbCatalogue : Set artiste du client après détail : " + string);
+				
+				log.debug("mbCatalogue : Set artiste du client après détail : " + string);
 			}
 		}
 		return "detailProduit.xhtml";
@@ -240,10 +235,10 @@ public class CatalogueManagedBean {
 		recupeCategosEtProduitsCibles();
 		if (mbConnexion.getDtoClient() != null) {
 			for (String string : mbConnexion.getDtoClient().getSetCategoriesPreferees()) {
-				System.out.println("mbCatalogue : Set catego du client après détail : " + string);
+				log.debug("mbCatalogue : Set catego du client après détail : " + string);
 			}
 			for (String string : mbConnexion.getDtoClient().getSetArtistesPreferes()) {
-				System.out.println("mbCatalogue : Set artiste du client après détail : " + string);
+				log.debug("mbCatalogue : Set artiste du client après détail : " + string);
 			}
 		}
 		
