@@ -81,6 +81,8 @@ public class DtoToEntity implements IDtoToEntity {
 		a.setPays(toJpa(dto.getPays()));
 		a.setVille(toJpa(dto.getVille()));
 		a.setLibelleAdresse(dto.getLibelleAdresse());
+		a.setLatitude(dto.getLatitude());
+		a.setLongitude(dto.getLongitude());
 		// TODO a.setClientAdresses(................);
 		return a;
 	}

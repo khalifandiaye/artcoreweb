@@ -35,10 +35,37 @@
         <dependent-module archiveName="validation-api-1.0.0.GA.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="slf4j-api-1.6.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar">
+        <dependent-module archiveName="ArtcoreData-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreData/ArtcoreData">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ArtcoreData-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreData/ArtcoreData">
+        <dependent-module archiveName="geocoder-java-0.16.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/code/geocoder-java/geocoder-java/0.16/geocoder-java-0.16.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="gson-2.2.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.7.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-httpclient-3.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.0.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-codec-1.2.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-codec/commons-codec/1.2/commons-codec-1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mongo-java-driver-2.12.2.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/mongo-java-driver/2.12.2/mongo-java-driver-2.12.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="morphia-0.109.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/morphia/morphia/0.109/morphia-0.109.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="proxytoys-1.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/thoughtworks/proxytoys/proxytoys/1.0/proxytoys-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="morphia-util-0.109.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/morphia/morphia-util/0.109/morphia-util-0.109.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
