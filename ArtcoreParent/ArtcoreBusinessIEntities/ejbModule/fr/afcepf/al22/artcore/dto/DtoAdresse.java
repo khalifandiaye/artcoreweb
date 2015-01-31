@@ -18,6 +18,10 @@ public class DtoAdresse implements Serializable {
 	private int idAdresse;
 
 	private String libelleAdresse;
+	
+	private double latitude;
+	
+	private double longitude;
 
 	private List<Admin> admins;
 
@@ -42,6 +46,19 @@ public class DtoAdresse implements Serializable {
 		this.libelleAdresse = libelleAdresse;
 
 	}
+	
+	public DtoAdresse(int idAdresse, DtoPays pays, DtoVille ville,
+			String libelleAdresse, double latitude, double longitude) {
+		super();
+		this.idAdresse = idAdresse;
+		this.pays = pays;
+		this.ville = ville;
+		this.libelleAdresse = libelleAdresse;
+		this.latitude = latitude;
+		this.longitude = longitude;
+
+	}
+	
 	
 	//getter setter
 	public int getIdAdresse() {
@@ -96,6 +113,22 @@ public class DtoAdresse implements Serializable {
 
 	public void setFournisseurs(List<DtoFournisseur> fournisseurs) {
 		this.fournisseurs = fournisseurs;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
 	
 	

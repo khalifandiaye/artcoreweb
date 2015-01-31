@@ -34,6 +34,23 @@
     <module>ArtcoreWeb</module>
     <module>checkstyle-config</module>
   </modules>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.geocoder-java</groupId>
+      <artifactId>geocoder-java</artifactId>
+      <version>0.16</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongo-java-driver</artifactId>
+      <version>2.12.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mongodb.morphia</groupId>
+      <artifactId>morphia</artifactId>
+      <version>0.109</version>
+    </dependency>
+  </dependencies>
   <reporting>
     <plugins>
       <plugin>

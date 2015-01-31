@@ -83,7 +83,9 @@ public class EntityToDto implements IEntityToDto {
 				adresse.getIdAdresse(),
 				toDto( adresse.getPays()),
 				toDto(adresse.getVille()),
-				adresse.getLibelleAdresse());
+				adresse.getLibelleAdresse(),
+				adresse.getLatitude(),
+				adresse.getLongitude());
 //				adresse.getClientAdresses();
 		return dto;
 	}

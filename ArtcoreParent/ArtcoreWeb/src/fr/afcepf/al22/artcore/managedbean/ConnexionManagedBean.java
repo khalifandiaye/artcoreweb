@@ -8,10 +8,17 @@ import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
 
+import fr.afcepf.al22.artcore.businessinterfaces.IBusinessAdresse;
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessConnexion;
+import fr.afcepf.al22.artcore.businessinterfaces.IBusinessPays;
+import fr.afcepf.al22.artcore.businessinterfaces.IBusinessVille;
 import fr.afcepf.al22.artcore.dto.DtoAdmin;
+import fr.afcepf.al22.artcore.dto.DtoAdresse;
 import fr.afcepf.al22.artcore.dto.DtoClient;
+import fr.afcepf.al22.artcore.dto.DtoPays;
 import fr.afcepf.al22.artcore.dto.DtoUtilisateur;
+import fr.afcepf.al22.artcore.dto.DtoVille;
+import fr.afcepf.al22.artcore.entities.Ville;
 
 @ManagedBean(name="mbConnexion")
 @SessionScoped
@@ -30,6 +37,13 @@ public class ConnexionManagedBean {
 
 	@EJB
 	public IBusinessConnexion buConnexion ;
+	
+	@EJB
+	public IBusinessAdresse buAdresse;
+	@EJB
+	public IBusinessPays buPays;
+	@EJB
+	public IBusinessVille buVille;
 	
 	
 	public String getPageForward() {
@@ -158,6 +172,29 @@ public class ConnexionManagedBean {
 			else if (paramUtil.getRole().getIdRole() == 4){
 			log.debug("mbConnexion : je rentre bien dans le else if c'est un client ????????????");
 			dtoClient = buConnexion.recupererClient(paramUtil);
+			
+			//et là je géolocalise ses adresses.
+			for (DtoAdresse adr : dtoClient.getAdresses()) {
+				log.debug("mbConnexion : on rentre dans ma boucle des adresses");
+				log.debug("mbConnexion : adresse : " + adr.getLibelleAdresse());
+				log.debug("mbConnexion : latitude : " + adr.getLatitude());
+				log.debug("mbConnexion : longitude : " + adr.getLongitude());
+				//je vais chercher sa ville
+				DtoVille v = adr.getVille();
+				log.debug("mbConnexion : ville : " + adr.getVille());
+				//je vais chercher son pays
+				DtoPays p = adr.getPays();
+				log.debug("mbConnexion : pays : " + adr.getPays());
+				//et j'appelle am méthode
+				buAdresse.ajouterLatLongALadresse(v, p, adr);
+				log.debug("mbConnexion : adresse : " + adr.getLibelleAdresse());
+				log.debug("mbConnexion : latitude : " + adr.getLatitude());
+				log.debug("mbConnexion : longitude : " + adr.getLongitude());
+				log.debug("mbConnexion : on sort de ma boucle des adresses");
+				
+			}
+			
+			
 				pageForward = "/index.jsf?faces-redirect=true";
 				log.debug("mbConnexion : on a fait le forward. ");
 			for (int i = 0; i < dtoClient.getAdresses().size() ; i++) {
