@@ -10,10 +10,12 @@ import javax.persistence.Query;
 
 
 
+
 import org.apache.log4j.Logger;
 
 import fr.afcepf.al22.artcore.daointerfaces.IDaoConnexion;
 import fr.afcepf.al22.artcore.entities.Admin;
+import fr.afcepf.al22.artcore.entities.Adresse;
 import fr.afcepf.al22.artcore.entities.Client;
 import fr.afcepf.al22.artcore.entities.Utilisateur;
 
@@ -58,6 +60,7 @@ public class DaoConnexionImpl implements IDaoConnexion {
 
 	@Override
 	public Client recupererClient(Utilisateur util) {
+		log.debug("DaoConnexion : dao mal nommé par Michaël où on cherche un client.");
 		Query query = em.createQuery("SELECT c FROM Client c "
 				+ " inner join fetch c.adresses a "
 				+ " inner join fetch a.pays p"
@@ -77,6 +80,16 @@ public class DaoConnexionImpl implements IDaoConnexion {
 			log.error(e.toString());
 			e.printStackTrace();
 		}	
+		log.debug("daoConnexion toujours : le client a :");
+		log.debug("daoConnexion toujours : id du client  :" + client.getIdClient());
+		log.debug("daoConnexion toujours : nom du client :"+client.getNomClient());
+		for (Adresse adr : client.getAdresses()) {
+			log.debug("");
+			log.debug("daoConnexion toujours : une adresse d'id :"+adr.getIdAdresse());
+			log.debug("daoConnexion toujours : et de libelle "+adr.getLibelleAdresse());
+			log.debug("");
+		}
+		
 		
 		return client;
 	}

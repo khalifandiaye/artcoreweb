@@ -1,14 +1,24 @@
-package fr.afcepf.al22.artcore.daointerfaces;
-
-import java.util.List;
+/**
+ * 
+ */
+package fr.afcepf.al22.artcore.businessinterfaces;
 
 import javax.ejb.Remote;
 
+import fr.afcepf.al22.artcore.dto.DtoAdresse;
+import fr.afcepf.al22.artcore.dto.DtoPays;
+import fr.afcepf.al22.artcore.dto.DtoVille;
 import fr.afcepf.al22.artcore.entities.Adresse;
 import fr.afcepf.al22.artcore.entities.Pays;
 import fr.afcepf.al22.artcore.entities.Ville;
+
+/**
+ * @author Ing
+ *
+ */
 @Remote
-public interface IDaoAdresse {
+public interface IBusinessAdresse {
+	
 
 	/**
 	 * rechercher une adresse avec son id.
@@ -23,7 +33,7 @@ public interface IDaoAdresse {
 	 * @param libelle le libelle de l'adresse.
 	 * @return l'{@link Adresse} qui vient d'être crée.
 	 */
-	public Adresse ajouterAdresse (Ville ville, Pays pays, String libelle);
+	public Adresse ajouterAdresse (DtoVille ville, DtoPays pays, String libelle);
 	
 	/**
 	 * Méthode permettant de modifier une adresse.
@@ -34,7 +44,7 @@ public interface IDaoAdresse {
 	 * @param adresse la nouvelle adresse.
 	 * @return l'adresse modifiée.
 	 */
-	public Adresse modifierAdresse (Adresse adresse);
+	public Adresse modifierAdresse (DtoAdresse adresse);
 	
 	/**
 	 * Attention : On se base sur le fait que la ville et le pays 
@@ -51,9 +61,7 @@ public interface IDaoAdresse {
 	 * @param adresse
 	 * @return
 	 */
-	public Adresse ajouterLatLongALadresse(Ville ville, Pays pays,
-			Adresse adresse);
-	
-	
-	
+	public Adresse ajouterLatLongALadresse(DtoVille ville, DtoPays pays,
+			DtoAdresse adresse);
+
 }
