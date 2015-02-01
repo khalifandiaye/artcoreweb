@@ -186,7 +186,7 @@ public class ConnexionManagedBean {
 				DtoPays p = adr.getPays();
 				log.debug("mbConnexion : pays : " + adr.getPays());
 				//et j'appelle am méthode
-				buAdresse.ajouterLatLongALadresse(v, p, adr);
+//				buAdresse.ajouterLatLongALadresse(v, p, adr);
 				log.debug("mbConnexion : adresse : " + adr.getLibelleAdresse());
 				log.debug("mbConnexion : latitude : " + adr.getLatitude());
 				log.debug("mbConnexion : longitude : " + adr.getLongitude());
@@ -199,10 +199,26 @@ public class ConnexionManagedBean {
 				log.debug("mbConnexion : on a fait le forward. ");
 			for (int i = 0; i < dtoClient.getAdresses().size() ; i++) {
 				log.debug("mbConnexion : on est dans le for ; i = " + i);
+				log.debug(dtoClient.getAdresses().get(i).getIdAdresse());
 				log.debug(dtoClient.getAdresses().get(i).getLibelleAdresse());
 				log.debug(dtoClient.getAdresses().get(i).getVille().getCommune());	
 				log.debug(dtoClient.getAdresses().get(i).getVille().getCodePostal());			
 				log.debug(dtoClient.getAdresses().get(i).getPays().getLibellePays());
+				//et là je géolocalise ses adresses.
+					log.debug("mbConnexion : latitude : " + dtoClient.getAdresses().get(i).getLatitude());
+					log.debug("mbConnexion : longitude : " + dtoClient.getAdresses().get(i).getLongitude());
+					//je vais chercher sa ville
+					DtoVille v = dtoClient.getAdresses().get(i).getVille();
+					log.debug("mbConnexion : ville : " + dtoClient.getAdresses().get(i).getVille());
+					//je vais chercher son pays
+					DtoPays p = dtoClient.getAdresses().get(i).getPays();
+					log.debug("mbConnexion : pays : " + dtoClient.getAdresses().get(i).getPays());
+					//et j'appelle am méthode
+					buAdresse.ajouterLatLongALadresse(v, p, dtoClient.getAdresses().get(i));
+					log.debug("mbConnexion : adresse : " + dtoClient.getAdresses().get(i).getLibelleAdresse());
+					log.debug("mbConnexion : latitude : " + dtoClient.getAdresses().get(i).getLatitude());
+					log.debug("mbConnexion : longitude : " + dtoClient.getAdresses().get(i).getLongitude());
+					log.debug("mbConnexion : on sort de ma boucle des adresses");
 			}
 			log.debug("mbConnexion : on est sorti du for");
 

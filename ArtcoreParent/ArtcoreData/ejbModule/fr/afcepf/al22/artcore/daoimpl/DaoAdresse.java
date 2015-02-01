@@ -1,11 +1,21 @@
 package fr.afcepf.al22.artcore.daoimpl;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+
+
+
+
+
+
+import org.apache.log4j.Logger;
 
 import com.google.code.geocoder.Geocoder;
 import com.google.code.geocoder.GeocoderRequestBuilder;
@@ -16,6 +26,8 @@ import com.google.code.geocoder.model.LatLng;
 
 import fr.afcepf.al22.artcore.daointerfaces.IDaoAdresse;
 import fr.afcepf.al22.artcore.entities.Adresse;
+import fr.afcepf.al22.artcore.entities.Client;
+import fr.afcepf.al22.artcore.entities.ClientAdressePK;
 import fr.afcepf.al22.artcore.entities.Pays;
 import fr.afcepf.al22.artcore.entities.Ville;
 
@@ -25,6 +37,8 @@ import fr.afcepf.al22.artcore.entities.Ville;
  */
 @Stateless
 public class DaoAdresse implements IDaoAdresse {
+	
+	private Logger log = Logger.getLogger(this.getClass());
 
 	@PersistenceContext(unitName="DataArtcore")
 	EntityManager em;
@@ -37,6 +51,8 @@ public class DaoAdresse implements IDaoAdresse {
 		adresse=(Adresse) query.getSingleResult();
 		return adresse;
 	}
+	
+	
 	/* (non-Javadoc)
 	 * @see fr.afcepf.al22.artcore.daointerfaces.IDaoAdresse#ajouterAdresse(int, int, String);
 	 */
@@ -51,17 +67,25 @@ public class DaoAdresse implements IDaoAdresse {
 	}
 	@Override
 	public Adresse modifierAdresse(Adresse adresse) {
-		//Adresse adr = null;
-		//adr = em.find(Adresse.class, adresse.getIdAdresse());
+//		Adresse adr = null;
+//		adr = em.find(Adresse.class, adresse.getIdAdresse());
+		log.debug("DaoAdresse : modifer adresse.");
+		log.debug("DaoAdresse : l'adresse à modifier est " + adresse.getLibelleAdresse());
+		log.debug("DaoAdresse : l'adresse à modifier a pour latitude " + adresse.getLatitude());
+		log.debug("DaoAdresse : l'adresse à modifier a pour longitude " + adresse.getLongitude());
+		log.debug("DaoAdresse : l'adresse à modifier a pour id " + adresse.getIdAdresse());
 		em.merge(adresse);
 		return adresse;
 	}
 	@Override
 	public Adresse ajouterLatLongALadresse(Ville ville, Pays pays,
 			Adresse adresse) {
+		log.debug("DaoAdresse : ajouter latitude longitude.");
 		if (adresse.getLatitude() != 0 && adresse.getLongitude() != 0){
+			log.debug("DaoAdresse : on rentre dans le if, on ne fait rien.");
 			return adresse;
 		} else {
+			log.debug("DaoAdresse : on rentre dans le else, on fait le traitement.");
 			//on transforme l'adresse en string
 			String adresseComplete = adresse.getLibelleAdresse() + " " 
 					+ ville.getCodePostal() + " "
@@ -73,9 +97,12 @@ public class DaoAdresse implements IDaoAdresse {
 			Adresse adrContenantLatLong = Geocoder2Adresse(geoResult);
 			lati = adrContenantLatLong.getLatitude();
 			longi = adrContenantLatLong.getLongitude();
+			log.debug("DaoAdresse : lati :" +lati);
+			log.debug("DaoAdresse : longi :" + longi);
 			//on les sette à l'adresse
 			adresse.setLatitude(lati);
 			adresse.setLongitude(longi);
+//			em.merge(adresse);
 			//on enregistre l'adresse modifiée
 			//et on renvoie l'adresse modifiee
 			return modifierAdresse(adresse);
@@ -131,5 +158,6 @@ public class DaoAdresse implements IDaoAdresse {
 		
 		return adrClient;
 	}
+
 
 }
