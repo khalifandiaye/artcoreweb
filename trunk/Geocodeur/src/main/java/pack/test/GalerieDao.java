@@ -27,7 +27,15 @@ public class GalerieDao extends BasicDAO<GalerieEntity,Integer> {
 		System.out.println("create shape "+center.getGeometry());
 		return getDatastore().find(GalerieEntity.class).field("loc").within(center).asList();
 		//[2.33,48.859],0.5/6371
-		//return getDs().find(GalerieEntity.class).filter("label = ", label).order("label").asList();
-		
+		//return getDs().find(GalerieEntity.class).filter("label = ", label).order("label").asList();		
 	}
+	public List<GalerieEntity> nearGps(double lng , double lat,int limit) {
+		 return getDatastore().find(GalerieEntity.class).field("loc").near(lng, lat).limit(limit).asList();
+	}
+	public List<GalerieEntity> nearGps(double lng , double lat,double radian) {
+//		  long r = getDatastore().find(GalerieEntity.class).field("loc").near(lng, lat,radian,true).countAll();
+//		  System.out.println("r = "+r);
+		  return getDatastore().find(GalerieEntity.class).field("loc").near(lng, lat,radian,true).asList();
+	}
+	
 }

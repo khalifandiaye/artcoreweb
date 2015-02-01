@@ -95,7 +95,7 @@ public class ImportGalerie {
 			e.printStackTrace();
 		}
 		Morphia morphia = new Morphia();
-		dao = new GalerieDao(mongo,morphia,"galerieDB");
+		dao = new GalerieDao(mongo,morphia,"galerie3db");
 			
 		String[] nomAdresse = null;
 		
@@ -114,6 +114,11 @@ public class ImportGalerie {
 				System.out.println(entity);
 				dao.save(entity);
 				i++;
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}	
 		

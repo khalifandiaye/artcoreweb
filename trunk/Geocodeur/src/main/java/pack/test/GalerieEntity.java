@@ -1,5 +1,6 @@
 package pack.test;
 
+import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
@@ -23,7 +24,7 @@ public class GalerieEntity {
 		private double southWestBoundLng;
 		private double northEastBoundLat;
 		private double northEastBoundLng;
-		//GeocoderResult{types=[street_address], formattedAddress='76 Rue de Turenne, 75003 Paris, France', addressComponents=[GeocoderAddressComponent{longName='76', shortName='76', types=[street_number]}, GeocoderAddressComponent{longName='Rue de Turenne', shortName='Rue de Turenne', types=[route]}, GeocoderAddressComponent{longName='Paris', shortName='Paris', types=[locality, political]}, GeocoderAddressComponent{longName='Paris', shortName='75', types=[administrative_area_level_2, political]}, GeocoderAddressComponent{longName='Île-de-France', shortName='IDF', types=[administrative_area_level_1, political]}, GeocoderAddressComponent{longName='France', shortName='FR', types=[country, political]}, GeocoderAddressComponent{longName='75003', shortName='75003', types=[postal_code]}], geometry=GeocoderGeometry{location=LatLng{lat=48.86053039999999, lng=2.3646096}, locationType=ROOFTOP, viewport=LatLngBounds{southwest=LatLng{lat=48.8591814197085, lng=2.363260619708498}, northeast=LatLng{lat=48.8618793802915, lng=2.365958580291502}}, bounds=null}, partialMatch=true}
+		//GeocoderResult{types=[street_address], formattedAddress='76 Rue de Turenne, 75003 Paris, France', addressComponents=[GeocoderAddressComponent{longName='76', shortName='76', types=[street_number]}, GeocoderAddressComponent{longName='Rue de Turenne', shortName='Rue de Turenne', types=[route]}, GeocoderAddressComponent{longName='Paris', shortName='Paris', types=[locality, political]}, GeocoderAddressComponent{longName='Paris', shortName='75', types=[administrative_area_level_2, political]}, GeocoderAddressComponent{longName='ï¿½le-de-France', shortName='IDF', types=[administrative_area_level_1, political]}, GeocoderAddressComponent{longName='France', shortName='FR', types=[country, political]}, GeocoderAddressComponent{longName='75003', shortName='75003', types=[postal_code]}], geometry=GeocoderGeometry{location=LatLng{lat=48.86053039999999, lng=2.3646096}, locationType=ROOFTOP, viewport=LatLngBounds{southwest=LatLng{lat=48.8591814197085, lng=2.363260619708498}, northeast=LatLng{lat=48.8618793802915, lng=2.365958580291502}}, bounds=null}, partialMatch=true}
 		
 		/**
 		 * 
