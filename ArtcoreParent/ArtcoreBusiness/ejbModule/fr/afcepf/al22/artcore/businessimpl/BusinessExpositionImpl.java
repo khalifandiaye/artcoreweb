@@ -3,12 +3,13 @@ package fr.afcepf.al22.artcore.businessimpl;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessExposition;
 import fr.afcepf.al22.morphia.dao.ExpositionDao;
 import fr.afcepf.al22.morphia.dao.GalerieDao;
 import fr.afcepf.al22.morphia.entity.Exposition;
-
+@Stateless
 public class BusinessExpositionImpl implements IBusinessExposition {
 
 	@EJB
