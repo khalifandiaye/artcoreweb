@@ -26,7 +26,7 @@ public class ExpoClient {
 	try {
 	    
 	    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	    mongo = new MongoClient("192.168.100.129");//mettre IP guillaume car dans sa base 
+	    mongo = new MongoClient("localhost");
 	    Morphia morphia = new Morphia();
 	    ExpositionDao dao = new ExpositionDao(mongo, morphia);
 	    Date debut = new Date ();
@@ -40,7 +40,7 @@ public class ExpoClient {
 		e.printStackTrace();
 	    }
 	    
-	 Artiste artisteTest = new Artiste("toto","toto@toto.fr","jaimepasfacedebouk","twitteralarigueur","passageobliger");
+	  Artiste artisteTest = new Artiste("toto","toto@toto.fr","jaimepasfacedebouk","twitteralarigueur","passageobliger");
 	   double[] cordonnée = {12.56,15.2};
 	   listArtiste.add(artisteTest);
 	   
@@ -55,7 +55,6 @@ public class ExpoClient {
 		
 		Exposition exposition2 = dao.get(new Long(1));
 		System.out.println(exposition2);
-	    
 	} catch (UnknownHostException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
