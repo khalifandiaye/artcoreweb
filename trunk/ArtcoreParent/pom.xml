@@ -8,13 +8,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<build>
-		<extensions>
+		<!-- <extensions>
 			<extension>
 				<groupId>fr.afcepf.al22.artcore</groupId>
 				<artifactId>checkstyle-config</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</extension>
-		</extensions>
+		</extensions> -->
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -33,7 +33,7 @@
 		<module>ArtcoreDataIEnities</module>
 		<module>ArtcoreEAR</module>
 		<module>ArtcoreWeb</module>
-		<module>checkstyle-config</module>
+<!-- 		<module>checkstyle-config</module> -->
 	</modules>
 	<dependencies>
 		<dependency>
@@ -57,7 +57,7 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-	<reporting>
+	<!-- <reporting>
 		<plugins>
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -71,7 +71,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</reporting>
+	</reporting> -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
