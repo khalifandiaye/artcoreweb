@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import org.apache.log4j.Logger;
+import org.jboss.logging.Logger;
 
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessAdresse;
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessConnexion;

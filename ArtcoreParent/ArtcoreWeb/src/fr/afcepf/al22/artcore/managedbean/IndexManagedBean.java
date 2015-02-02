@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import org.apache.log4j.Logger;
+import org.jboss.logging.Logger;
 
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessRechercherProduit;
 import fr.afcepf.al22.artcore.dto.DtoProduit;
