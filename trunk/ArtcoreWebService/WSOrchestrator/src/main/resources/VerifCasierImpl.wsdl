@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="VerifCasierImplService" targetNamespace="http://wspolice.artcorewebservice.al22.afcepf.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wspolice.artcorewebservice.al22.afcepf.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://wspolice.artcorewebservice.al22.afcepf.fr/" version="1.0" xmlns:tns="http://wspolice.artcorewebservice.al22.afcepf.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="verifCasier" type="tns:verifCasier"/>
+<xs:element name="verifCasierResponse" type="tns:verifCasierResponse"/>
+<xs:complexType name="verifCasier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nom" type="xs:string"/>
+      <xs:element minOccurs="0" name="prenom" type="xs:string"/>
+      <xs:element minOccurs="0" name="birthday" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="verifCasierResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="verifCasierResponse">
+    <wsdl:part element="tns:verifCasierResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verifCasier">
+    <wsdl:part element="tns:verifCasier" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IVerifCasier">
+    <wsdl:operation name="verifCasier">
+      <wsdl:input message="tns:verifCasier" name="verifCasier">
+    </wsdl:input>
+      <wsdl:output message="tns:verifCasierResponse" name="verifCasierResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VerifCasierImplServiceSoapBinding" type="tns:IVerifCasier">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="verifCasier">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="verifCasier">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="verifCasierResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VerifCasierImplService">
+    <wsdl:port binding="tns:VerifCasierImplServiceSoapBinding" name="VerifCasierImplPort">
+      <soap:address location="http://localhost:9090/WSPolice/VerifCasierImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

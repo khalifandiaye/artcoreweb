@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="GestionStockImplService" targetNamespace="http://wsartcore.al22.afcepf.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wsartcore.al22.afcepf.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://wsartcore.al22.afcepf.fr/" version="1.0" xmlns:tns="http://wsartcore.al22.afcepf.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="rechercherNbProduitDisponible" type="tns:rechercherNbProduitDisponible"/>
+<xs:element name="rechercherNbProduitDisponibleResponse" type="tns:rechercherNbProduitDisponibleResponse"/>
+<xs:complexType name="rechercherNbProduitDisponible">
+    <xs:sequence>
+      <xs:element name="idProduit" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="rechercherNbProduitDisponibleResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="rechercherNbProduitDisponibleResponse">
+    <wsdl:part element="tns:rechercherNbProduitDisponibleResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rechercherNbProduitDisponible">
+    <wsdl:part element="tns:rechercherNbProduitDisponible" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IGestionStock">
+    <wsdl:operation name="rechercherNbProduitDisponible">
+      <wsdl:input message="tns:rechercherNbProduitDisponible" name="rechercherNbProduitDisponible">
+    </wsdl:input>
+      <wsdl:output message="tns:rechercherNbProduitDisponibleResponse" name="rechercherNbProduitDisponibleResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GestionStockImplServiceSoapBinding" type="tns:IGestionStock">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="rechercherNbProduitDisponible">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="rechercherNbProduitDisponible">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="rechercherNbProduitDisponibleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionStockImplService">
+    <wsdl:port binding="tns:GestionStockImplServiceSoapBinding" name="GestionStockImplPort">
+      <soap:address location="http://localhost:9090/WSGestionStock/GestionStockImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
