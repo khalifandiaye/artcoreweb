@@ -1,9 +1,24 @@
 package fr.afcepf.al22.morphia.entity;
 
-import org.mongodb.morphia.annotations.Id;
+import java.util.Arrays;
 
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Indexed;
+@Entity("gpsgalerie")
 public class Galerie {
 		
+		@Override
+    public String toString() {
+	return "Galerie [id=" + id + ", nomGalerie=" + nomGalerie
+		+ ", formattedAdresse=" + formattedAdresse + ", loc="
+		+ Arrays.toString(loc) + ", southWestBoundLat="
+		+ southWestBoundLat + ", southWestBoundLng="
+		+ southWestBoundLng + ", northEastBoundLat="
+		+ northEastBoundLat + ", northEastBoundLng="
+		+ northEastBoundLng + "]";
+    }
+
 		@Id
 		private Integer id;
 		/**nom de la Galerie*/
@@ -11,8 +26,9 @@ public class Galerie {
 		/**formattedAddress='76 Rue de Turenne, 75003 Paris, France'*/
 		private String formattedAdresse;
 		/**geometry=GeocoderGeometry{location=LatLng{lat=48.86053039999999, lng=2.3646096}*/
-		private double lat;
-		private double lng;
+		@Indexed
+		private double[] loc;
+		
 		/**viewport=LatLngBounds{southwest=LatLng{lat=48.8591814197085, lng=2.363260619708498}, northeast=LatLng{lat=48.8618793802915, lng=2.365958580291502}}*/
 		private double southWestBoundLat;
 		private double southWestBoundLng;
@@ -32,27 +48,26 @@ public class Galerie {
 		 * @param id
 		 * @param nomGalerie
 		 * @param formattedAdresse
-		 * @param lat
-		 * @param lng
+		 * @param loc
 		 * @param southWestBoundLat
 		 * @param southWestBoundLng
 		 * @param northEastBoundLat
 		 * @param northEastBoundLng
 		 */
+		
 		public Galerie(Integer id, String nomGalerie,
-				String formattedAdresse, double lat, double lng,
-				double southWestBoundLat, double southWestBoundLng,
-				double northEastBoundLat, double northEastBoundLng) {
-			super();
-			this.id = id;
-			this.nomGalerie = nomGalerie;
-			this.formattedAdresse = formattedAdresse;
-			this.lat = lat;
-			this.lng = lng;
-			this.southWestBoundLat = southWestBoundLat;
-			this.southWestBoundLng = southWestBoundLng;
-			this.northEastBoundLat = northEastBoundLat;
-			this.northEastBoundLng = northEastBoundLng;
+			String formattedAdresse, double[] loc,
+			double southWestBoundLat, double southWestBoundLng,
+			double northEastBoundLat, double northEastBoundLng) {
+		    super();
+		    this.id = id;
+		    this.nomGalerie = nomGalerie;
+		    this.formattedAdresse = formattedAdresse;
+		    this.loc = loc;
+		    this.southWestBoundLat = southWestBoundLat;
+		    this.southWestBoundLng = southWestBoundLng;
+		    this.northEastBoundLat = northEastBoundLat;
+		    this.northEastBoundLng = northEastBoundLng;
 		}
 
 		/**
@@ -61,6 +76,8 @@ public class Galerie {
 		public Integer getId() {
 			return id;
 		}
+
+		
 
 		/**
 		 * @param id the id to set
@@ -97,32 +114,14 @@ public class Galerie {
 			this.formattedAdresse = formattedAdresse;
 		}
 
-		/**
-		 * @return the lat
-		 */
-		public double getLat() {
-			return lat;
+		
+
+		public double[] getLoc() {
+		    return loc;
 		}
 
-		/**
-		 * @param lat the lat to set
-		 */
-		public void setLat(double lat) {
-			this.lat = lat;
-		}
-
-		/**
-		 * @return the lng
-		 */
-		public double getLng() {
-			return lng;
-		}
-
-		/**
-		 * @param lng the lng to set
-		 */
-		public void setLng(double lng) {
-			this.lng = lng;
+		public void setLoc(double[] loc) {
+		    this.loc = loc;
 		}
 
 		/**
