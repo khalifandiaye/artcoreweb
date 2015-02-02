@@ -12,7 +12,7 @@ import fr.afcepf.al22.morphia.entity.Exposition;
 @Stateless
 public class BusinessExpositionImpl implements IBusinessExposition {
 
-	@EJB
+
 	private ExpositionDao daoExpo;
 	
 	@Override
