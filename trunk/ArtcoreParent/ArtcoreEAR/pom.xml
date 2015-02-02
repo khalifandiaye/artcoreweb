@@ -34,7 +34,7 @@
       <version>${parent.version}</version>
       <type>war</type>
     </dependency>
-    <dependency>
+  <!--   <dependency>
       <groupId>log4j</groupId>
       <artifactId>apache-log4j-extras</artifactId>
       <version>1.0</version>
@@ -43,7 +43,7 @@
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
-    </dependency>
+    </dependency> -->
     <dependency>
       <groupId>fr.afcepf.al22.artcore</groupId>
       <artifactId>ArtcoreDataIEnities</artifactId>
@@ -62,10 +62,10 @@
       <version>${parent.version}</version>
       <type>ejb</type>
     </dependency>
-    <dependency>
+ <!--    <dependency>
       <groupId>fr.afcepf.al22.artcore.morphia</groupId>
       <artifactId>ArtcoreMorphia</artifactId>
       <version>0.0.1-SNAPSHOT</version>
-    </dependency>
+    </dependency> -->
   </dependencies>
 </project>
