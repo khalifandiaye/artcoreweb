@@ -11,12 +11,16 @@ set WSDL_POLICE = http://localhost:9090/WSPolice/VerifCasierImpl?wsdl
 
 
 cd /d "%~dp0"
+REM
 
-"C:\Program Files\Java\jdk1.7.0_67\bin\wsimport" -keep -d ejbModule http://localhost:9090/WSGestionStock/GestionStockImpl?wsdl
+REM wsimport GestionStock
+"C:\Program Files\Java\jdk1.7.0_67\bin\wsimport" -Xnocompile -s ejbModule  src\main\resources\GestionStockImpl.wsdl
 
-"C:\Program Files\Java\jdk1.7.0_67\bin\wsimport" -keep -d ejbModule http://localhost:9090/WSAntivolCB/AntivolCBImpl?wsdl
+REM wsimport AntivolCB
+"C:\Program Files\Java\jdk1.7.0_67\bin\wsimport" -Xnocompile -s ejbModule  src\main\resources\AntivolCBImpl.wsdl
 
-"C:\Program Files\Java\jdk1.7.0_67\bin\wsimport" -keep -d ejbModule http://localhost:9090/WSPolice/VerifCasierImpl?wsdl
+REM wsimport Police
+"C:\Program Files\Java\jdk1.7.0_67\bin\wsimport" -Xnocompile -s ejbModule  src\main\resources\VerifCasierImpl.wsdl
 
 pause
 REM LE WS doit être accessible.
