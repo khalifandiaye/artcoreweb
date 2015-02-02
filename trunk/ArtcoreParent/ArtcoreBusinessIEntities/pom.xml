@@ -71,6 +71,11 @@
       <version>0.0.1-SNAPSHOT</version>
       <type>ejb</type>
     </dependency>
+    <dependency>
+      <groupId>fr.afcepf.al22.artcore.morphia</groupId>
+      <artifactId>ArtcoreMorphia</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

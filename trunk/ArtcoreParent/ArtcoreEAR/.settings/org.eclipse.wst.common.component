@@ -38,6 +38,9 @@
         <dependent-module archiveName="ArtcoreData-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreData/ArtcoreData">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ArtcoreMorphia-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/ArtcoreMorphia/ArtcoreMorphia">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="geocoder-java-0.16.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/code/geocoder-java/geocoder-java/0.16/geocoder-java-0.16.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
