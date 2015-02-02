@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="AntivolCBImplService" targetNamespace="http://antivol.al22.afcepf.fr/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://antivol.al22.afcepf.fr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://antivol.al22.afcepf.fr/" version="1.0" xmlns:tns="http://antivol.al22.afcepf.fr/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="rechercheCBVoleeParNumero" type="tns:rechercheCBVoleeParNumero"/>
+<xs:element name="rechercheCBVoleeParNumeroResponse" type="tns:rechercheCBVoleeParNumeroResponse"/>
+<xs:complexType name="rechercheCBVoleeParNumero">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nbDeCarte" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="rechercheCBVoleeParNumeroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="rechercheCBVoleeParNumeroResponse">
+    <wsdl:part element="tns:rechercheCBVoleeParNumeroResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="rechercheCBVoleeParNumero">
+    <wsdl:part element="tns:rechercheCBVoleeParNumero" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IAntivolCB">
+    <wsdl:operation name="rechercheCBVoleeParNumero">
+      <wsdl:input message="tns:rechercheCBVoleeParNumero" name="rechercheCBVoleeParNumero">
+    </wsdl:input>
+      <wsdl:output message="tns:rechercheCBVoleeParNumeroResponse" name="rechercheCBVoleeParNumeroResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AntivolCBImplServiceSoapBinding" type="tns:IAntivolCB">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="rechercheCBVoleeParNumero">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="rechercheCBVoleeParNumero">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="rechercheCBVoleeParNumeroResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AntivolCBImplService">
+    <wsdl:port binding="tns:AntivolCBImplServiceSoapBinding" name="AntivolCBImplPort">
+      <soap:address location="http://localhost:9090/WSAntivolCB/AntivolCBImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
