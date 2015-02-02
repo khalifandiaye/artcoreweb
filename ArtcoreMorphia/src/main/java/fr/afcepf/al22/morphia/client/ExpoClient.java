@@ -40,7 +40,7 @@ public class ExpoClient {
 		e.printStackTrace();
 	    }
 	    
-	 /*Artiste artisteTest = new Artiste("toto","toto@toto.fr","jaimepasfacedebouk","twitteralarigueur","passageobliger");
+	 Artiste artisteTest = new Artiste("toto","toto@toto.fr","jaimepasfacedebouk","twitteralarigueur","passageobliger");
 	   double[] cordonnée = {12.56,15.2};
 	   listArtiste.add(artisteTest);
 	   
@@ -54,20 +54,8 @@ public class ExpoClient {
 		}
 		
 		Exposition exposition2 = dao.get(new Long(1));
-		System.out.println(exposition2);*/
+		System.out.println(exposition2);
 	    
-	    List<Exposition> ExpositionsCategories  = dao.findExpoByCategorie("Textes");
-		for (Exposition f : ExpositionsCategories){
-			for(int i=0; i<10 ;i++){
-			System.out.println("Exposition: "+f);
-			}
-		}
-		List<Exposition> ExpositionsPseudoArtiste  = dao.findExpoByCategorie("Anonymous P.");
-		for (Exposition f : ExpositionsPseudoArtiste){
-			for(int i=0; i<10 ;i++){
-			System.out.println("Exposition: "+f);
-			}
-		}
 	} catch (UnknownHostException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
