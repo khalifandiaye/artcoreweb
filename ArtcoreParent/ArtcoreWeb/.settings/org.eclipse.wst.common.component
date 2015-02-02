@@ -9,6 +9,9 @@
         <dependent-module archiveName="ArtcoreDataIEnities-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ArtcoreDataIEnities/ArtcoreDataIEnities">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ArtcoreMorphia-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ArtcoreMorphia/ArtcoreMorphia">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/ArtcoreWeb/build/classes"/>
         <property name="context-root" value="ArtcoreWeb"/>
     </wb-module>
