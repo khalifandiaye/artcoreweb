@@ -16,7 +16,7 @@
       <resource>
         <directory>ejbModule</directory>
         <excludes>
-          <exclude>**/*.java</exclude>
+          <exclude>**/*.java</exclude> 
         </excludes>
       </resource>
     </resources>
@@ -61,6 +61,11 @@
       <artifactId>ArtcoreDataIEnities</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>fr.afcepf.al22.artcore.morphia</groupId>
+      <artifactId>ArtcoreMorphia</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <properties>
