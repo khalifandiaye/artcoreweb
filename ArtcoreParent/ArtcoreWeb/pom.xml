@@ -20,7 +20,7 @@
         </excludes>
       </resource>
     </resources>
-    <finalName>ArtcoreWeb</finalName>
+   <!--   <finalName>ArtcoreWeb</finalName> -->
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
