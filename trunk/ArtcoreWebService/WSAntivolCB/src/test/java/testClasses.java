@@ -1,6 +1,5 @@
 import fr.afcepf.al22.antivol.AntivolCBImpl;
 import fr.afcepf.al22.antivol.IAntivolCB;
-import fr.afcepf.al22.antivol.entities.Cartebleue;
 
 
 public class testClasses {
