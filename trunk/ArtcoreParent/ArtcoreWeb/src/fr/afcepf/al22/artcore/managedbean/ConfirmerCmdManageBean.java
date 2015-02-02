@@ -13,7 +13,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.xml.ws.BindingProvider;
 
-import org.apache.log4j.Logger;
+import org.jboss.logging.Logger;
 
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessCommande;
 import fr.afcepf.al22.artcore.businessinterfaces.IBusinessPanier;
@@ -171,15 +171,16 @@ public class ConfirmerCmdManageBean {
     public String validerCmd() {
 	//Pour gerer l'adresse IP des WebServices
 	try {
-	rb = ResourceBundle.getBundle("db");
+	    rb = ResourceBundle.getBundle("db");
 	}catch(MissingResourceException e) {
 	    log.debug("Impossible de trouver le fichier db.properties "+e.getMessage());
 	}
 	if (rb==null) {
-	    url="192.168.100.129";
+	    url="localhost";
 	}else {
 	    url = rb.getString("url");
 	}
+	log.debug("URL WSOrchestration : "+url);
 	//		//méthodes
 	this.msgErreurStock = null;
 	msgErreurStock = new ArrayList<String>();
