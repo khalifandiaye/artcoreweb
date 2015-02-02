@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "GestionStockImplService", targetNamespace = "http://wsartcore.al22.afcepf.fr/", wsdlLocation = "http://localhost:9090/WSGestionStock/GestionStockImpl?wsdl")
+@WebServiceClient(name = "GestionStockImplService", targetNamespace = "http://wsartcore.al22.afcepf.fr/", wsdlLocation = "file:/C:/Users/Stagiaire/Projet/ArtcoreWebService/WSOrchestrator/src/main/resources/GestionStockImpl.wsdl")
 public class GestionStockImplService
     extends Service
 {
@@ -30,7 +30,7 @@ public class GestionStockImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:9090/WSGestionStock/GestionStockImpl?wsdl");
+            url = new URL("file:/C:/Users/Stagiaire/Projet/ArtcoreWebService/WSOrchestrator/src/main/resources/GestionStockImpl.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

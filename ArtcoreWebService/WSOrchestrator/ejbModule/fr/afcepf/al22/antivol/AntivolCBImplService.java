@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "AntivolCBImplService", targetNamespace = "http://antivol.al22.afcepf.fr/", wsdlLocation = "http://localhost:9090/WSAntivolCB/AntivolCBImpl?wsdl")
+@WebServiceClient(name = "AntivolCBImplService", targetNamespace = "http://antivol.al22.afcepf.fr/", wsdlLocation = "file:/C:/Users/Stagiaire/Projet/ArtcoreWebService/WSOrchestrator/src/main/resources/AntivolCBImpl.wsdl")
 public class AntivolCBImplService
     extends Service
 {
@@ -30,7 +30,7 @@ public class AntivolCBImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:9090/WSAntivolCB/AntivolCBImpl?wsdl");
+            url = new URL("file:/C:/Users/Stagiaire/Projet/ArtcoreWebService/WSOrchestrator/src/main/resources/AntivolCBImpl.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

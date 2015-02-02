@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="WSOrchestrator">
-        <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/" source-path="/src/main/resources/ejbModule"/>
+        <wb-resource deploy-path="/" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/src/main/resources" tag="defaultRootSource"/>
         <property name="java-output-path" value="/WSOrchestrator/target/classes"/>
     </wb-module>
 </project-modules>
