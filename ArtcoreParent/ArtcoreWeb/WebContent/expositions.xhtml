@@ -13,7 +13,7 @@
 	<ui:define name="css">
 	</ui:define>
 	<ui:define name="scripts">
-			<script
+		<script
 			src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	</ui:define>
 
@@ -39,55 +39,12 @@
 						</p:panel>
 
 						<p:panel
-							style="width:100%; background-color: transparent !important;">
-							<div class="cart">
-								<h1>
-									<h:outputText value="Votre panier est vide !"
-										rendered="#{ empty mbPanier.panier}" />
-								</h1>
-								<div class="cart-top">
-									<h2 class="cart-top-title">Details du panier</h2>
-								</div>
-								<ul>
-
-									<ui:repeat value="#{mbPanier.panier}" var="oeuvre">
-										<li class="cart-item"><span class="cart-item-pic">
-												<img src="web/imgProduit/#{oeuvre.produit.imageProduit}" />
-										</span> <h:outputText value="#{oeuvre.produit.libelleProduit}" /> <span
-											class="cart-item-desc"> <h:outputText
-													value="#{oeuvre.produit.descriptionProduit}" />
-										</span> <span class="cart-item-price"> <h:inputText
-													value="#{oeuvre.quantite}" /> <!--         <h:outputLabel value="#{oeuvre.quantite}" />  -->
-												x <h:outputLabel value="#{oeuvre.produit.prixProduit}" /> =
-												<h:outputLabel value="#{oeuvre.prixTotalParPdt}" /> €
-										</span> <span class="supprimer"> <h:commandButton
-													action="#{mbPanier.supprimerProduit(oeuvre.produit)}"
-													value="supprimer" />
-										</span></li>
-									</ui:repeat>
-
-								</ul>
-
-								<div class="cart-bottom">
-									Total :
-									<h:outputLabel value="#{mbPanier.prixTotal}" />
-								</div>
-								<!--  afficher message d'erreur stock -->
-								<div class="cart-bottom">
-									<ul>
-										<ui:repeat value="#{mbConfirmerCmd.msgErreurStock}" var="msg">
-											<li class="cart-item"><h:outputLabel value="#{msg}" />
-											</li>
-										</ui:repeat>
-									</ul>
-								</div>
-								<div class="cart-bottom">
-									<h:commandLink action="#{mbPanier.confirmer()}"
-										value="confirmer" styleClass="cart-button"
-										rendered="#{!empty mbPanier.panier}" />
-								</div>
-
-							</div>
+							style="width:100%; background-color: transparent !important;"
+							header="Intitulé expo">
+							Galerie : Nom Galerie <br />
+							Adresse : 13 rue des boulets 75014 Paris<br />
+							Artistes :<br />
+							De : dateDebut à : dateFin
 						</p:panel>
 						<p:panel
 							style="width:100%; background-color: transparent !important;"
@@ -125,12 +82,22 @@
 				<p:panel id="categorie"
 					style="margin-bottom:20px;background-color: transparent !important;">
 					<h:panelGrid columns="1" width="100%" cellpadding="10">
-						<p:panel
-							style="width:100%; background-color: transparent !important;"></p:panel>
-						<p:panel
-							style="width:100%; background-color: transparent !important;"></p:panel>
-						<p:panel
-							style="width:100%; background-color: transparent !important;"></p:panel>
+						<ui:repeat var="uneExpo" value="#{mbExposition.exposCategories}"
+							size="3">
+							<p:panel
+								style="width:100%; background-color: transparent !important;"
+								header="#{uneExpo.intule}">
+							Galerie : "#{uneExpo.galerie.nomGalerie}" <br />
+							Adresse : "#{uneExpo.galerie.formattedAdresse}"<br />
+							Artistes : <br />
+							<ui:repeat var="unArtiste" value="#{uneExpo.listArtiste}">
+							&nbsp;&nbsp;&nbsp;&nbsp; - "#{unArtiste.speudo}"
+							</ui:repeat>
+							
+							De : "#{uneExpo.debut}" à : "#{uneExpo.fin}"
+						</p:panel>
+						</ui:repeat>
+						
 					</h:panelGrid>
 				</p:panel>
 			</div>

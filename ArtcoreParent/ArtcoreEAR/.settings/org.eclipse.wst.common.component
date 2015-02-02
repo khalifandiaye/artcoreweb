@@ -11,12 +11,6 @@
         <dependent-module archiveName="ArtcoreWeb-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/ArtcoreWeb/ArtcoreWeb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="apache-log4j-extras-1.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/log4j/apache-log4j-extras/1.0/apache-log4j-extras-1.0.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="log4j-1.2.17.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/log4j/log4j/1.2.17/log4j-1.2.17.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="ArtcoreDataIEnities-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreDataIEnities/ArtcoreDataIEnities">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -38,7 +32,7 @@
         <dependent-module archiveName="ArtcoreData-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreData/ArtcoreData">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ArtcoreMorphia-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/ArtcoreMorphia/ArtcoreMorphia">
+        <dependent-module archiveName="log4j-1.2.16.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/log4j/log4j/1.2.16/log4j-1.2.16.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="geocoder-java-0.16.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/code/geocoder-java/geocoder-java/0.16/geocoder-java-0.16.jar">
@@ -69,6 +63,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="morphia-util-0.109.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/morphia/morphia-util/0.109/morphia-util-0.109.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ArtcoreMorphia-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/ArtcoreMorphia/ArtcoreMorphia">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
