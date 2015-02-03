@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "VerifCommandeImplService", targetNamespace = "http://impl.orchestration.al22.afcepf.fr/", wsdlLocation = "file:/C:/Users/Stagiaire/Projet/ArtcoreParent/ArtcoreWeb/src/main/resources/wsdlOrchestrator.wsdl")
+@WebServiceClient(name = "VerifCommandeImplService", targetNamespace = "http://impl.orchestration.al22.afcepf.fr/", wsdlLocation = "http://localhost:9090/WSOrchestrator/VerifCommandeImpl?wsdl")
 public class VerifCommandeImplService
     extends Service
 {
@@ -30,7 +30,7 @@ public class VerifCommandeImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/Users/Stagiaire/Projet/ArtcoreParent/ArtcoreWeb/src/main/resources/wsdlOrchestrator.wsdl");
+            url = new URL("http://localhost:9090/WSOrchestrator/VerifCommandeImpl?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

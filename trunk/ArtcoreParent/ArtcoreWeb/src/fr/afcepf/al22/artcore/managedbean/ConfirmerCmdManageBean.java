@@ -176,7 +176,7 @@ public class ConfirmerCmdManageBean {
 	    log.debug("Impossible de trouver le fichier db.properties "+e.getMessage());
 	}
 	if (rb==null) {
-	    url="127.0.0.1:9090";
+	    url="localhost:9090";
 	}else {
 	    url = rb.getString("url");
 	}
@@ -193,12 +193,11 @@ public class ConfirmerCmdManageBean {
 	log.debug("valideCmd avec en panier "+panier.size());
 	log.debug("Init WebService");
 
-	/* Ancienne Version localhost uniquement 
-	 *  VerifCommandeImplService verifWS = new VerifCommandeImplService();
-	    		CheckResultProduitCommande validation = verifWS.getVerifCommandeImplPort().verifCommande(cnxmb.getDtoClient().getNomClient(),
-	    cnxmb.getDtoClient().getPrenomClient(),dateNaissance ,numeroCarteDuClient, listeProduit);
-	 */
-	//Generation proxy
+	// Ancienne Version localhost uniquement 
+	  VerifCommandeImplService verifWS = new VerifCommandeImplService();
+	    		
+	 
+	/*Generation proxy
 	VerifCommandeImplService verifWS = new VerifCommandeImplService();
 	//Recuperation du port WebServices.
 	IVerifCommande portVerifCommande = verifWS.getVerifCommandeImplPort();
@@ -210,7 +209,7 @@ public class ConfirmerCmdManageBean {
 	bindingProvider.getRequestContext().put(
 		BindingProvider.ENDPOINT_ADDRESS_PROPERTY,
 		"http://"+url+"/WSOrchestrator/VerifCommandeImpl");
-	
+	*/
 	////192.168.100.129
 	//	CheckResultProduitCommande validation = port.verifCommande(mbCnx
 	//		.getDtoClient().getNomClient(), mbCnx.getDtoClient()
@@ -241,13 +240,13 @@ public class ConfirmerCmdManageBean {
 	log.debug("nom "+cnxmb.getDtoClient().getPrenomClient()+" prenom "+cnxmb.getDtoClient().getPrenomClient());
 	log.debug(" date "+dateNaissance+" numCarte "+numeroCarteDuClient);
 	
-	CheckResultProduitCommande validation = portVerifCommande.verifCommande(cnxmb.getDtoClient().getNomClient(),
+	/*CheckResultProduitCommande validation = portVerifCommande.verifCommande(cnxmb.getDtoClient().getNomClient(),
+		cnxmb.getDtoClient().getPrenomClient(),dateNaissance ,
+		numeroCarteDuClient, listeProduit);*/
+	CheckResultProduitCommande validation = verifWS.getVerifCommandeImplPort().verifCommande(cnxmb.getDtoClient().getNomClient(),
 		cnxmb.getDtoClient().getPrenomClient(),dateNaissance ,
 		numeroCarteDuClient, listeProduit);
-/*	CheckResultProduitCommande validation = verifWS.getVerifCommandeImplPort().verifCommande(cnxmb.getDtoClient().getNomClient(),
-		cnxmb.getDtoClient().getPrenomClient(),dateNaissance ,
-		numeroCarteDuClient, listeProduit);
-*/
+
 	log.debug("Retour Appel WS Validation commande *******************");
 	log.debug("Validation alertePolice "+validation.getAlertePolice()+"!");
 	log.debug("validation AlertCB "+validation.isAlerteCB());
