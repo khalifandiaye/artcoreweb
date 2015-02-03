@@ -176,7 +176,7 @@ public class ConfirmerCmdManageBean {
 	    log.debug("Impossible de trouver le fichier db.properties "+e.getMessage());
 	}
 	if (rb==null) {
-	    url="localhost";
+	    url="127.0.0.1:9090";
 	}else {
 	    url = rb.getString("url");
 	}
