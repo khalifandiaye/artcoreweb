@@ -2,37 +2,19 @@
     <wb-module deploy-name="ArtcoreEAR">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="ArtcoreBusiness-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreBusiness/ArtcoreBusiness">
+        <dependent-module archiveName="ArtcoreBusinessLayer-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreBusinessLayer/ArtcoreBusinessLayer">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="jboss-logging-3.1.0.GA.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/jboss/logging/jboss-logging/3.1.0.GA/jboss-logging-3.1.0.GA.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ArtcoreMorphia-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/ArtcoreMorphia/ArtcoreMorphia">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="ArtcoreWeb-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/ArtcoreWeb/ArtcoreWeb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ArtcoreDataIEnities-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreDataIEnities/ArtcoreDataIEnities">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="activation-1.1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/activation/activation/1.1.1/activation-1.1.1.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ArtcoreBusinessIEntities-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreBusinessIEntities/ArtcoreBusinessIEntities">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="hibernate-jpa-2.0-api-1.0.1.Final.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="hibernate-validator-4.2.0.Final.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/hibernate/hibernate-validator/4.2.0.Final/hibernate-validator-4.2.0.Final.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="validation-api-1.0.0.GA.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ArtcoreData-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreData/ArtcoreData">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="log4j-1.2.16.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/log4j/log4j/1.2.16/log4j-1.2.16.jar">
+        <dependent-module archiveName="ArtcoreDataLayer-0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/ArtcoreDataLayer/ArtcoreDataLayer">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="geocoder-java-0.16.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/code/geocoder-java/geocoder-java/0.16/geocoder-java-0.16.jar">
@@ -63,9 +45,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="morphia-util-0.109.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/morphia/morphia-util/0.109/morphia-util-0.109.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ArtcoreMorphia-0.0.1-SNAPSHOT.jar" deploy-path="/lib" handle="module:/resource/ArtcoreMorphia/ArtcoreMorphia">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
