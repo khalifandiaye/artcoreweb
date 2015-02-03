@@ -20,6 +20,7 @@
         </excludes>
       </resource>
     </resources>
+	<finalName>ArtcoreWeb</finalName> 
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -63,17 +64,19 @@
       <artifactId>jboss-logging</artifactId>
       <version>3.1.0.GA</version>
     </dependency>
-    <dependency>
+     <dependency>
       <groupId>fr.afcepf.al22.artcore</groupId>
-      <artifactId>ArtcoreBusinessIEntities</artifactId>
+      <artifactId>ArtcoreBusinessLayer</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <type>ejb</type>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>fr.afcepf.al22.artcore</groupId>
-      <artifactId>ArtcoreDataIEnities</artifactId>
+      <artifactId>ArtcoreDataLayer</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <type>ejb</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <properties>
