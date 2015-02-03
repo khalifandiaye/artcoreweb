@@ -39,25 +39,25 @@ public class ClientAdressePK implements Serializable {
 		this.idAdresse = idAdresse;
 	}
 
-//	public boolean equals(Object other) {
-//		if (this == other) {
-//			return true;
-//		}
-//		if (!(other instanceof ClientAdressePK)) {
-//			return false;
-//		}
-//		ClientAdressePK castOther = (ClientAdressePK)other;
-//		return 
-//			(this.idClient == castOther.idClient)
-//			&& (this.idAdresse == castOther.idAdresse);
-//	}
+	public boolean equals(Object other) {
+		if (this == other) {
+			return true;
+		}
+		if (!(other instanceof ClientAdressePK)) {
+			return false;
+		}
+		ClientAdressePK castOther = (ClientAdressePK)other;
+		return 
+			(this.idClient == castOther.idClient)
+			&& (this.idAdresse == castOther.idAdresse);
+	}
 
-//	public int hashCode() {
-//		final int prime = 31;
-//		int hash = 17;
-//		hash = hash * prime + this.idClient;
-//		hash = hash * prime + this.idAdresse;
-//		
-//		return hash;
-//	}
+	public int hashCode() {
+		final int prime = 31;
+		int hash = 17;
+		hash = hash * prime + this.idClient;
+		hash = hash * prime + this.idAdresse;
+		
+		return hash;
+	}
 	}
