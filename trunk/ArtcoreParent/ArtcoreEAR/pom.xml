@@ -24,7 +24,7 @@
   <dependencies>
     <dependency>
       <groupId>fr.afcepf.al22.artcore</groupId>
-      <artifactId>ArtcoreBusiness</artifactId>
+      <artifactId>ArtcoreBusinessLayer</artifactId>
       <version>${parent.version}</version>
       <type>ejb</type>
     </dependency>
@@ -36,19 +36,7 @@
     </dependency>
     <dependency>
       <groupId>fr.afcepf.al22.artcore</groupId>
-      <artifactId>ArtcoreDataIEnities</artifactId>
-      <version>${parent.version}</version>
-      <type>ejb</type>
-    </dependency>
-    <dependency>
-      <groupId>fr.afcepf.al22.artcore</groupId>
-      <artifactId>ArtcoreBusinessIEntities</artifactId>
-      <version>${parent.version}</version>
-      <type>ejb</type>
-    </dependency>
-    <dependency>
-      <groupId>fr.afcepf.al22.artcore</groupId>
-      <artifactId>ArtcoreData</artifactId>
+      <artifactId>ArtcoreDataLayer</artifactId>
       <version>${parent.version}</version>
       <type>ejb</type>
     </dependency>
