@@ -19,12 +19,10 @@
     </plugins>
   </build>
   <modules>
-    <module>ArtcoreBusiness</module>
-    <module>ArtcoreBusinessIEntities</module>
-    <module>ArtcoreData</module>
-    <module>ArtcoreDataIEnities</module>
-    <module>ArtcoreEAR</module>
+    <module>ArtcoreEAR</module> 
     <module>ArtcoreWeb</module>
+    <module>ArtcoreBusinessLayer</module>
+    <module>ArtcoreDataLayer</module>
   </modules>
   <dependencies>
     <dependency>
@@ -42,11 +40,11 @@
       <artifactId>morphia</artifactId>
       <version>0.109</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>fr.afcepf.al22.artcore.morphia</groupId>
       <artifactId>ArtcoreMorphia</artifactId>
       <version>0.0.1-SNAPSHOT</version>
-    </dependency>
+    </dependency> -->
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
